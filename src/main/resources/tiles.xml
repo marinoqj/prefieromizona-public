@@ -1,0 +1,69 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="baseLayout" template="/WEB-INF/jsp/common/layout.jsp">    
+        <put-attribute name="title"  value="Proyecto"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+    </definition>
+    
+    <definition name="loginLayout" template="/WEB-INF/jsp/common/loginLayout.jsp">    
+        <put-attribute name="title"  value="Cuestionarios"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+    </definition>  
+    
+    <definition name="Login" extends="loginLayout">
+        <put-attribute name="title" value="Proyecto"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/login.jsp"/>
+    </definition>     
+   
+    <definition name="Home" extends="baseLayout">
+        <put-attribute name="title" value="Proyecto"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/home.jsp"/>
+    </definition>
+      
+	<definition name="ErrorGenerico" extends="baseLayout">
+	  <put-attribute name="title" value="Página de error"/>
+	  <put-attribute name="body" value="/WEB-INF/jsp/common/error_generico.jsp"/>
+	</definition> 
+	
+    <!-- Clientes -->
+    <definition name="ClienteForm" extends="baseLayout">
+        <put-attribute name="title" value="Alta de clientes"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/clientes/clienteForm.jsp"/>
+    </definition>
+
+    <definition name="ListadoClientes" extends="baseLayout">
+        <put-attribute name="title" value="Listado de clientes"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/clientes/listadoClientes.jsp"/>
+    </definition>
+
+
+    <!-- Comercios -->
+    <definition name="ComercioForm" extends="baseLayout">
+        <put-attribute name="title" value="Alta de comercios"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/comercios/comercioForm.jsp"/>
+    </definition>
+
+    <definition name="ListadoComercios" extends="baseLayout">
+        <put-attribute name="title" value="Listado de comercios"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/comercios/listadoComercios.jsp"/>
+    </definition>
+
+
+    <!-- Compras -->
+    <definition name="CompraForm" extends="baseLayout">
+        <put-attribute name="title" value="Alta de compras"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/compras/compraForm.jsp"/>
+    </definition>
+
+    <definition name="ListadoCompras" extends="baseLayout">
+        <put-attribute name="title" value="Listado de compras"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/compras/listadoCompras.jsp"/>
+    </definition>	
+	
+      
+</tiles-definitions>
