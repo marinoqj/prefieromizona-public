@@ -114,11 +114,7 @@ $(document).ready(function(){
 					
 					<th scope="col"><spring:message code="label.cif"/></th>
 					
-					<th scope="col"><spring:message code="label.nombreResponsable"/></th>
-					
-					<th scope="col"><spring:message code="label.apellido1Responsable"/></th>
-					
-					<th scope="col"><spring:message code="label.apellido2Responsable"/></th>
+					<th scope="col"><spring:message code="label.nombreCompletoResponsable"/></th>
 					
 					<th scope="col"><spring:message code="label.direccion"/></th>
 					
@@ -139,11 +135,7 @@ $(document).ready(function(){
 			
 				<td>${comercio.cif}</td>
 			
-				<td>${comercio.nombreResponsable}</td>
-			
-				<td>${comercio.apellido1Responsable}</td>
-			
-				<td>${comercio.apellido2Responsable}</td>
+				<td>${comercio.nombreResponsable} ${comercio.apellido1Responsable} ${comercio.apellido2Responsable}</td>
 			
 				<td>${comercio.direccion}</td>
 			
@@ -192,10 +184,10 @@ $(document).ready(function(){
 <!-- Modal Nuev@ comercio-->
 <div class="modal fade" id="nuevoFormulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nueva comercio</span>
+        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nuevo comercio</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -204,68 +196,66 @@ $(document).ready(function(){
 		<form:form modelAttribute="comercio" action="insertarComercio.do" method="post">
 
     		
+    		
 
 
-					<div class="form-group">
-						<label for="codComercio"><spring:message code="label.codComercio"/></label> <form:input path="codComercio" class="form-control"/>
+					<!-- Grid row -->
+					<div class="form-row">
+						<!-- Default input -->
+						<div class="form-group col-md-2">
+							<label for="codComercio"><spring:message code="label.codComercio"/></label> <form:input path="codComercio" class="form-control"/>
+						</div>
+						<div class="form-group col-md-8">
+							<label for="razonSocial"><spring:message code="label.razonSocial"/></label> <form:input path="razonSocial" class="form-control"/>
+						</div>
+						<div class="form-group col-md-2">
+							<label for="cif"><spring:message code="label.cif"/></label> <form:input path="cif" class="form-control"/>
+						</div>						
+					</div>				
+
+
+					<!-- Grid row -->
+					<div class="form-row">
+						<!-- Default input -->
+						<div class="form-group col-md-4">
+							<label for="nombreResponsable"><spring:message code="label.nombreResponsable"/></label> <form:input path="nombreResponsable" class="form-control"/>
+						</div>
+						<!-- Default input -->
+						<div class="form-group col-md-4">
+							<label for="apellido1Responsable"><spring:message code="label.apellido1Responsable"/></label> <form:input path="apellido1Responsable" class="form-control"/>
+						</div>
+						<!-- Default input -->
+						<div class="form-group col-md-4">
+							<label for="apellido2Responsable"><spring:message code="label.apellido2Responsable"/></label> <form:input path="apellido2Responsable" class="form-control"/>
+						</div>
+						
+					</div>
+					<!-- Grid row -->
+
+
+					<!-- Grid row -->
+					<div class="form-row">
+						<!-- Default input -->
+						<div class="form-group col-md-12">
+							<label for="direccion"><spring:message code="label.direccion"/></label> <form:input path="direccion" class="form-control"/>
+						</div>
 					</div>
 
 					
 
 
-					<div class="form-group">
-						<label for="razonSocial"><spring:message code="label.razonSocial"/></label> <form:input path="razonSocial" class="form-control"/>
+					<!-- Grid row -->
+					<div class="form-row">
+						<!-- Default input -->
+						<div class="form-group col-md-8">
+							<label for="municipio"><spring:message code="label.municipio"/></label> <form:input path="municipio" class="form-control"/>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="codPostal"><spring:message code="label.codPostal"/></label> <form:input path="codPostal" class="form-control"/>
+						</div>					
 					</div>
 
-					
-
-
-					<div class="form-group">
-						<label for="cif"><spring:message code="label.cif"/></label> <form:input path="cif" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="nombreResponsable"><spring:message code="label.nombreResponsable"/></label> <form:input path="nombreResponsable" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="apellido1Responsable"><spring:message code="label.apellido1Responsable"/></label> <form:input path="apellido1Responsable" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="apellido2Responsable"><spring:message code="label.apellido2Responsable"/></label> <form:input path="apellido2Responsable" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="direccion"><spring:message code="label.direccion"/></label> <form:input path="direccion" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="municipio"><spring:message code="label.municipio"/></label> <form:input path="municipio" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="codPostal"><spring:message code="label.codPostal"/></label> <form:input path="codPostal" class="form-control"/>
-					</div>
-
+		
 					
 
 			<br>
@@ -300,7 +290,7 @@ $(document).ready(function(){
 
 
 					<div class="form-group">
-						<label for="codComercio"><spring:message code="label.codComercio"/></label> <form:input path="codComercio" class="form-control"/>
+						<label for="codComercio"><spring:message code="label.codComercio"/>ss</label> <form:input path="codComercio" class="form-control"/>
 					</div>
 
 					

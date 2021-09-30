@@ -181,10 +181,10 @@ $(document).ready(function(){
 <!-- Modal Nuev@ cliente-->
 <div class="modal fade" id="nuevoFormulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nueva cliente</span>
+        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nuevo cliente</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -193,48 +193,43 @@ $(document).ready(function(){
 		<form:form modelAttribute="cliente" action="insertarCliente.do" method="post">
 
     		
-
-
-					<div class="form-group">
-						<label for="codCliente"><spring:message code="label.codCliente"/></label> <form:input path="codCliente" class="form-control"/>
+					<!-- Grid row -->
+					<div class="form-row">
+						<!-- Default input -->
+						<div class="form-group col-md-2">
+							<label for="codCliente"><spring:message code="label.codCliente"/></label> <form:input path="codCliente" class="form-control"/>
+						</div>
+						<!-- Default input -->
+						<div class="form-group col-md-5">
+							<label for="dni"><spring:message code="label.dni"/></label> <form:input path="dni" class="form-control"/>
+						</div>
+						<!-- Default input -->
+						<div class="form-group col-md-5">
+							<label for="telefono"><spring:message code="label.telefono"/></label> <form:input path="telefono" class="form-control"/>
+						</div>
+						
 					</div>
+					<!-- Grid row -->
 
 					
-
-
-					<div class="form-group">
-						<label for="nombre"><spring:message code="label.nombre"/></label> <form:input path="nombre" class="form-control"/>
+					<!-- Grid row -->
+					<div class="form-row">
+						<!-- Default input -->
+						<div class="form-group col-md-4">
+							<label for="nombre"><spring:message code="label.nombre"/></label> <form:input path="nombre" class="form-control"/>
+						</div>
+						<!-- Default input -->
+						<div class="form-group col-md-4">
+							<label for="apellido1"><spring:message code="label.apellido1"/></label> <form:input path="apellido1" class="form-control"/>
+						</div>
+						<!-- Default input -->
+						<div class="form-group col-md-4">
+							<label for="apellido2"><spring:message code="label.apellido2"/></label> <form:input path="apellido2" class="form-control"/>
+						</div>
+						
 					</div>
+					<!-- Grid row -->
 
-					
-
-
-					<div class="form-group">
-						<label for="apellido1"><spring:message code="label.apellido1"/></label> <form:input path="apellido1" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="apellido2"><spring:message code="label.apellido2"/></label> <form:input path="apellido2" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="dni"><spring:message code="label.dni"/></label> <form:input path="dni" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="telefono"><spring:message code="label.telefono"/></label> <form:input path="telefono" class="form-control"/>
-					</div>
-
-					
 
 			<br>
 

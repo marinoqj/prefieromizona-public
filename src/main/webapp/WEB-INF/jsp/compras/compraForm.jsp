@@ -74,13 +74,12 @@
 					
 
 
-							<a href="./listadoCompras1.do" class="btn btn-secondary btn-sm"><em class="fas fa-times-circle"></i>&nbsp;&nbsp;Cancelar</a>
+							<a href="./listadoCompras1.do" class="btn btn-secondary btn-sm"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</a>
 							<button type="submit" class="btn btn-success btn-sm" ><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
 
 
 
-	</div>
-	</div>
+
 
 	</form:form>
 

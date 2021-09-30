@@ -38,48 +38,44 @@
 							</c:if>
 							
 
-								<div class="form-row">
-									<div class="form-group col-md-12">
-										<label for="codCliente"><spring:message code="label.codCliente"/></label> <form:input path="codCliente" class="form-control"/><form:errors path="codCliente" element="div" id="rojo"/>
-									</div>
-								</div>
-					
+						<!-- Grid row -->
+					<div class="form-row">
+						<!-- Default input -->
+						<div class="form-group col-md-2">
+							<label for="codCliente"><spring:message code="label.codCliente"/></label> <form:input path="codCliente" class="form-control"/>
+						</div>
+						<!-- Default input -->
+						<div class="form-group col-md-5">
+							<label for="dni"><spring:message code="label.dni"/></label> <form:input path="dni" class="form-control"/>
+						</div>
+						<!-- Default input -->
+						<div class="form-group col-md-5">
+							<label for="telefono"><spring:message code="label.telefono"/></label> <form:input path="telefono" class="form-control"/>
+						</div>
+						
+					</div>
+					<!-- Grid row -->
 
-								<div class="form-row">
-									<div class="form-group col-md-12">
-										<label for="nombre"><spring:message code="label.nombre"/></label> <form:input path="nombre" class="form-control"/><form:errors path="nombre" element="div" id="rojo"/>
-									</div>
-								</div>
 					
-
-								<div class="form-row">
-									<div class="form-group col-md-12">
-										<label for="apellido1"><spring:message code="label.apellido1"/></label> <form:input path="apellido1" class="form-control"/><form:errors path="apellido1" element="div" id="rojo"/>
-									</div>
-								</div>
+					<!-- Grid row -->
+					<div class="form-row">
+						<!-- Default input -->
+						<div class="form-group col-md-4">
+							<label for="nombre"><spring:message code="label.nombre"/></label> <form:input path="nombre" class="form-control"/>
+						</div>
+						<!-- Default input -->
+						<div class="form-group col-md-4">
+							<label for="apellido1"><spring:message code="label.apellido1"/></label> <form:input path="apellido1" class="form-control"/>
+						</div>
+						<!-- Default input -->
+						<div class="form-group col-md-4">
+							<label for="apellido2"><spring:message code="label.apellido2"/></label> <form:input path="apellido2" class="form-control"/>
+						</div>
+						
+					</div>
+					<!-- Grid row -->
 					
-
-								<div class="form-row">
-									<div class="form-group col-md-12">
-										<label for="apellido2"><spring:message code="label.apellido2"/></label> <form:input path="apellido2" class="form-control"/><form:errors path="apellido2" element="div" id="rojo"/>
-									</div>
-								</div>
-					
-
-								<div class="form-row">
-									<div class="form-group col-md-12">
-										<label for="dni"><spring:message code="label.dni"/></label> <form:input path="dni" class="form-control"/><form:errors path="dni" element="div" id="rojo"/>
-									</div>
-								</div>
-					
-
-								<div class="form-row">
-									<div class="form-group col-md-12">
-										<label for="telefono"><spring:message code="label.telefono"/></label> <form:input path="telefono" class="form-control"/><form:errors path="telefono" element="div" id="rojo"/>
-									</div>
-								</div>
-					
-
+					<br>
 
 							<a href="./listadoClientes1.do" class="btn btn-secondary btn-sm"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</a>
 							<button type="submit" class="btn btn-success btn-sm" ><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>

@@ -20,7 +20,19 @@
 			      </li>
 			      <li class="nav-item active">
 			        <a class="nav-link" href='<spring:url value="/listadoClientes1.do"/>'>Clientes</a>
-			      </li>			      
+			      </li>
+			      <li class="nav-item active">
+			        <a class="nav-link" href='<spring:url value="/listadoCompras1.do"/>'>Compras</a>
+			      </li>				      		      			      
+			      <li class="nav-item dropdown active">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Puntos
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href='<spring:url value="/verGenerarPuntos.do"/>'>Generar</a> 
+						<a class="dropdown-item" href='<spring:url value="/verCanjearPuntos.do"/>'>Canjear</a>					
+			        </div>
+			      </li>	
 			      			      
 			    </ul>
 			    <ul class="navbar-nav">

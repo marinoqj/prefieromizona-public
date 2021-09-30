@@ -19,7 +19,7 @@ public class ComprasService extends BaseService{
 
 
 
-		public List<Compra> getCompras(PaginacionBean paginacion) {
+		public List<Compra> getComprasPaginado(PaginacionBean paginacion) {
 
 			HttpEntity<String> entity =  buildHeaders(paginacion);
 

@@ -54,7 +54,7 @@ public class ComprasController {
 		PaginacionBean paginacion = new PaginacionBean();
 		paginacion.setInicio(inicio - 1);
 
-		resultado = comprasService.getCompras(paginacion);
+		resultado = comprasService.getComprasPaginado(paginacion);
 
 		map.put("paginacion", paginacion);
 		map.put(COMPRAS, resultado);

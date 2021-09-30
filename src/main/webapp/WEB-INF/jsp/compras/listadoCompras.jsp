@@ -76,9 +76,7 @@ $(document).ready(function(){
 			<div class="col-md-12">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item active"><i
-							class="fas fa-list-alt fa-lg mr-1"></em><i
-							class="fas fa-users fa-lg mr-2"></em>Listado de compras</li>
+						<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><emclass="fas fa-users fa-lg mr-2"></em>Listado de compras</li>
 					</ol>
 				</nav>
 			</div>
@@ -114,9 +112,9 @@ $(document).ready(function(){
 					
 					<th scope="col"><spring:message code="label.fechaCanje"/></th>
 					
-					<th scope="col"><spring:message code="label.idComercio"/></th>
+					<th scope="col"><spring:message code="label.comercio"/></th>
 					
-					<th scope="col"><spring:message code="label.idCliente"/></th>
+					<th scope="col"><spring:message code="label.cliente"/></th>
 					
 					<th scope="col">&nbsp;</th>
 				</tr>
@@ -125,21 +123,20 @@ $(document).ready(function(){
 		<c:forEach items="${compras}" var="compra">
 			<tr>
 			
-				<td>${compra.fechaCompra}</td>
+				<td><fmt:formatDate value="${compra.fechaCompra}" pattern="dd-MM-yyyy" /></td>
 			
 				<td>${compra.puntos}</td>
 			
-				<td>${compra.fechaCanje}</td>
+				<td><fmt:formatDate value="${compra.fechaCanje}" pattern="dd-MM-yyyy" /></td>
 			
-				<td>${compra.idComercio}</td>
+				<td>${compra.comercio.razonSocial}</td>
 			
-				<td>${compra.idCliente}</td>
+				<td>${compra.cliente.nombre} ${compra.cliente.apellido1} ${compra.cliente.apellido2}</td>
 			
 				<td>
 					<div>
 							<label data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <span style="cursor: pointer;"><i
-									class="fas fa-cog fa-lg"></em></span>
+								aria-expanded="false"> <span style="cursor: pointer;"><em class="fas fa-cog fa-lg"></em></span>
 							</label>
 							<ul class="dropdown-menu dropdown-primary">
 								<li class="nav-item dropdown"><a class="dropdown-item"

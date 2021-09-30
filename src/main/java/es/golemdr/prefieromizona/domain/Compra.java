@@ -3,9 +3,13 @@ package es.golemdr.prefieromizona.domain;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -16,58 +20,69 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name="compras")
 public class Compra{
+	
 
 	private Long idCompra;
 	private Date fechaCompra;
 	private Long puntos;
 	private Date fechaCanje;
-	private Long idComercio;
-	private Long idCliente;
+	
+	private Comercio comercio;
+	private Cliente cliente;
 
 
 
-@Id
-@Column(name="ID_COMPRA")
-public Long getIdCompra() {
+
+	public Long getIdCompra() {
 		return idCompra;
 	}
+
 	public void setIdCompra(Long idCompra) {
 		this.idCompra = idCompra;
 	}
-@Column(name="FECHA_COMPRA")
-public Date getFechaCompra() {
+
+	public Date getFechaCompra() {
 		return fechaCompra;
 	}
+
 	public void setFechaCompra(Date fechaCompra) {
 		this.fechaCompra = fechaCompra;
 	}
-@Column(name="PUNTOS")
-public Long getPuntos() {
+
+	public Long getPuntos() {
 		return puntos;
 	}
+
 	public void setPuntos(Long puntos) {
 		this.puntos = puntos;
 	}
-@Column(name="FECHA_CANJE")
-public Date getFechaCanje() {
+
+	public Date getFechaCanje() {
 		return fechaCanje;
 	}
+
 	public void setFechaCanje(Date fechaCanje) {
 		this.fechaCanje = fechaCanje;
 	}
-@Column(name="ID_COMERCIO")
-public Long getIdComercio() {
-		return idComercio;
-	}
-	public void setIdComercio(Long idComercio) {
-		this.idComercio = idComercio;
-	}
-@Column(name="ID_CLIENTE")
-public Long getIdCliente() {
-		return idCliente;
-	}
-	public void setIdCliente(Long idCliente) {
-		this.idCliente = idCliente;
+
+	public Comercio getComercio() {
+		return comercio;
 	}
 
+	public void setComercio(Comercio comercio) {
+		this.comercio = comercio;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	
+	
+	
+	
 }
