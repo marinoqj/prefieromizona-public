@@ -26,6 +26,7 @@ public class UrlConstants {
 	public static final String SEGURIDAD_CLIENTES =  "";	
 	public static final String SEGURIDAD_COMERCIOS =  "";	
 	public static final String SEGURIDAD_COMPRAS =  "";		
+	public static final String SEGURIDAD_PUNTOS =  "";
 
 	
 
@@ -64,6 +65,12 @@ public class UrlConstants {
 	public static final String URL_ACTUALIZAR_COMPRA = SEGURIDAD_COMPRAS + "/actualizarCompra.do";
 	public static final String URL_BORRAR_COMPRA = SEGURIDAD_COMPRAS + "/borrarCompra.do";
     public static final String URL_BUSCAR_COMPRAS = SEGURIDAD_COMPRAS + "/buscarCompras.do";
+    
+    
+    // Puntos
+    public static final String URL_VER_PUNTOS_FORM = SEGURIDAD_PUNTOS + "/verPuntosForm{accion}.do";
+    public static final String URL_GENERAR_PUNTOS = SEGURIDAD_PUNTOS + "/generarPuntos.do";
+    public static final String URL_CANJEAR_PUNTOS = SEGURIDAD_PUNTOS + "/canjearPuntos.do";
 
 
 	

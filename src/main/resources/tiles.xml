@@ -30,6 +30,11 @@
 	  <put-attribute name="body" value="/WEB-INF/jsp/common/error_generico.jsp"/>
 	</definition> 
 	
+	<definition name="Mensaje" extends="baseLayout">
+	  <put-attribute name="title" value="Mensaje"/>
+	  <put-attribute name="body" value="/WEB-INF/jsp/common/mensaje.jsp"/>
+	</definition> 	
+	
     <!-- Clientes -->
     <definition name="ClienteForm" extends="baseLayout">
         <put-attribute name="title" value="Alta de clientes"/>
@@ -64,6 +69,12 @@
         <put-attribute name="title" value="Listado de compras"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/compras/listadoCompras.jsp"/>
     </definition>	
+    
+    <!-- Puntos-->
+    <definition name="PuntosForm" extends="baseLayout">
+        <put-attribute name="title" value="Formulario de puntos"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/puntos/puntosForm.jsp"/>
+    </definition>    
 	
       
 </tiles-definitions>

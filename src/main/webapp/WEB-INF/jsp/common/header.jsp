@@ -29,8 +29,8 @@
 			          Puntos
 			        </a>
 			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href='<spring:url value="/verGenerarPuntos.do"/>'>Generar</a> 
-						<a class="dropdown-item" href='<spring:url value="/verCanjearPuntos.do"/>'>Canjear</a>					
+						<a class="dropdown-item" href='<spring:url value="/verPuntosFormgenerar.do"/>'>Generar</a> 
+						<a class="dropdown-item" href='<spring:url value="/verPuntosFormcanjear.do"/>'>Canjear</a>					
 			        </div>
 			      </li>	
 			      			      

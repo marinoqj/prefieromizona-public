@@ -28,10 +28,10 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 		return new String[] { "/" };
 	}
 
-	@Override
-	protected Filter[] getServletFilters() {
-		return new Filter[] { new DelegatingFilterProxy("csrfFilter") };
-	}
+//	@Override
+//	protected Filter[] getServletFilters() {
+//		return new Filter[] { new DelegatingFilterProxy("csrfFilter") };
+//	}
 	
 	
 
