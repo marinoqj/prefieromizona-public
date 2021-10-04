@@ -5,27 +5,27 @@ import java.io.Serializable;
 import java.sql.Date;
 
 
-public class CompraForm implements Serializable{
+public class CanjeForm implements Serializable{
 
-	private Long idCompra;
-	private Date fechaCompra;
+	private Long idCanje;
+	private Date fechaCanje;
 	private Long puntos;
 	private Long idComercio;
 	private Long idCliente;
 
 
 
-public Long getIdCompra() {
-		return idCompra;
+public Long getIdCanje() {
+		return idCanje;
 	}
-	public void setIdCompra(Long idCompra) {
-		this.idCompra = idCompra;
+	public void setIdCanje(Long idCanje) {
+		this.idCanje = idCanje;
 	}
-public Date getFechaCompra() {
-		return fechaCompra;
+public Date getFechaCanje() {
+		return fechaCanje;
 	}
-	public void setFechaCompra(Date fechaCompra) {
-		this.fechaCompra = fechaCompra;
+	public void setFechaCanje(Date fechaCanje) {
+		this.fechaCanje = fechaCanje;
 	}
 public Long getPuntos() {
 		return puntos;

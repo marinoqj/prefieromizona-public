@@ -26,8 +26,17 @@ public class ForwardConstants {
 	public static final String FWD_LISTADO_COMPRAS = "ListadoCompras";	
 	public static final String RED_LISTADO_COMPRAS = "redirect:listadoCompras1.do";
 	public static final String FWD_COMPRA_FORM = "CompraForm";
+
+	// Canjes
+	public static final String FWD_LISTADO_CANJES = "ListadoCanjes";	
+	public static final String RED_LISTADO_CANJES = "redirect:listadoCanjes1.do";
+	public static final String FWD_CANJE_FORM = "CanjeForm";
 	
 	// Puntos
+	public static final String FWD_LISTADO_PUNTOS = "ListadoPuntos";	
+	public static final String RED_LISTADO_PUNTOS = "redirect:listadoPuntos1.do";
+	// TODO - Quitar uno de los dos cuanto esté estable
+	public static final String FWD_PUNTO_FORM = "PuntoForm";
 	public static final String FWD_PUNTOS_FORM = "PuntosForm";
 	
 

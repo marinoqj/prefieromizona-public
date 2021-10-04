@@ -3,26 +3,26 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp" %>
 
 <script>
-function borrarCompra(idCompra){
+function borrarPunto(idPunto){
 
-	 	document.formulario.idCompra.value = idCompra;
-	 	document.formulario.action="borrarCompra.do";
+	 	document.formulario.idPunto.value = idPunto;
+	 	document.formulario.action="borrarPunto.do";
 	 	document.formulario.submit();
 
 }
-function editarCompra(idCompra){
+function editarPunto(idPunto){
 
- 	document.formulario.idCompra.value = idCompra;
- 	document.formulario.action="editarCompra.do";
+ 	document.formulario.idPunto.value = idPunto;
+ 	document.formulario.action="editarPunto.do";
  	document.formulario.submit();
 
 
 }
 
-function mostarConfirmBorrarCompra(idCompra) {
-    var message = '<spring:message code="confirmacion.borrar.compra"/>';
+function mostarConfirmBorrarPunto(idPunto) {
+    var message = '<spring:message code="confirmacion.borrar.punto"/>';
 
-    $("#aceptarBorrar").attr("href", "javascript:borrarCompra(" + idCompra + ");");
+    $("#aceptarBorrar").attr("href", "javascript:borrarPunto(" + idPunto + ");");
 
     mostrarConfirm(message);
 }
@@ -61,7 +61,7 @@ $(document).ready(function(){
 <!-- ./ Warning Modal -->
 
 <form name="formulario" method="post">
-	<input type="hidden" name="idCompra"/>
+	<input type="hidden" name="idPunto"/>
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
 
@@ -76,7 +76,10 @@ $(document).ready(function(){
 			<div class="col-md-12">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><emclass="fas fa-users fa-lg mr-2"></em>Listado de compras</li>
+						<li class="breadcrumb-item active">
+							<em class="fas fa-list-alt fa-lg mr-1"></em>
+							<em class="fas fa-users fa-lg mr-2"></em>
+							Listado de puntos</li>
 					</ol>
 				</nav>
 			</div>
@@ -84,18 +87,18 @@ $(document).ready(function(){
 
 
 
-<c:if  test="${!empty compras}">
+<c:if  test="${!empty puntos}">
 
 
 <div class="row">
 	<div class="col-md-8"></div>
 
 	<c:if test="${hayFiltro eq false}">
-		<mistags:paginacion accion="listadoCompras" />
+		<mistags:paginacion accion="listadoPuntos" />
 	</c:if>
 
 	<c:if test="${hayFiltro eq true}">
-		<mistags:paginacion accion="listadoComprasFiltrado" />
+		<mistags:paginacion accion="listadoPuntosFiltrado" />
 	</c:if>
 </div>
 
@@ -105,29 +108,25 @@ $(document).ready(function(){
 	<table class="table table-hover">
 		<thead class="blue lighten-4">
 			<tr class="bg-light">
-	    		
-					<th scope="col"><spring:message code="label.fechaCompra"/></th>
-					
-					<th scope="col"><spring:message code="label.puntos"/></th>
-					
+
+					<th scope="col"><spring:message code="label.cliente"/></th>	
+			
 					<th scope="col"><spring:message code="label.comercio"/></th>
-					
-					<th scope="col"><spring:message code="label.cliente"/></th>
+	    		
+					<th scope="col"><spring:message code="label.total"/></th>
 					
 					<th scope="col">&nbsp;</th>
 				</tr>
 			</thead>
 			<tbody>
-		<c:forEach items="${compras}" var="compra">
+		<c:forEach items="${puntos}" var="punto">
 			<tr>
 			
-				<td><fmt:formatDate value="${compra.fechaCompra}" pattern="dd-MM-yyyy" /></td>
+				<td>${punto.cliente.nombre} ${punto.cliente.apellido1} ${punto.cliente.apellido2}</td>			
+
+				<td>${punto.comercio.razonSocial}</td>
 			
-				<td>${compra.puntos}</td>
-			
-				<td>${compra.comercio.razonSocial}</td>
-			
-				<td>${compra.cliente.nombre} ${compra.cliente.apellido1} ${compra.cliente.apellido2}</td>
+				<td>${punto.total}</td>
 			
 				<td>
 					<div>
@@ -136,9 +135,9 @@ $(document).ready(function(){
 							</label>
 							<ul class="dropdown-menu dropdown-primary">
 								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:editarCompra('${compra.idCompra}')"><spring:message code="label.editar"/></a></li>
+									href="javascript:editarPunto('${punto.idPunto}')"><spring:message code="label.editar"/></a></li>
 								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:mostarConfirmBorrarCompra('${compra.idCompra}')"><spring:message code="label.borrar"/></a></li>
+									href="javascript:mostarConfirmBorrarPunto('${punto.idPunto}')"><spring:message code="label.borrar"/></a></li>
 							</ul>
 						</div>
 				</td>
@@ -150,13 +149,13 @@ $(document).ready(function(){
 
 		</c:if>
 
-		<c:if  test="${empty compras}">
+		<c:if  test="${empty puntos}">
 
 			<br>
 			<br>
 			<br>
 			<br>
-			<div class="text-center">No hay compras que mostrar...</div>
+			<div class="text-center">No hay puntos que mostrar...</div>
 		</c:if>
 
 		<div class="row">
@@ -167,45 +166,25 @@ $(document).ready(function(){
 		</div>
 
 
-<!-- Modal Nuev@ compra-->
+<!-- Modal Nuev@ punto-->
 <div class="modal fade" id="nuevoFormulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nueva compra</span>
+        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nueva punto</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body" style="color: #6c757d">
-		<form:form modelAttribute="compra" action="insertarCompra.do" method="post">
+		<form:form modelAttribute="punto" action="insertarPunto.do" method="post">
 
     		
 
 
 					<div class="form-group">
-						<label for="fechaCompra"><spring:message code="label.fechaCompra"/></label> <form:input path="fechaCompra" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="puntos"><spring:message code="label.puntos"/></label> <form:input path="puntos" class="form-control"/>
-					</div>
-		
-
-
-					<div class="form-group">
-						<label for="idComercio"><spring:message code="label.idComercio"/></label> <form:input path="idComercio" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="idCliente"><spring:message code="label.idCliente"/></label> <form:input path="idCliente" class="form-control"/>
+						<label for="total"><spring:message code="label.total"/></label> <form:input path="total" class="form-control"/>
 					</div>
 
 					
@@ -236,33 +215,13 @@ $(document).ready(function(){
         </button>
       </div>
       <div class="modal-body" style="color: #6c757d">
-		<form:form modelAttribute="compra" action='buscarCompras.do' method="post" id="formularioBuscar">
+		<form:form modelAttribute="punto" action='buscarPuntos.do' method="post" id="formularioBuscar">
 
     		
 
 
 					<div class="form-group">
-						<label for="fechaCompra"><spring:message code="label.fechaCompra"/></label> <form:input path="fechaCompra" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="puntos"><spring:message code="label.puntos"/></label> <form:input path="puntos" class="form-control"/>
-					</div>
-					
-
-
-					<div class="form-group">
-						<label for="idComercio"><spring:message code="label.idComercio"/></label> <form:input path="idComercio" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="idCliente"><spring:message code="label.idCliente"/></label> <form:input path="idCliente" class="form-control"/>
+						<label for="total"><spring:message code="label.total"/></label> <form:input path="total" class="form-control"/>
 					</div>
 
 					

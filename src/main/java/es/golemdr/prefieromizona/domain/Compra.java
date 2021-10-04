@@ -17,16 +17,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class,property = "idCompra", scope = Compra.class)
-@Entity
-@Table(name="compras")
 public class Compra{
 	
 
 	private Long idCompra;
 	private Date fechaCompra;
 	private Long puntos;
-	private Date fechaCanje;
-	
+
 	private Comercio comercio;
 	private Cliente cliente;
 
@@ -55,14 +52,6 @@ public class Compra{
 
 	public void setPuntos(Long puntos) {
 		this.puntos = puntos;
-	}
-
-	public Date getFechaCanje() {
-		return fechaCanje;
-	}
-
-	public void setFechaCanje(Date fechaCanje) {
-		this.fechaCanje = fechaCanje;
 	}
 
 	public Comercio getComercio() {

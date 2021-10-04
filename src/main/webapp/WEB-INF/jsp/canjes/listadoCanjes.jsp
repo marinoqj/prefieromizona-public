@@ -3,26 +3,26 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp" %>
 
 <script>
-function borrarCompra(idCompra){
+function borrarCanje(idCanje){
 
-	 	document.formulario.idCompra.value = idCompra;
-	 	document.formulario.action="borrarCompra.do";
+	 	document.formulario.idCanje.value = idCanje;
+	 	document.formulario.action="borrarCanje.do";
 	 	document.formulario.submit();
 
 }
-function editarCompra(idCompra){
+function editarCanje(idCanje){
 
- 	document.formulario.idCompra.value = idCompra;
- 	document.formulario.action="editarCompra.do";
+ 	document.formulario.idCanje.value = idCanje;
+ 	document.formulario.action="editarCanje.do";
  	document.formulario.submit();
 
 
 }
 
-function mostarConfirmBorrarCompra(idCompra) {
-    var message = '<spring:message code="confirmacion.borrar.compra"/>';
+function mostarConfirmBorrarCanje(idCanje) {
+    var message = '<spring:message code="confirmacion.borrar.canje"/>';
 
-    $("#aceptarBorrar").attr("href", "javascript:borrarCompra(" + idCompra + ");");
+    $("#aceptarBorrar").attr("href", "javascript:borrarCanje(" + idCanje + ");");
 
     mostrarConfirm(message);
 }
@@ -61,7 +61,7 @@ $(document).ready(function(){
 <!-- ./ Warning Modal -->
 
 <form name="formulario" method="post">
-	<input type="hidden" name="idCompra"/>
+	<input type="hidden" name="idCanje"/>
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
 
@@ -76,7 +76,10 @@ $(document).ready(function(){
 			<div class="col-md-12">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><emclass="fas fa-users fa-lg mr-2"></em>Listado de compras</li>
+						<li class="breadcrumb-item active">
+							<em class="fas fa-list-alt fa-lg mr-1"></em>
+							<em class="fas fa-users fa-lg mr-2"></em>
+							Listado de canjes</li>
 					</ol>
 				</nav>
 			</div>
@@ -84,18 +87,18 @@ $(document).ready(function(){
 
 
 
-<c:if  test="${!empty compras}">
+<c:if  test="${!empty canjes}">
 
 
 <div class="row">
 	<div class="col-md-8"></div>
 
 	<c:if test="${hayFiltro eq false}">
-		<mistags:paginacion accion="listadoCompras" />
+		<mistags:paginacion accion="listadoCanjes" />
 	</c:if>
 
 	<c:if test="${hayFiltro eq true}">
-		<mistags:paginacion accion="listadoComprasFiltrado" />
+		<mistags:paginacion accion="listadoCanjesFiltrado" />
 	</c:if>
 </div>
 
@@ -106,7 +109,7 @@ $(document).ready(function(){
 		<thead class="blue lighten-4">
 			<tr class="bg-light">
 	    		
-					<th scope="col"><spring:message code="label.fechaCompra"/></th>
+					<th scope="col"><spring:message code="label.fechaCanje"/></th>
 					
 					<th scope="col"><spring:message code="label.puntos"/></th>
 					
@@ -118,16 +121,16 @@ $(document).ready(function(){
 				</tr>
 			</thead>
 			<tbody>
-		<c:forEach items="${compras}" var="compra">
+		<c:forEach items="${canjes}" var="canje">
 			<tr>
 			
-				<td><fmt:formatDate value="${compra.fechaCompra}" pattern="dd-MM-yyyy" /></td>
+				<td><fmt:formatDate value="${canje.fechaCanje}" pattern="dd-MM-yyyy" /></td>
 			
-				<td>${compra.puntos}</td>
+				<td>${canje.puntos}</td>
 			
-				<td>${compra.comercio.razonSocial}</td>
+				<td>${canje.comercio.razonSocial}</td>
 			
-				<td>${compra.cliente.nombre} ${compra.cliente.apellido1} ${compra.cliente.apellido2}</td>
+				<td>${canje.cliente.nombre} ${canje.cliente.apellido1} ${canje.cliente.apellido2}</td>
 			
 				<td>
 					<div>
@@ -136,9 +139,9 @@ $(document).ready(function(){
 							</label>
 							<ul class="dropdown-menu dropdown-primary">
 								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:editarCompra('${compra.idCompra}')"><spring:message code="label.editar"/></a></li>
+									href="javascript:editarCanje('${canje.idCanje}')"><spring:message code="label.editar"/></a></li>
 								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:mostarConfirmBorrarCompra('${compra.idCompra}')"><spring:message code="label.borrar"/></a></li>
+									href="javascript:mostarConfirmBorrarCanje('${canje.idCanje}')"><spring:message code="label.borrar"/></a></li>
 							</ul>
 						</div>
 				</td>
@@ -150,13 +153,13 @@ $(document).ready(function(){
 
 		</c:if>
 
-		<c:if  test="${empty compras}">
+		<c:if  test="${empty canjes}">
 
 			<br>
 			<br>
 			<br>
 			<br>
-			<div class="text-center">No hay compras que mostrar...</div>
+			<div class="text-center">No hay canjes que mostrar...</div>
 		</c:if>
 
 		<div class="row">
@@ -167,25 +170,25 @@ $(document).ready(function(){
 		</div>
 
 
-<!-- Modal Nuev@ compra-->
+<!-- Modal Nuev@ canje-->
 <div class="modal fade" id="nuevoFormulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nueva compra</span>
+        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nueva canje</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body" style="color: #6c757d">
-		<form:form modelAttribute="compra" action="insertarCompra.do" method="post">
+		<form:form modelAttribute="canje" action="insertarCanje.do" method="post">
 
     		
 
 
 					<div class="form-group">
-						<label for="fechaCompra"><spring:message code="label.fechaCompra"/></label> <form:input path="fechaCompra" class="form-control"/>
+						<label for="fechaCanje"><spring:message code="label.fechaCanje"/></label> <form:input path="fechaCanje" class="form-control"/>
 					</div>
 
 					
@@ -194,7 +197,8 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="puntos"><spring:message code="label.puntos"/></label> <form:input path="puntos" class="form-control"/>
 					</div>
-		
+
+					
 
 
 					<div class="form-group">
@@ -236,13 +240,13 @@ $(document).ready(function(){
         </button>
       </div>
       <div class="modal-body" style="color: #6c757d">
-		<form:form modelAttribute="compra" action='buscarCompras.do' method="post" id="formularioBuscar">
+		<form:form modelAttribute="canje" action='buscarCanjes.do' method="post" id="formularioBuscar">
 
     		
 
 
 					<div class="form-group">
-						<label for="fechaCompra"><spring:message code="label.fechaCompra"/></label> <form:input path="fechaCompra" class="form-control"/>
+						<label for="fechaCanje"><spring:message code="label.fechaCanje"/></label> <form:input path="fechaCanje" class="form-control"/>
 					</div>
 
 					
@@ -251,6 +255,7 @@ $(document).ready(function(){
 					<div class="form-group">
 						<label for="puntos"><spring:message code="label.puntos"/></label> <form:input path="puntos" class="form-control"/>
 					</div>
+
 					
 
 

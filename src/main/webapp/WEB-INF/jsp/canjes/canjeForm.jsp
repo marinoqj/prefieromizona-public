@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp" %>
 
 
-	<form:form modelAttribute="compra" action='${modo}Compra.do' method="post">
+	<form:form modelAttribute="canje" action='${modo}Canje.do' method="post">
 
 
 	<br>
@@ -18,10 +18,10 @@
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><em class="fas fa-users fa-lg mr-2"></em>
 					<c:if test="${modo == 'insertar'}">
-					<spring:message code="label.alta.compra"/>
+					<spring:message code="label.alta.canje"/>
 					</c:if>
 					<c:if test="${modo == 'actualizar'}">
-					<spring:message code="label.editar.compra"/>
+					<spring:message code="label.editar.canje"/>
 					</c:if>
 					</li>
 				</ol>
@@ -33,14 +33,14 @@
 
 							<c:if test="${modo == 'actualizar'}">
 
-								<form:hidden path="idCompra"/>
+								<form:hidden path="idCanje"/>
 
 							</c:if>
 							
 
 								<div class="form-row">
 									<div class="form-group col-md-12">
-										<label for="fechaCompra"><spring:message code="label.fechaCompra"/></label> <form:input path="fechaCompra" class="form-control"/><form:errors path="fechaCompra" element="div" id="rojo"/>
+										<label for="fechaCanje"><spring:message code="label.fechaCanje"/></label> <form:input path="fechaCanje" class="form-control"/><form:errors path="fechaCanje" element="div" id="rojo"/>
 									</div>
 								</div>
 					
@@ -49,7 +49,8 @@
 									<div class="form-group col-md-12">
 										<label for="puntos"><spring:message code="label.puntos"/></label> <form:input path="puntos" class="form-control"/><form:errors path="puntos" element="div" id="rojo"/>
 									</div>
-								</div>					
+								</div>
+					
 
 								<div class="form-row">
 									<div class="form-group col-md-12">
@@ -66,11 +67,8 @@
 					
 
 
-							<a href="./listadoCompras1.do" class="btn btn-secondary btn-sm"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</a>
+							<a href="./listadoCanjes1.do" class="btn btn-secondary btn-sm"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</a>
 							<button type="submit" class="btn btn-success btn-sm" ><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
-
-
-
 
 
 	</form:form>
