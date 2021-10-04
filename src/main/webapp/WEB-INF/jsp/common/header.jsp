@@ -49,7 +49,7 @@
 			        <div class="dropdown-menu dropdown-menu-right dropdown-default"
 			          aria-labelledby="navbarDropdownMenuLink-333">
 			          <a class="dropdown-item" href="#">Mi perfil</a>
-			          <a class="dropdown-item" href="#">Cerrar sesión</a>
+			          <a class="dropdown-item" href='<spring:url value="/logout.do"/>'>Cerrar sesión</a>
 			        </div>
 			      </li>
 			    </ul>

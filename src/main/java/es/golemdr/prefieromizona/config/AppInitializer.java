@@ -5,6 +5,8 @@ import javax.servlet.Filter;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+
+
 /**
  * Initialize the Servlet container. This class is detected by the Servlet
  * container on startup.
@@ -15,7 +17,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	// Specify @Configuration and/or @Component classes for the root application context. (Cuando usamos spring-secutiry hay que incluir SecurityConfig.class)
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { RootConfig.class};
+		return new Class[] { RootConfig.class , SecurityConfig.class};
 	}
 
 	@Override
@@ -28,10 +30,10 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 		return new String[] { "/" };
 	}
 
-//	@Override
-//	protected Filter[] getServletFilters() {
-//		return new Filter[] { new DelegatingFilterProxy("csrfFilter") };
-//	}
+	@Override
+	protected Filter[] getServletFilters() {
+		return new Filter[] { new DelegatingFilterProxy("csrfFilter") };
+	}
 	
 	
 
