@@ -33,6 +33,12 @@ function mostrarConfirm(message) {
     $('#alertModal').modal('show');
 }
 
+function verComprasComercio(id) {
+ 	document.formulario.idComercio.value = id;
+ 	document.formulario.action="listadoComprasComercio1.do";
+ 	document.formulario.submit();
+}
+
 $(document).ready(function(){
     $('#ventanaBuscar').on('hidden.bs.modal', function () {
         $('form[id="formularioBuscar"]').trigger('reset');
@@ -60,7 +66,7 @@ $(document).ready(function(){
 
 <!-- ./ Warning Modal -->
 
-<form name="formulario" method="post">
+<form id="formulario" name="formulario" method="post">
 	<input type="hidden" name="idComercio"/>
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
@@ -153,6 +159,8 @@ $(document).ready(function(){
 									href="javascript:editarComercio('${comercio.idComercio}')"><spring:message code="label.editar"/></a></li>
 								<li class="nav-item dropdown"><a class="dropdown-item"
 									href="javascript:mostarConfirmBorrarComercio('${comercio.idComercio}')"><spring:message code="label.borrar"/></a></li>
+								<li class="nav-item dropdown"><a class="dropdown-item"
+									href="javascript:verComprasComercio('${comercio.idComercio}')">Ver compras</a></li>
 							</ul>
 						</div>
 				</td>

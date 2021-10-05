@@ -20,6 +20,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.golemdr.prefieromizona.controller.constantes.ForwardConstants;
 import es.golemdr.prefieromizona.controller.constantes.UrlConstants;
@@ -63,6 +64,24 @@ public class ComprasController {
 
 		return ForwardConstants.FWD_LISTADO_COMPRAS;
 	}
+	
+	@PostMapping(value=UrlConstants.URL_LISTADO_COMPRAS_COMERCIO)
+	public String listComprarsComercio(@RequestParam("idComercio") Long idComercio, @PathVariable("inicio") int inicio, Map<String, Object> map, HttpServletRequest request) {
+
+		List<Compra> resultado = null;
+		
+		PaginacionBean paginacion = new PaginacionBean();
+		paginacion.setInicio(inicio - 1);
+
+		resultado = comprasService.getComprasComercio(idComercio);
+
+		map.put("paginacion", paginacion);
+		map.put(COMPRAS, resultado);
+		map.put(COMPRA,new CompraForm());
+
+
+		return ForwardConstants.FWD_LISTADO_COMPRAS_COMERCIO;
+	}	
 
 
 	@PostMapping(value=UrlConstants.URL_INSERTAR_COMPRA)
