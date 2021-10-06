@@ -50,6 +50,7 @@ public class ComprasController {
 
 		List<Compra> resultado = null;
         boolean hayFiltro = false;
+        boolean misCompras = false;
 
 
 		PaginacionBean paginacion = new PaginacionBean();
@@ -61,6 +62,7 @@ public class ComprasController {
 		map.put(COMPRAS, resultado);
 		map.put(COMPRA,new CompraForm());
         map.put(Constantes.ATRIBUTO_SESSION_HAY_FILTRO, hayFiltro);
+        map.put("misCompras", misCompras);
 
 		return ForwardConstants.FWD_LISTADO_COMPRAS;
 	}
@@ -70,6 +72,7 @@ public class ComprasController {
 	public String listComprarsComercio(@PathVariable("idComercio") String idComercio, Map<String, Object> map, HttpServletRequest request) {		
 
 		List<Compra> resultado = null;
+		boolean misCompras = true;
 		
 //		PaginacionBean paginacion = new PaginacionBean();
 //		paginacion.setInicio(inicio - 1);
@@ -79,6 +82,7 @@ public class ComprasController {
 		//map.put("paginacion", paginacion);
 		map.put(COMPRAS, resultado);
 		map.put(COMPRA,new CompraForm());
+		map.put("misCompras", misCompras);
 
 
 		return ForwardConstants.FWD_LISTADO_COMPRAS_COMERCIO;
