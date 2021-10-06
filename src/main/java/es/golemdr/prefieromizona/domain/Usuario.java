@@ -1,31 +1,26 @@
 package es.golemdr.prefieromizona.domain;
 
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class,property = "idUsuario", scope = Usuario.class)
 public class Usuario{
 
 	private Long idUsuario;
 	private String login;
 	private String password;
 	private String cambiarPassword;
+	private String nombreEntidad;
+	private Long idEntidad;
+	
 
-	private String [] rolesUsuario;
+	private List<Rol> roles;
+	
+	private Cliente cliente;
+	private Comercio comercio;
 
 	public Long getIdUsuario() {
 		return idUsuario;
@@ -59,13 +54,49 @@ public class Usuario{
 		this.cambiarPassword = cambiarPassword;
 	}
 
-	public String[] getRolesUsuario() {
-		return rolesUsuario;
+	public List<Rol> getRoles() {
+		return roles;
 	}
 
-	public void setRolesUsuario(String[] rolesUsuario) {
-		this.rolesUsuario = rolesUsuario;
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
 	}
+
+
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Comercio getComercio() {
+		return comercio;
+	}
+
+	public void setComercio(Comercio comercio) {
+		this.comercio = comercio;
+	}
+
+	public String getNombreEntidad() {
+		return nombreEntidad;
+	}
+
+	public void setNombreEntidad(String nombreEntidad) {
+		this.nombreEntidad = nombreEntidad;
+	}
+
+	public Long getIdEntidad() {
+		return idEntidad;
+	}
+
+	public void setIdEntidad(Long idEntidad) {
+		this.idEntidad = idEntidad;
+	}
+
+
 	
 	
 

@@ -13,8 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="roles")
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class,property = "idRol", scope = Rol.class)
 public class Rol{
 
 	private Long idRol;
@@ -22,9 +24,6 @@ public class Rol{
 
 	private List<Usuario> usuarios= new ArrayList<>(0); 
 
-
-@Id
-@Column(name="ID_ROL")
 public Long getIdRol() {
 		return idRol;
 	}
@@ -32,7 +31,7 @@ public Long getIdRol() {
 		this.idRol = idRol;
 	}
 	
-@Column(name="NOMBRE_ROL")
+
 public String getNombreRol() {
 		return nombreRol;
 	}
@@ -40,7 +39,7 @@ public String getNombreRol() {
 		this.nombreRol = nombreRol;
 	}
 	
-@ManyToMany(fetch = FetchType.LAZY, mappedBy="roles")
+
 public List<Usuario> getUsuarios() {
 	return usuarios;
 }

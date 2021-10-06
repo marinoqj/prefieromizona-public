@@ -18,6 +18,7 @@ import es.golemdr.prefieromizona.controller.constantes.ForwardConstants;
 import es.golemdr.prefieromizona.controller.constantes.UrlConstants;
 import es.golemdr.prefieromizona.domain.Usuario;
 import es.golemdr.prefieromizona.ext.Constantes;
+import es.golemdr.prefieromizona.service.UsuariosService;
 
 
 
@@ -27,8 +28,8 @@ public class LoginController {
 	
 	private static final Logger log = LogManager.getLogger(LoginController.class);
 
-//	@Autowired
-//	private UsuariosService usuariosService;
+	@Autowired
+	private UsuariosService usuariosService;
 	
 	@GetMapping(value=UrlConstants.URL_LOGIN)
 	public String verlogin(Model model,HttpServletRequest request) {
@@ -62,20 +63,37 @@ public class LoginController {
 	public String inicio(Model model,HttpServletRequest request) {
 		
 		String destino = null;
+		Usuario usuarioLogado = null;
 		
 		String login = SecurityContextHolder.getContext().getAuthentication().getName(); // En este caso login y name son equivalentes
-		Usuario usuarioLogado = new Usuario();
-		usuarioLogado.setLogin(login);
 		
 		
-//		usuarioLogado = usuariosService.getByExample(usuarioLogado);
-//		
-//		if(usuarioLogado.getCambiarPassword().equals(Constantes.SI)) {
-//				
-//			// TODO - Implementar cambio de password
-//			
-//		}else {
+		usuarioLogado = usuariosService.getByLogin(login);
+		
+		if(usuarioLogado.getCambiarPassword().equals(Constantes.SI)) {
+				
+			// TODO - Implementar cambio de password
+			
+		}else {
 
+			// Seteo los valores que necesito para luego no tener que hacerlo en cada JSP
+			if(usuarioLogado.getCliente() != null) {
+				
+				usuarioLogado.setNombreEntidad(usuarioLogado.getCliente().getNombre() + " " + usuarioLogado.getCliente().getApellido1() + " " +  usuarioLogado.getCliente().getApellido2());
+				usuarioLogado.setIdEntidad(usuarioLogado.getCliente().getIdCliente());
+				
+				
+			}else if(usuarioLogado.getComercio() != null) {
+				
+				usuarioLogado.setNombreEntidad(usuarioLogado.getComercio().getRazonSocial());
+				usuarioLogado.setIdEntidad(usuarioLogado.getComercio().getIdComercio());
+			
+			}else if(usuarioLogado.getCliente() == null && usuarioLogado.getComercio() == null) {
+				
+				usuarioLogado.setNombreEntidad("ADMINISTRADOR");
+			}
+			
+			
 			HttpSession session = request.getSession(false);
 			session.setAttribute(Constantes.ATRIBUTO_SESSION_USUARIO, usuarioLogado);
 			
@@ -84,7 +102,7 @@ public class LoginController {
 			destino = ForwardConstants.FWD_HOME;
 
 			
-		//}
+		}
 		
 		return destino;
 	}
