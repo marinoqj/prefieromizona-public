@@ -60,13 +60,9 @@ import static com.fasterxml.jackson.databind.MapperFeature.SORT_PROPERTIES_ALPHA
 @ComponentScan(basePackages = "es.golemdr.prefieromizona")
 @EnableWebMvc
 @EnableScheduling
-@EnableTransactionManagement
-@EnableJpaRepositories("es.golemdr.prefieromizona.repository")
 @PropertySource("classpath:application.properties")
 public class WebMvcConfig implements WebMvcConfigurer {
 	
-	@Autowired
-	private Environment env;
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -75,9 +71,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("Home");
+		//registry.addViewController("/").setViewName("Home");
 		// Para redirigir a una accion
-		//registry.addRedirectViewController("/", UrlConstants.URL_ENTRADA_APLICACION);
+		registry.addRedirectViewController("/", UrlConstants.URL_ENTRADA_APLICACION);
 	}
 
 

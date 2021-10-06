@@ -26,7 +26,9 @@ public class Cliente{
 	private String dni;
 	private String telefono;
 	
- 	List<Compra> compras = new ArrayList<>(0);
+	private Usuario usuario;
+	
+	List<Compra> compras = new ArrayList<>(0);
 
 	public Long getIdCliente() {
 		return idCliente;
@@ -92,6 +94,12 @@ public class Cliente{
 		this.compras = compras;
 	}
 
+ 	public Usuario getUsuario() {
+		return usuario;
+	}
 
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 }

@@ -12,6 +12,7 @@
 			
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			    <ul class="navbar-nav mr-auto">
+			    <sec:authorize access="hasRole('ADMIN')">
 			      <li class="nav-item active">
 			        <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Inicio <span class="sr-only">(current)</span></a>
 			      </li>
@@ -37,19 +38,57 @@
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href='<spring:url value="/listadoPuntos1.do"/>'>Ver puntos</a>
 			        </div>
-			      </li>	
+			      </li>
+			     </sec:authorize>
+			    <sec:authorize access="hasRole('COMERCIO')">
+			        <li class="nav-item dropdown active">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Puntos
+				        </a>
+				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown2">
+							<a class="dropdown-item"
+							href='<spring:url value="/comercio/listadoEmitidos{idEntidad}.do">
+					  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
+					  			  </spring:url>'>Emitidos</a> 
+							<a class="dropdown-item"
+							href='<spring:url value="/comercio/listadoMisCanjeados{idEntidad}.do">
+					  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
+					  			  </spring:url>'>Canjeados</a>					
+				        </div>
+			        </li>			    
+					<li class="nav-item active"><a class="nav-link"
+						href='<spring:url value="/comercio/verMisEstadísticas{idEntidad}.do">
+				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
+				  			  </spring:url>'>Estadísticas</a>
+					</li>						
+			     </sec:authorize>
+			     <sec:authorize access="hasRole('CLIENTE')">
+					<li class="nav-item active"><a class="nav-link"
+						href='<spring:url value="/cliente/listadoMisCompras{idEntidad}.do">
+				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
+				  			  </spring:url>'>Mis Compras</a>
+					</li>
+					<li class="nav-item active"><a class="nav-link"
+						href='<spring:url value="/cliente/listadoMisCanjes{idEntidad}.do">
+				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
+				  			  </spring:url>'>Mis Canjes</a>
+					</li>
+					<li class="nav-item active"><a class="nav-link"
+						href='<spring:url value="/cliente/listadoMisPuntos{idEntidad}.do">
+				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
+				  			  </spring:url>'>Mis Puntos</a>
+					</li>					
+			     </sec:authorize>
 			      			      
 			    </ul>
 			    <ul class="navbar-nav">
 			      <li class="nav-item dropdown active">
-			        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-			          aria-haspopup="true" aria-expanded="false">
-			          Margarita Salas &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-circle fa-lg"></i>
+			        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          ${usuarioSesion.nombreEntidad} &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-circle fa-lg"></i>
 			        </a>
-			        <div class="dropdown-menu dropdown-menu-right dropdown-default"
-			          aria-labelledby="navbarDropdownMenuLink-333">
+			        <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
 			          <a class="dropdown-item" href="#">Mi perfil</a>
-			          <a class="dropdown-item" href="#">Cerrar sesión</a>
+			          <a class="dropdown-item" href='<spring:url value="/logout.do"/>'>Cerrar sesión</a>
 			        </div>
 			      </li>
 			    </ul>

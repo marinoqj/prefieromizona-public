@@ -15,12 +15,12 @@ import es.golemdr.prefieromizona.ext.utils.paginacion.PaginacionBean;
 public class BaseService {
 	
 	@Value("${api.server.name}")
-	String SERVER;
+	protected String SERVER;
 	
 	@Value("${api.server.port}")
-	String PORT;	
+	protected String PORT;	
 	
-	final RestTemplate restTemplate;
+	protected final RestTemplate restTemplate;
 	
     public BaseService (){
         restTemplate = new RestTemplate();
