@@ -23,7 +23,8 @@ public class ForwardConstants {
 	public static final String FWD_COMERCIO_FORM = "ComercioForm";
 	
 	// Compras
-	public static final String FWD_LISTADO_COMPRAS = "ListadoCompras";	
+	public static final String FWD_LISTADO_COMPRAS = "ListadoCompras";
+	public static final String FWD_LISTADO_COMPRAS_COMERCIO = "ListadoComprasComercio";
 	public static final String RED_LISTADO_COMPRAS = "redirect:listadoCompras1.do";
 	public static final String FWD_COMPRA_FORM = "CompraForm";
 

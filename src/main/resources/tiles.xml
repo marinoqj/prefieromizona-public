@@ -26,7 +26,7 @@
     </definition>
       
 	<definition name="ErrorGenerico" extends="baseLayout">
-	  <put-attribute name="title" value="Página de error"/>
+	  <put-attribute name="title" value="Pagina de error"/>
 	  <put-attribute name="body" value="/WEB-INF/jsp/common/error_generico.jsp"/>
 	</definition> 
 	
@@ -67,6 +67,11 @@
 
     <definition name="ListadoCompras" extends="baseLayout">
         <put-attribute name="title" value="Listado de compras"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/compras/listadoCompras.jsp"/>
+    </definition>
+    
+    <definition name="ListadoComprasComercio" extends="baseLayout">
+        <put-attribute name="title" value="Listado de compras del Comercio"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/compras/listadoCompras.jsp"/>
     </definition>	
     
