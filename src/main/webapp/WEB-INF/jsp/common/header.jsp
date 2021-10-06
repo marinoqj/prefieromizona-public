@@ -47,13 +47,13 @@
 				        </a>
 				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown2">
 							<a class="dropdown-item"
-							href='<spring:url value="/comercio/listadoEmitidos{idEntidad}.do">
+							href='<spring:url value="/listadoComprasComercio{idEntidad}.do">
 					  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
-					  			  </spring:url>'>Emitidos</a> 
+					  			  </spring:url>'>Puntos Emitidos</a> 
 							<a class="dropdown-item"
 							href='<spring:url value="/comercio/listadoMisCanjeados{idEntidad}.do">
 					  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
-					  			  </spring:url>'>Canjeados</a>					
+					  			  </spring:url>'>Puntos Canjeados</a>					
 				        </div>
 			        </li>			    
 					<li class="nav-item active"><a class="nav-link"

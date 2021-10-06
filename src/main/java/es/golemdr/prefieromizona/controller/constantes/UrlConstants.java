@@ -66,7 +66,7 @@ public class UrlConstants {
 	public static final String URL_ACTUALIZAR_COMPRA = SEGURIDAD_COMPRAS + "/actualizarCompra.do";
 	public static final String URL_BORRAR_COMPRA = SEGURIDAD_COMPRAS + "/borrarCompra.do";
     public static final String URL_BUSCAR_COMPRAS = SEGURIDAD_COMPRAS + "/buscarCompras.do";
-	public static final String URL_LISTADO_COMPRAS_COMERCIO = SEGURIDAD_COMPRAS + "/listadoComprasComercio" + SUFIJO_PAGINACION;
+	public static final String URL_LISTADO_COMPRAS_COMERCIO = SEGURIDAD_COMPRAS + "/listadoComprasComercio{idComercio}.do";
     
     
 	// Canjes
