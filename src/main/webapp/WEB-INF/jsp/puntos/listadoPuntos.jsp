@@ -42,6 +42,8 @@ $(document).ready(function(){
 
 </script>
 
+<!-- CONTENEDOR -->
+<div class="container">
 
 <!-- Warning Modal -->
 <div id="alertModal" class="modal" tabindex="-1" role="dialog">
@@ -78,7 +80,7 @@ $(document).ready(function(){
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item active">
 							<em class="fas fa-list-alt fa-lg mr-1"></em>
-							<em class="fas fa-users fa-lg mr-2"></em>
+							<em class="fas fa-gift fa-lg mr-2"></em>
 							Listado de puntos</li>
 					</ol>
 				</nav>
@@ -241,3 +243,4 @@ $(document).ready(function(){
 </div>
 
 
+</div><!-- ./container -->

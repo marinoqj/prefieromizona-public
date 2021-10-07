@@ -53,7 +53,23 @@
 
 <div class="row">
 	<div class="col-md-3 col-lg-4">&nbsp;</div>
-	<div class="col-md-6 col-lg-4 align-middle">usuario -> abc  // admin --> 123</div>
+	<div class="col-md-6 col-lg-4 align-middle">CervePub - a / 1 || Librería La Luz - b / 1</div>
+	<div class="col-md-3 col-lg-4">&nbsp;</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col-md-3 col-lg-4">&nbsp;</div>
+	<div class="col-md-6 col-lg-4 align-middle">Ana María - c / 1 || Pedro - d / 2S</div>
+	<div class="col-md-3 col-lg-4">&nbsp;</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col-md-3 col-lg-4">&nbsp;</div>
+	<div class="col-md-6 col-lg-4 align-middle">Administrador - z / 1</div>
 	<div class="col-md-3 col-lg-4">&nbsp;</div>
 </div>
 

@@ -11,12 +11,13 @@
 	<br>
 	<br>
 
-
+<!-- CONTENEDOR -->
+<div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><em class="fas fa-users fa-lg mr-2"></em>
+					<li class="breadcrumb-item active"><em class="fas fa-pen fa-lg mr-1"></em><em class="fas fa-sync fa-lg mr-2"></em>
 					<c:if test="${modo == 'insertar'}">
 					<spring:message code="label.alta.canje"/>
 					</c:if>
@@ -70,6 +71,6 @@
 							<a href="./listadoCanjes1.do" class="btn btn-secondary btn-sm"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</a>
 							<button type="submit" class="btn btn-success btn-sm" ><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
 
-
+</div><!-- ./container -->
 	</form:form>
 

@@ -29,6 +29,8 @@ public class Comercio{
 	private String municipio;
 	private String codPostal;
 	
+	private Usuario usuario;
+	
 	List<Compra> compras = new ArrayList<>(0);
 
 	public Long getIdComercio() {
@@ -119,7 +121,13 @@ public class Comercio{
 		this.compras = compras;
 	}
 
-	
+ 	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 
 }

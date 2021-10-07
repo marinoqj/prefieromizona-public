@@ -50,6 +50,7 @@ public class ComprasController {
 
 		List<Compra> resultado = null;
         boolean hayFiltro = false;
+        boolean misCompras = false;
 
 
 		PaginacionBean paginacion = new PaginacionBean();
@@ -61,24 +62,28 @@ public class ComprasController {
 		map.put(COMPRAS, resultado);
 		map.put(COMPRA,new CompraForm());
         map.put(Constantes.ATRIBUTO_SESSION_HAY_FILTRO, hayFiltro);
+        map.put("misCompras", misCompras);
 
 		return ForwardConstants.FWD_LISTADO_COMPRAS;
 	}
 	
-	@PostMapping(value=UrlConstants.URL_LISTADO_COMPRAS_COMERCIO)
-	public String listComprarsComercio(@RequestParam("idComercio") Long idComercio, @PathVariable("inicio") int inicio, Map<String, Object> map, HttpServletRequest request) {
+	@GetMapping(value=UrlConstants.URL_LISTADO_COMPRAS_COMERCIO)
+//	public String listComprarsComercio(@RequestParam("idComercio") Long idComercio, @PathVariable("inicio") int inicio, Map<String, Object> map, HttpServletRequest request) {
+	public String listComprarsComercio(@PathVariable("idComercio") String idComercio, Map<String, Object> map, HttpServletRequest request) {		
 
 		List<Compra> resultado = null;
+		boolean misCompras = true;
 		
-		PaginacionBean paginacion = new PaginacionBean();
-		paginacion.setInicio(inicio - 1);
+//		PaginacionBean paginacion = new PaginacionBean();
+//		paginacion.setInicio(inicio - 1);
 
-		resultado = comprasService.getComprasComercio(idComercio);
+		resultado = comprasService.getComprasComercio(Long.valueOf(idComercio));
 
-		map.put("paginacion", paginacion);
+		//map.put("paginacion", paginacion);
 		map.put(COMPRAS, resultado);
 		map.put(COMPRA, new CompraForm());
 		map.put("idComercio", idComercio);
+		map.put("misCompras", misCompras);
 
 
 		return ForwardConstants.FWD_LISTADO_COMPRAS_COMERCIO;

@@ -166,8 +166,9 @@ $(document).ready(function(){
 									href="javascript:editarComercio('${comercio.idComercio}')"><spring:message code="label.editar"/></a></li>
 								<li class="nav-item dropdown"><a class="dropdown-item"
 									href="javascript:mostarConfirmBorrarComercio('${comercio.idComercio}')"><spring:message code="label.borrar"/></a></li>
-								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:verComprasComercio('${comercio.idComercio}')">Ver compras</a></li>
+								<li class="nav-item dropdown"><a class="dropdown-item" href='<spring:url value="/listadoComprasComercio{idComercio}.do">
+					  				<spring:param name="idComercio" value="${comercio.idComercio}" />
+					  			  </spring:url>'>Ver compras</a></li>
 							</ul>
 						</div>
 				</td>
