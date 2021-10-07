@@ -77,7 +77,8 @@ public class ComprasController {
 
 		map.put("paginacion", paginacion);
 		map.put(COMPRAS, resultado);
-		map.put(COMPRA,new CompraForm());
+		map.put(COMPRA, new CompraForm());
+		map.put("idComercio", idComercio);
 
 
 		return ForwardConstants.FWD_LISTADO_COMPRAS_COMERCIO;

@@ -4,8 +4,11 @@
  
 			<!-- Menú -->
 			
-			<nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar" style="background-color: #a8e9ff;">
+			<nav class="navbar navbar-expand-lg navbar-light navbar-dark special-color fixed-top scrolling-navbar">
 			<div class="container-fluid">
+				<a class="navbar-brand" href="#"> <img src='<spring:url value="/static/imagenes/logo.png"/>' height="40" class="d-inline-block">
+				<span class="align-middle lead">Prefiero</span><span class="align-middle lead" style="font-weight: 400;color: #a8ce3b !important;">Mi</span><span class="align-middle lead">Zona</span>
+				</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
@@ -15,19 +18,19 @@
 			      <li class="nav-item active">
 			        <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Inicio <span class="sr-only">(current)</span></a>
 			      </li>
-			      <li class="nav-item active">
+			      <li class="nav-item">
 			        <a class="nav-link" href='<spring:url value="/listadoComercios1.do"/>'>Comercios</a>
 			      </li>
-			      <li class="nav-item active">
+			      <li class="nav-item">
 			        <a class="nav-link" href='<spring:url value="/listadoClientes1.do"/>'>Clientes</a>
 			      </li>
-			      <li class="nav-item active">
+			      <li class="nav-item">
 			        <a class="nav-link" href='<spring:url value="/listadoCompras1.do"/>'>Compras</a>
 			      </li>
-			      <li class="nav-item active">
+			      <li class="nav-item">
 			        <a class="nav-link" href='<spring:url value="/listadoCanjes1.do"/>'>Canjes</a>
 			      </li>	
-			      <li class="nav-item dropdown active">
+			      <li class="nav-item dropdown">
 			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          Puntos
 			        </a>

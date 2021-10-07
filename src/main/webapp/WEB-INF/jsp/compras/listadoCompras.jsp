@@ -42,17 +42,26 @@ $(document).ready(function(){
 
 </script>
 
+<!-- CONTAINER -->
+<div class="container">
 
 <!-- Warning Modal -->
 <div id="alertModal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-body">
-         <p></p>
-      </div>
+       <div class="modal-header bg-danger">
+           <h5 class="modal-title text-white">
+               <i class="fas fa-exclamation-triangle fa-lg"></i>&nbsp;&nbsp;
+               Atención
+           </h5>
+           <button class="close text-white" data-dismiss="modal">&times;</button>
+       </div>
+       <div class="modal-body">
+           <p class="text-danger"></p>
+       </div>
       <div class="modal-footer">
          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-         <a class="btn btn-primary btn-sm" role="button" href="#" id="aceptarBorrar"><em class="fas fa-check-circle"></em>&nbsp;&nbsp;<spring:message code="button.aceptar" /></a>
+         <a class="btn btn-danger btn-sm" role="button" href="#" id="aceptarBorrar"><em class="fas fa-check-circle"></em>&nbsp;&nbsp;<spring:message code="button.aceptar" /></a>
       </div>
     </div>
   </div>
@@ -76,12 +85,11 @@ $(document).ready(function(){
 			<div class="col-md-12">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><emclass="fas fa-users fa-lg mr-2"></em>Listado de compras</li>
+						<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><em class="fas fa-shopping-cart fa-lg mr-2"></em>Listado de compras</li>
 					</ol>
 				</nav>
 			</div>
 		</div>
-
 
 
 <c:if  test="${!empty compras}">
@@ -110,7 +118,7 @@ $(document).ready(function(){
 					
 					<th scope="col"><spring:message code="label.puntos"/></th>
 					
-					<th scope="col"><spring:message code="label.comercio"/></th>
+					<c:if  test="${empty idComercio}"><th scope="col"><spring:message code="label.comercio"/></th></c:if>
 					
 					<th scope="col"><spring:message code="label.cliente"/></th>
 					
@@ -125,7 +133,7 @@ $(document).ready(function(){
 			
 				<td>${compra.puntos}</td>
 			
-				<td>${compra.comercio.razonSocial}</td>
+				<c:if  test="${empty idComercio}"><td>${compra.comercio.razonSocial}</td></c:if>
 			
 				<td>${compra.cliente.nombre} ${compra.cliente.apellido1} ${compra.cliente.apellido2}</td>
 			
@@ -173,7 +181,7 @@ $(document).ready(function(){
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nueva compra</span>
+        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-shopping-cart fa-lg mr-2"></em>Nueva compra</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -214,7 +222,7 @@ $(document).ready(function(){
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-        <button type="submit" class="btn btn-success btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
+        <button type="submit" class="btn btn-primary btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
       </div>
 
       </form:form>
@@ -230,7 +238,7 @@ $(document).ready(function(){
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fas fa-search fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Buscar Constante</span>
+        <span class="modal-title" id="exampleModalLabel"><em class="fas fas fa-search fa-lg pr-1"></em><em class="fas fa-shopping-cart fa-lg mr-2"></em>Buscar compra</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -272,7 +280,7 @@ $(document).ready(function(){
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-        <button type="submit" class="btn btn-success btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Buscar</button>
+        <button type="submit" class="btn btn-success btn-sm"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
       </div>
 
       </form:form>
@@ -282,3 +290,4 @@ $(document).ready(function(){
 </div>
 
 
+</div><!-- ./container -->

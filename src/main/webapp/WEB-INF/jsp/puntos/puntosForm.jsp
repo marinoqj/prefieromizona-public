@@ -11,18 +11,21 @@
 	<br>
 	<br>
 
-
+<!-- CONTAINER -->
+<div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><em class="fas fa-users fa-lg mr-2"></em>
-					<c:if test="${modo == 'generar'}">
-						Generar puntos
-					</c:if>
-					<c:if test="${modo == 'canjear'}">
-						Canjear puntos
-					</c:if>
+				
+				<c:set var="iconoPrevio" value="fas fa-plus-circle" />
+				<c:set var="accion" value="Generar" />
+				<c:if test="${modo == 'canjear'}">
+						<c:set var="iconoPrevio" value="fas fa-smile-wink" />
+						<c:set var="accion" value="Canjear" />
+				</c:if>
+					<li class="breadcrumb-item active"><em class="${iconoPrevio} fa-lg mr-1"></em><em class="fas fa-gift fa-lg mr-2"></em>
+						<c:out value="${accion}" />&nbsp; puntos
 					</li>
 				</ol>
 			</nav>
@@ -63,6 +66,6 @@
 
 
 
-
+</div><!-- ./container -->
 	</form:form>
 

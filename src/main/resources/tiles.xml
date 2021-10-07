@@ -5,7 +5,7 @@
 <tiles-definitions>
 
     <definition name="baseLayout" template="/WEB-INF/jsp/common/layout.jsp">    
-        <put-attribute name="title"  value="Proyecto"/>
+        <put-attribute name="title"  value="PrefieroMiZona"/>
         <put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
     </definition>
@@ -16,12 +16,12 @@
     </definition>  
     
     <definition name="Login" extends="loginLayout">
-        <put-attribute name="title" value="Proyecto"/>
+        <put-attribute name="title" value="PrefieroMiZona"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/login.jsp"/>
     </definition>     
    
     <definition name="Home" extends="baseLayout">
-        <put-attribute name="title" value="Proyecto"/>
+        <put-attribute name="title" value="PrefieroMiZona"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/home.jsp"/>
     </definition>
       

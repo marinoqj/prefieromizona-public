@@ -11,12 +11,13 @@
 	<br>
 	<br>
 
-
+<!-- CONTAINER -->
+<div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><em class="fas fa-users fa-lg mr-2"></em>
+					<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em><em class="fas fa-shopping-cart fa-lg mr-2"></em>
 					<c:if test="${modo == 'insertar'}">
 					<spring:message code="label.alta.compra"/>
 					</c:if>
@@ -72,6 +73,6 @@
 
 
 
-
+</div><!-- ./container -->
 	</form:form>
 

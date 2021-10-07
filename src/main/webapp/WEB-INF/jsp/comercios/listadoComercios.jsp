@@ -4,19 +4,16 @@
 
 <script>
 function borrarComercio(idComercio){
-
-	 	document.formulario.idComercio.value = idComercio;
-	 	document.formulario.action="borrarComercio.do";
-	 	document.formulario.submit();
-
+	$("#idComercio").val(idComercio);
+	$('#formulario').attr('action', 'borrarComercio.do');
+	$('#formulario').submit();
 }
+
+
 function editarComercio(idComercio){
-
- 	document.formulario.idComercio.value = idComercio;
- 	document.formulario.action="editarComercio.do";
- 	document.formulario.submit();
-
-
+	$("#idComercio").val(idComercio);
+ 	$('#formulario').attr('action', 'editarComercio.do');
+ 	$('#formulario').submit();
 }
 
 function mostarConfirmBorrarComercio(idComercio) {
@@ -33,10 +30,10 @@ function mostrarConfirm(message) {
     $('#alertModal').modal('show');
 }
 
-function verComprasComercio(id) {
- 	document.formulario.idComercio.value = id;
- 	document.formulario.action="listadoComprasComercio1.do";
- 	document.formulario.submit();
+function verComprasComercio(idComercio) {
+	$("#idComercio").val(idComercio);
+	$('#formulario').attr('action', 'listadoComprasComercio1.do');
+	$('#formulario').submit();
 }
 
 $(document).ready(function(){
@@ -49,16 +46,26 @@ $(document).ready(function(){
 </script>
 
 
+<!-- CONTAINER -->
+<div class="container">
+
 <!-- Warning Modal -->
-<div id="alertModal" class="modal" tabindex="-1" role="dialog">
+<div id="alertModal" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-body">
-         <p></p>
-      </div>
+       <div class="modal-header bg-danger">
+           <h5 class="modal-title text-white">
+               <i class="fas fa-exclamation-triangle fa-lg"></i>&nbsp;&nbsp;
+               Atención
+           </h5>
+           <button class="close text-white" data-dismiss="modal">&times;</button>
+       </div>
+       <div class="modal-body">
+           <p class="text-danger"></p>
+       </div>
       <div class="modal-footer">
          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-         <a class="btn btn-primary btn-sm" role="button" href="#" id="aceptarBorrar"><em class="fas fa-check-circle"></em>&nbsp;&nbsp;<spring:message code="button.aceptar" /></a>
+         <a class="btn btn-danger btn-sm" role="button" href="#" id="aceptarBorrar"><em class="fas fa-check-circle"></em>&nbsp;&nbsp;<spring:message code="button.aceptar" /></a>
       </div>
     </div>
   </div>
@@ -67,7 +74,7 @@ $(document).ready(function(){
 <!-- ./ Warning Modal -->
 
 <form id="formulario" name="formulario" method="post">
-	<input type="hidden" name="idComercio"/>
+	<input type="hidden" id="idComercio" name="idComercio"/>
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
 
@@ -83,7 +90,7 @@ $(document).ready(function(){
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item active"><em class="fas fa-list-alt fa-lg mr-1"></em>
-						<em class="fas fa-users fa-lg mr-2"></em>
+						<em class="fas fa-shopping-bag fa-lg mr-2"></em>
 						Listado de comercios</li>
 					</ol>
 				</nav>
@@ -195,7 +202,7 @@ $(document).ready(function(){
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nuevo comercio</span>
+        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-shopping-bag fa-lg mr-2"></em>Nuevo comercio</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -270,7 +277,7 @@ $(document).ready(function(){
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-        <button type="submit" class="btn btn-success btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
+        <button type="submit" class="btn btn-primary btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
       </div>
 
       </form:form>
@@ -286,7 +293,7 @@ $(document).ready(function(){
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fas fa-search fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Buscar Constante</span>
+        <span class="modal-title" id="exampleModalLabel"><em class="fas fas fa-search fa-lg pr-1"></em><em class="fas fa-shopping-bag fa-lg mr-2"></em>Buscar comercio</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -298,7 +305,7 @@ $(document).ready(function(){
 
 
 					<div class="form-group">
-						<label for="codComercio"><spring:message code="label.codComercio"/>ss</label> <form:input path="codComercio" class="form-control"/>
+						<label for="codComercio"><spring:message code="label.codComercio"/></label> <form:input path="codComercio" class="form-control"/>
 					</div>
 
 					
@@ -364,7 +371,7 @@ $(document).ready(function(){
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-        <button type="submit" class="btn btn-success btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Buscar</button>
+        <button type="submit" class="btn btn-success btn-sm"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
       </div>
 
       </form:form>
@@ -374,3 +381,4 @@ $(document).ready(function(){
 </div>
 
 
+</div><!-- ./container -->

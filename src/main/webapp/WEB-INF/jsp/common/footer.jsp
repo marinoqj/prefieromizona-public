@@ -1,11 +1,6 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp" %>
 
-        <div class="footer-copyright text-center font-small">
-            <div class="pb-3" style="background-color: #a8e9ff;">
-                <hr>
-
+        <div class="footer-copyright fixed-bottom special-color text-center py-3">
                 Contacto | Aviso legal | © 2020 Copyright: <a href="http://www.golemdr.es/">GolemDR </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v.<spring:message code="version.actual"/>
-
-            </div>
         </div>
 
