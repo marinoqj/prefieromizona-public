@@ -53,12 +53,12 @@ public class LoginController {
 		return ForwardConstants.FWD_LOGIN;
 	}
 	
-    @GetMapping(value=UrlConstants.URL_ACCESO_OK)
-    public String loginPage() {
-    	
-    	return ForwardConstants.FWD_HOME;
-    }
-    
+//    @GetMapping(value=UrlConstants.URL_ACCESO_OK)
+//    public String loginPage() {
+//    	
+//    	return ForwardConstants.FWD_HOME;
+//    }
+//    
 	@GetMapping(value=UrlConstants.URL_ENTRADA_APLICACION)
 	public String inicio(Model model,HttpServletRequest request) {
 		

@@ -44,7 +44,7 @@
 			      </li>
 			     </sec:authorize>
 			    <sec:authorize access="hasRole('COMERCIO')">
-			        <li class="nav-item dropdown active">
+			        <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          Puntos
 				        </a>
@@ -59,7 +59,7 @@
 					  			  </spring:url>'>Puntos Canjeados</a>					
 				        </div>
 			        </li>			    
-					<li class="nav-item active"><a class="nav-link"
+					<li class="nav-item"><a class="nav-link"
 						href='<spring:url value="/comercio/verMisEstadísticas{idEntidad}.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Estadísticas</a>
@@ -85,7 +85,7 @@
 			      			      
 			    </ul>
 			    <ul class="navbar-nav">
-			      <li class="nav-item dropdown active">
+			      <li class="nav-item dropdown">
 			        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          ${usuarioSesion.nombreEntidad} &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-circle fa-lg"></i>
 			        </a>

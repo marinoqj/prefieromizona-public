@@ -71,9 +71,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		//registry.addViewController("/").setViewName("Home");
+		registry.addViewController("/").setViewName("HomePublica");
 		// Para redirigir a una accion
-		registry.addRedirectViewController("/", UrlConstants.URL_ENTRADA_APLICACION);
+		//registry.addRedirectViewController("/", UrlConstants.URL_ENTRADA_APLICACION);
 	}
 
 
