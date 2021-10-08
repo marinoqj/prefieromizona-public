@@ -12,12 +12,15 @@ layout.jsp<%@ include file="/WEB-INF/jsp/common/include_taglib.jsp"%>
       <div class="col-md-4 offset-2 d-flex align-items-center p-3">
         <div>
           
-          <h3 class="font-weight-bold">Compra en tu zona</h3>
-          <h1 class="font-weight-bold mb-4" style="color: #a8ce3b;">Apoya el Comercio Local</h1>
-
-        	<p>Comprar en tu zona supone impulsar el desarrollo de la econom&iacute;a de tu barrio. Es recibir una atención personalizada, pausada y cercana. Adem&aacute;s de ahorrar tiempo en transporte y combustible.</p>
-
-        	<a href="#" type="button" class="btn btn-orange btn-rounded mx-0">Entrar</a>
+          <sec:authorize access="hasRole('COMERCIO')">
+	          <h3 class="font-weight-bold">Zona privada-comercio</h3>
+	          <p>Gestiona las compras realizadas en tu comercio y consulta los informes generados.</p>
+		  </sec:authorize>
+          <sec:authorize access="hasRole('CLIENTE')">
+	          <h3 class="font-weight-bold">Zona privada-cliente</h3>
+	          <p>Desde aquí podrás gestionar tus puntos y acceder a todas las ventajas que de ofrece nuestro sitio.</p>
+		  </sec:authorize>
+        	
 
         </div>
       </div>    

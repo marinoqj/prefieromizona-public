@@ -5,113 +5,124 @@
 <tiles-definitions>
 
 
-    <definition name="publicLayout" template="/WEB-INF/jsp/common/public-layout.jsp">    
+    <definition name="layoutPublic" template="/WEB-INF/jsp/common/layouts/layoutPublic.jsp">    
         <put-attribute name="title"  value="PrefieroMiZona"/>
-        <put-attribute name="header" value="/WEB-INF/jsp/common/headerPublic.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/headers/headerPublic.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
     </definition>
 
-    <definition name="baseLayout" template="/WEB-INF/jsp/common/layout.jsp">    
+    <definition name="layoutPrivate" template="/WEB-INF/jsp/common/layouts/layoutPrivate.jsp">    
         <put-attribute name="title"  value="PrefieroMiZona"/>
-        <put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/headers/headerPrivate.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
     </definition>
     
-    <definition name="loginLayout" template="/WEB-INF/jsp/common/loginLayout.jsp">    
+    <definition name="layoutLogin" template="/WEB-INF/jsp/common/layouts/layoutLogin.jsp">    
         <put-attribute name="title"  value="PrefieroMiZona"/>
-        <put-attribute name="header" value="/WEB-INF/jsp/common/headerLogin.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/jsp/common/headers/headerLogin.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
     </definition>  
     
-    <definition name="Login" extends="loginLayout">
+    <!-- Login -->
+    <definition name="Login" extends="layoutLogin">
         <put-attribute name="title" value="PrefieroMiZona"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/login.jsp"/>
     </definition>     
    
-    <definition name="Home" extends="baseLayout">
-        <put-attribute name="title" value="PrefieroMiZona"/>
-        <put-attribute name="body"  value="/WEB-INF/jsp/home.jsp"/>
-    </definition>
-    
-    <definition name="HomePublica" extends="publicLayout">
+   <!-- Zona Pública -->
+    <definition name="HomePublica" extends="layoutPublic">
         <put-attribute name="title" value="PrefieroMiZona"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/homePublic.jsp"/>
     </definition>
+    
+    <definition name="Ofertas" extends="layoutPublic">
+        <put-attribute name="title" value="PrefieroMiZona"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/public/ofertas.jsp"/>
+    </definition>    
+
+   
+   <!-- Zona Privada -->
+    <definition name="HomePrivada" extends="layoutPrivate">
+        <put-attribute name="title" value="PrefieroMiZona"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/homePrivate.jsp"/>
+    </definition>
+    
       
-	<definition name="ErrorGenerico" extends="baseLayout">
+     <!-- TODO - Revisar, no sé si está bien en la zona privada...  -->
+	<definition name="ErrorGenerico" extends="layoutPrivate">
 	  <put-attribute name="title" value="Pagina de error"/>
 	  <put-attribute name="body" value="/WEB-INF/jsp/common/error_generico.jsp"/>
 	</definition> 
 	
-	<definition name="Mensaje" extends="baseLayout">
+	<definition name="Mensaje" extends="layoutPrivate">
 	  <put-attribute name="title" value="Pagina de mensaje"/>
 	  <put-attribute name="body" value="/WEB-INF/jsp/common/mensaje.jsp"/>
 	</definition> 	
 	
     <!-- Clientes -->
-    <definition name="ClienteForm" extends="baseLayout">
+    <definition name="ClienteForm" extends="layoutPrivate">
         <put-attribute name="title" value="Alta de clientes"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/clientes/clienteForm.jsp"/>
     </definition>
 
-    <definition name="ListadoClientes" extends="baseLayout">
+    <definition name="ListadoClientes" extends="layoutPrivate">
         <put-attribute name="title" value="Listado de clientes"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/clientes/listadoClientes.jsp"/>
     </definition>
 
 
     <!-- Comercios -->
-    <definition name="ComercioForm" extends="baseLayout">
+    <definition name="ComercioForm" extends="layoutPrivate">
         <put-attribute name="title" value="Alta de comercios"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/comercios/comercioForm.jsp"/>
     </definition>
 
-    <definition name="ListadoComercios" extends="baseLayout">
+    <definition name="ListadoComercios" extends="layoutPrivate">
         <put-attribute name="title" value="Listado de comercios"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/comercios/listadoComercios.jsp"/>
     </definition>
 
 
     <!-- Compras -->
-    <definition name="CompraForm" extends="baseLayout">
+    <definition name="CompraForm" extends="layoutPrivate">
         <put-attribute name="title" value="Alta de compras"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/compras/compraForm.jsp"/>
     </definition>
 
-    <definition name="ListadoCompras" extends="baseLayout">
+    <definition name="ListadoCompras" extends="layoutPrivate">
         <put-attribute name="title" value="Listado de compras"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/compras/listadoCompras.jsp"/>
     </definition>
     
-    <definition name="ListadoComprasComercio" extends="baseLayout">
+    <definition name="ListadoComprasComercio" extends="layoutPrivate">
         <put-attribute name="title" value="Listado de compras del Comercio"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/compras/listadoCompras.jsp"/>
     </definition>	
     
         <!-- Canjes -->
-    <definition name="CanjeForm" extends="baseLayout">
+    <definition name="CanjeForm" extends="layoutPrivate">
         <put-attribute name="title" value="Alta de canjes"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/canjes/canjeForm.jsp"/>
     </definition>
 
-    <definition name="ListadoCanjes" extends="baseLayout">
+    <definition name="ListadoCanjes" extends="layoutPrivate">
         <put-attribute name="title" value="Listado de canjes"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/canjes/listadoCanjes.jsp"/>
     </definition>
 
 
     <!-- Puntos -->
-    <definition name="PuntoForm" extends="baseLayout">
+    <definition name="PuntoForm" extends="layoutPrivate">
         <put-attribute name="title" value="Alta de puntos"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/puntos/puntoForm.jsp"/>
     </definition>
 
-    <definition name="ListadoPuntos" extends="baseLayout">
+    <definition name="ListadoPuntos" extends="layoutPrivate">
         <put-attribute name="title" value="Listado de puntos"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/puntos/listadoPuntos.jsp"/>
     </definition>
     
-    <definition name="PuntosForm" extends="baseLayout">
+    <definition name="PuntosForm" extends="layoutPrivate">
         <put-attribute name="title" value="Formulario de puntos"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/puntos/puntosForm.jsp"/>
     </definition>    

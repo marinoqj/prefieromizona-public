@@ -40,7 +40,7 @@ public class LoginController {
 	@PostMapping(value=UrlConstants.URL_LOGIN)
 	public String login(Model model,HttpServletRequest request) {
 		
-		return ForwardConstants.FWD_HOME;
+		return ForwardConstants.FWD_HOME_PRIVADA;
 	}
 	
 	@GetMapping(value=UrlConstants.URL_LOGIN_FAILURE)
@@ -99,7 +99,7 @@ public class LoginController {
 			
 			log.info(MessageFormat.format(Constantes.USUARIO_LOGADO_CORRECTAMENTE, usuarioLogado.getLogin()));
 			
-			destino = ForwardConstants.FWD_HOME;
+			destino = ForwardConstants.FWD_HOME_PRIVADA;
 
 			
 		}

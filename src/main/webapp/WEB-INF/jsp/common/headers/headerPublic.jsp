@@ -13,6 +13,17 @@
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
 			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">			    
+			      <li class="nav-item">
+			        <a class="nav-link" href='<spring:url value="/pub/verOfertas.do"/>'>Ofertas</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href='<spring:url value="/listadoClientes1.do"/>'>Noticias</a>
+			      </li>
+			    </ul>
+			  </div>
+			
 			    <ul class="navbar-nav">
 			      <li class="nav-item">
 			        <a class="nav-link" href='<spring:url value="/login.do"/>'>Acceder</a>

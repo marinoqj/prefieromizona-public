@@ -44,6 +44,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import es.golemdr.prefieromizona.controller.constantes.ForwardConstants;
 import es.golemdr.prefieromizona.controller.constantes.UrlConstants;
 import es.golemdr.prefieromizona.ext.exceptions.resolver.CustomExceptionResolver;
 
@@ -71,7 +72,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("HomePublica");
+		registry.addViewController("/").setViewName(ForwardConstants.FWD_HOME_PUBLICA);
 		// Para redirigir a una accion
 		//registry.addRedirectViewController("/", UrlConstants.URL_ENTRADA_APLICACION);
 	}

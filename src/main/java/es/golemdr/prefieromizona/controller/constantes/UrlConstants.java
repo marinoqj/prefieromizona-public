@@ -30,6 +30,8 @@ public class UrlConstants {
 	public static final String SEGURIDAD_CANJES =  "";	
 
 	
+	// Zona pública
+	public static final String URL_VER_OFERTAS = "/pub/verOfertas.do";
 
 	// Clientes
 	public static final String URL_LISTADO_CLIENTES = SEGURIDAD_CLIENTES + "/listadoClientes" + SUFIJO_PAGINACION;
