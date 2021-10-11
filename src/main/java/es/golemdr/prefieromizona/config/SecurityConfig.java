@@ -44,14 +44,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	    @Override
 	    protected void configure(HttpSecurity http) throws Exception {
 	        http.authorizeRequests()
-	        .antMatchers("/", "/login**", "/static/**")
+	        .antMatchers("/", "/login**", "/static/**", "/pub/**")
 	            .permitAll()
 	        .antMatchers("/**")
 	            .hasAnyRole("ADMIN", "CLIENTE", "COMERCIO")
 	        .and()
 	            .formLogin()
 	            .loginPage("/login.do")
-	            .defaultSuccessUrl("/accessook.do")
+	            .defaultSuccessUrl("/inicio.do")
 	            .failureUrl("/login-failure.do")
 	            .permitAll()
 	        .and()

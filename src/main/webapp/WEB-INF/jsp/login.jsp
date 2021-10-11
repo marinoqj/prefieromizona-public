@@ -1,15 +1,6 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp" %>
 
 
-<!-- Banner de la página de Login -->
-
-<nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar" style="background-color: #e3f2fd;">
-<div class="container-fluid">
-	Aplicación generada
-</div>
-</nav>			
-			
-<!-- FIN Menú -->
 
 <br>
 <br>

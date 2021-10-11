@@ -40,7 +40,7 @@ public class LoginController {
 	@PostMapping(value=UrlConstants.URL_LOGIN)
 	public String login(Model model,HttpServletRequest request) {
 		
-		return ForwardConstants.FWD_HOME;
+		return ForwardConstants.FWD_HOME_PRIVADA;
 	}
 	
 	@GetMapping(value=UrlConstants.URL_LOGIN_FAILURE)
@@ -53,12 +53,12 @@ public class LoginController {
 		return ForwardConstants.FWD_LOGIN;
 	}
 	
-    @GetMapping(value=UrlConstants.URL_ACCESO_OK)
-    public String loginPage() {
-    	
-    	return ForwardConstants.FWD_HOME;
-    }
-    
+//    @GetMapping(value=UrlConstants.URL_ACCESO_OK)
+//    public String loginPage() {
+//    	
+//    	return ForwardConstants.FWD_HOME;
+//    }
+//    
 	@GetMapping(value=UrlConstants.URL_ENTRADA_APLICACION)
 	public String inicio(Model model,HttpServletRequest request) {
 		
@@ -99,7 +99,7 @@ public class LoginController {
 			
 			log.info(MessageFormat.format(Constantes.USUARIO_LOGADO_CORRECTAMENTE, usuarioLogado.getLogin()));
 			
-			destino = ForwardConstants.FWD_HOME;
+			destino = ForwardConstants.FWD_HOME_PRIVADA;
 
 			
 		}

@@ -14,17 +14,19 @@
 	
 	
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/bootstrap.min.css" />' media="all" />
+	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/bootstrap.4.5.min.css" />' media="all" />
+	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/mdb.min.css" />' media="all" />
 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/estilo.css" />' media="all" />
-	<!-- FONTAWESOME 4.7.0 -->
+	<!-- FONTAWESOME 5.11 -->
 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/all.min.css"/>' media="all" />
-	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/font-awesome.min.css"/>' media="all" />
+<%-- 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/font-awesome.min.css"/>' media="all" /> --%>
 
 
 	<!-- SCRIPTS -->
 	<script type="text/javascript" src='<spring:url value="/static/js/jquery-3.3.1.min.js"/>' ></script>
 	<script type="text/javascript" src='<spring:url value="/static/js/popper.min.js"/>' ></script>
 	<script type="text/javascript" src='<spring:url value="/static/js/bootstrap.min.js"/>' ></script>
+	<script type="text/javascript" src='<spring:url value="/static/js/mdb.min.js"/>' ></script>
 	<script type="text/javascript" src='<spring:url value="/static/js/Chart.min.js"/>' ></script>
 	
 
@@ -32,16 +34,19 @@
 </head>
 <body>
 
+	<header>
+		<tiles:insertAttribute name="header" />
+	</header>
 
 	<main>
-		<div class="container">
+		<div class="container" style="min-height:90vh">
 			<tiles:insertAttribute name="body" />			
 		</div>
 	</main>
 
 
 
-	<footer class="page-footer fixed-bottom">
+	<footer class="page-footer">
 		<tiles:insertAttribute name="footer" />
 	</footer>
 

@@ -85,7 +85,7 @@
 			      			      
 			    </ul>
 			    <ul class="navbar-nav">
-			      <li class="nav-item dropdown active">
+			      <li class="nav-item dropdown">
 			        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          ${usuarioSesion.nombreEntidad} &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-circle fa-lg"></i>
 			        </a>

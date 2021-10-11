@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/jsp/common/include_taglib.jsp"%>
+layout.jsp<%@ include file="/WEB-INF/jsp/common/include_taglib.jsp"%>
 
 <br><br><br><br>
 
@@ -17,7 +17,7 @@
 
         	<p>Comprar en tu zona supone impulsar el desarrollo de la econom&iacute;a de tu barrio. Es recibir una atención personalizada, pausada y cercana. Adem&aacute;s de ahorrar tiempo en transporte y combustible.</p>
 
-        	<a href="#" type="button" class="btn btn-orange btn-rounded mx-0">Entrar</a>
+        	<a href='<spring:url value="/login.do"/>' type="button" class="btn btn-orange btn-rounded mx-0">Entrar</a>
 
         </div>
       </div>    
