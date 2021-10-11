@@ -20,7 +20,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import es.golemdr.prefieromizona.controller.constantes.ForwardConstants;
 import es.golemdr.prefieromizona.controller.constantes.UrlConstants;
@@ -67,27 +66,79 @@ public class ComprasController {
 		return ForwardConstants.FWD_LISTADO_COMPRAS;
 	}
 	
-	@GetMapping(value=UrlConstants.URL_LISTADO_COMPRAS_COMERCIO)
-//	public String listComprarsComercio(@RequestParam("idComercio") Long idComercio, @PathVariable("inicio") int inicio, Map<String, Object> map, HttpServletRequest request) {
-	public String listComprarsComercio(@PathVariable("idComercio") String idComercio, Map<String, Object> map, HttpServletRequest request) {		
+	/**
+	 * Este método es muy similar al de la consulta de compras que hace un comercio, a excepción de que cuando es el ADMIN el que realiza
+	 * la consulta deben de aparecer en el listado tanto los datos del comercio, como los del cliente.
+	 * @param inicio
+	 * @param idComercio
+	 * @param map
+	 * @param request
+	 * @return
+	 */
+	@GetMapping(value=UrlConstants.URL_LISTADO_COMPRAS_COMERCIO_ADMIN)
+	public String listComprasComercioAdmin(@PathVariable("inicio") int inicio, @PathVariable("idComercio") String idComercio, Map<String, Object> map, HttpServletRequest request) {		
 
 		List<Compra> resultado = null;
-		boolean misCompras = true;
+		String tipoConsulta = "comercio";
 		
-//		PaginacionBean paginacion = new PaginacionBean();
-//		paginacion.setInicio(inicio - 1);
+		PaginacionBean paginacion = new PaginacionBean();
+		paginacion.setInicio(inicio - 1);
 
-		resultado = comprasService.getComprasComercio(Long.valueOf(idComercio));
+		resultado = comprasService.getCompras(paginacion, Long.valueOf(idComercio), tipoConsulta);
 
-		//map.put("paginacion", paginacion);
+		map.put("paginacion", paginacion);
 		map.put(COMPRAS, resultado);
 		map.put(COMPRA, new CompraForm());
 		map.put("idComercio", idComercio);
-		map.put("misCompras", misCompras);
+		map.put("tipo", "admin");
 
 
-		return ForwardConstants.FWD_LISTADO_COMPRAS_COMERCIO;
+		return ForwardConstants.FWD_LISTADO_COMPRAS;
 	}	
+	
+	@GetMapping(value=UrlConstants.URL_LISTADO_COMPRAS_COMERCIO)
+	public String listComprasComercio(@PathVariable("inicio") int inicio, @PathVariable("idComercio") String idComercio, Map<String, Object> map, HttpServletRequest request) {		
+
+		List<Compra> resultado = null;
+		String tipo = "comercio";
+		
+		PaginacionBean paginacion = new PaginacionBean();
+		paginacion.setInicio(inicio - 1);
+
+		resultado = comprasService.getCompras(paginacion, Long.valueOf(idComercio), tipo);
+
+		map.put("paginacion", paginacion);
+		map.put(COMPRAS, resultado);
+		map.put(COMPRA, new CompraForm());
+		map.put("idComercio", idComercio);
+		map.put("tipo", tipo);
+
+
+		return ForwardConstants.FWD_LISTADO_COMPRAS;
+	}
+	
+	@GetMapping(value=UrlConstants.URL_LISTADO_COMPRAS_CLIENTE)
+	public String listComprasCliente(@PathVariable("inicio") int inicio, @PathVariable("idCliente") String idCliente, Map<String, Object> map, HttpServletRequest request) {		
+
+		List<Compra> resultado = null;
+		String tipo = "cliente";
+		
+		PaginacionBean paginacion = new PaginacionBean();
+		paginacion.setInicio(inicio - 1);
+
+		resultado = comprasService.getCompras(paginacion, Long.valueOf(idCliente), tipo);
+
+		map.put("paginacion", paginacion);
+		map.put(COMPRAS, resultado);
+		map.put(COMPRA, new CompraForm());
+		map.put("idCliente", idCliente);
+		map.put("tipo", tipo);
+
+
+		return ForwardConstants.FWD_LISTADO_COMPRAS;
+	}	
+	
+	
 
 
 	@PostMapping(value=UrlConstants.URL_INSERTAR_COMPRA)

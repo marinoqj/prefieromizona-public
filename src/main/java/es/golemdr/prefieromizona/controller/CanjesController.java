@@ -3,9 +3,9 @@ package es.golemdr.prefieromizona.controller;
 
 
 import java.lang.reflect.InvocationTargetException;
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.Map;
-import java.text.MessageFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -13,26 +13,20 @@ import javax.validation.Valid;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import es.golemdr.prefieromizona.ext.Constantes;
 import es.golemdr.prefieromizona.controller.constantes.ForwardConstants;
 import es.golemdr.prefieromizona.controller.constantes.UrlConstants;
 import es.golemdr.prefieromizona.domain.Canje;
 import es.golemdr.prefieromizona.domain.form.CanjeForm;
+import es.golemdr.prefieromizona.ext.Constantes;
 import es.golemdr.prefieromizona.ext.utils.paginacion.PaginacionBean;
-import es.golemdr.prefieromizona.ext.utils.paginacion.PaginacionFactory;
 import es.golemdr.prefieromizona.service.CanjesService;
 
 
@@ -69,6 +63,48 @@ public class CanjesController {
 
 		return ForwardConstants.FWD_LISTADO_CANJES;
 	}
+	
+	@GetMapping(value=UrlConstants.URL_LISTADO_CANJES_COMERCIO)
+	public String listCanjesComercio(@PathVariable("inicio") int inicio, @PathVariable("idComercio") String idComercio, Map<String, Object> map, HttpServletRequest request) {		
+
+		List<Canje> resultado = null;
+		String tipo = "comercio";
+		
+		PaginacionBean paginacion = new PaginacionBean();
+		paginacion.setInicio(inicio - 1);
+
+		resultado = canjesService.getCanjes(paginacion, Long.valueOf(idComercio), tipo);
+
+		map.put("paginacion", paginacion);
+		map.put(CANJES, resultado);
+		map.put(CANJE, new CanjeForm());
+		map.put("idComercio", idComercio);
+		map.put("tipo", tipo);
+
+
+		return ForwardConstants.FWD_LISTADO_CANJES;
+	}	
+	
+	@GetMapping(value=UrlConstants.URL_LISTADO_CANJES_CLIENTE)
+	public String listCanjesCliente(@PathVariable("inicio") int inicio, @PathVariable("idCliente") String idCliente, Map<String, Object> map, HttpServletRequest request) {		
+
+		List<Canje> resultado = null;
+		String tipo = "cliente";
+		
+		PaginacionBean paginacion = new PaginacionBean();
+		paginacion.setInicio(inicio - 1);
+		resultado = canjesService.getCanjes(paginacion, Long.valueOf(idCliente), tipo);
+		
+
+		map.put("paginacion", paginacion);
+		map.put(CANJES, resultado);
+		map.put(CANJE, new CanjeForm());
+		map.put("idCliente", idCliente);
+		map.put("tipo", tipo);
+
+
+		return ForwardConstants.FWD_LISTADO_CANJES;
+	}	
 
 
 	@PostMapping(value=UrlConstants.URL_INSERTAR_CANJE)

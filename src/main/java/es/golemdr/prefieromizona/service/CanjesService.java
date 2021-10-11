@@ -11,8 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import es.golemdr.prefieromizona.domain.Canje;
-import es.golemdr.prefieromizona.ext.utils.paginacion.PaginacionBean;
 import es.golemdr.prefieromizona.ext.Constantes;
+import es.golemdr.prefieromizona.ext.utils.paginacion.PaginacionBean;
 
 @Service
 public class CanjesService extends BaseService{
@@ -33,8 +33,26 @@ public class CanjesService extends BaseService{
 			return Arrays.asList(canjes);
 
 		}
+		
+		public List<Canje> getCanjes(PaginacionBean paginacion, Long id, String tipo) {
+			
+			HttpEntity<String> entity =  buildHeaders(paginacion);
+			
+			ResponseEntity<Canje[]> response = restTemplate.exchange(SERVER + ":" + PORT + "/canjes/" + id + "/" + tipo + "/", HttpMethod.GET, entity, Canje[].class);
 
+			Canje[] canjes = response.getBody();
 
+			String total=  response.getHeaders().getFirst(Constantes.PAGINACION_TOTAL);
+			
+			if (total == null) {
+				total = "1";
+			}
+			
+			paginacion.setTotalRegistros(Integer.valueOf(total));
+
+			return Arrays.asList(canjes);
+		}	
+		
 
 		public URI insertarCanje(Canje canje) {
 

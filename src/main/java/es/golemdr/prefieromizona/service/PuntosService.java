@@ -33,6 +33,21 @@ public class PuntosService extends BaseService{
 			return Arrays.asList(puntos);
 
 		}
+		
+		public List<Punto> getPuntosCliente(PaginacionBean paginacion, Long idCliente) {
+
+			HttpEntity<String> entity =  buildHeaders(paginacion);
+
+			ResponseEntity<Punto[]> response = restTemplate.exchange(SERVER + ":" + PORT + "/puntos/cliente/" + idCliente , HttpMethod.GET,entity, Punto[].class);
+
+			Punto[] puntos = response.getBody();
+
+			String total=  response.getHeaders().getFirst(Constantes.PAGINACION_TOTAL);
+			paginacion.setTotalRegistros(Integer.valueOf(total));
+
+			return Arrays.asList(puntos);
+
+		}		
 
 
 

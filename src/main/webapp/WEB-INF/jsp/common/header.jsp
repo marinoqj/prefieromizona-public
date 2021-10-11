@@ -44,22 +44,22 @@
 			      </li>
 			     </sec:authorize>
 			    <sec:authorize access="hasRole('COMERCIO')">
-			        <li class="nav-item dropdown active">
+			        <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          Puntos
 				        </a>
 				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown2">
 							<a class="dropdown-item"
-							href='<spring:url value="/listadoComprasComercio{idEntidad}.do">
+							href='<spring:url value="/comercio/{idEntidad}/listadoCompras1.do">
 					  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 					  			  </spring:url>'>Puntos Emitidos</a> 
 							<a class="dropdown-item"
-							href='<spring:url value="/comercio/listadoMisCanjeados{idEntidad}.do">
+							href='<spring:url value="/comercio/{idEntidad}/listadoCanjes1.do">
 					  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 					  			  </spring:url>'>Puntos Canjeados</a>					
 				        </div>
 			        </li>			    
-					<li class="nav-item active"><a class="nav-link"
+					<li class="nav-item"><a class="nav-link"
 						href='<spring:url value="/comercio/verMisEstadísticas{idEntidad}.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Estadísticas</a>
@@ -67,17 +67,17 @@
 			     </sec:authorize>
 			     <sec:authorize access="hasRole('CLIENTE')">
 					<li class="nav-item"><a class="nav-link"
-						href='<spring:url value="/cliente/listadoMisCompras{idEntidad}.do">
+						href='<spring:url value="/cliente/{idEntidad}/listadoCompras1.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Mis Compras</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
-						href='<spring:url value="/cliente/listadoMisCanjes{idEntidad}.do">
+						href='<spring:url value="/cliente/{idEntidad}/listadoCanjes1.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Mis Canjes</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
-						href='<spring:url value="/cliente/listadoMisPuntos{idEntidad}.do">
+						href='<spring:url value="/cliente/{idEntidad}/listadoPuntos1.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Mis Puntos</a>
 					</li>					

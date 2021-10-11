@@ -118,11 +118,13 @@ $(document).ready(function(){
 					
 					<th scope="col"><spring:message code="label.puntos"/></th>
 					
-					<c:if test="${misCompras eq false}">
+					<c:if test='${tipo ne "comercio"}'>
 						<th scope="col"><spring:message code="label.comercio"/></th>
 					</c:if>
 					
-					<th scope="col"><spring:message code="label.cliente"/></th>
+					<c:if test='${tipo ne "cliente"}'>
+						<th scope="col"><spring:message code="label.cliente"/></th>
+					</c:if>
 					
 					<th scope="col">&nbsp;</th>
 				</tr>
@@ -135,11 +137,13 @@ $(document).ready(function(){
 			
 				<td>${compra.puntos}</td>
 			
-				<c:if test="${misCompras eq false}">
+				<c:if test='${tipo ne "comercio"}'>
 					<td>${compra.comercio.razonSocial}</td>
 				</c:if>
 			
-				<td>${compra.cliente.nombre} ${compra.cliente.apellido1} ${compra.cliente.apellido2}</td>
+				<c:if test='${tipo ne "cliente"}'>
+					<td>${compra.cliente.nombre} ${compra.cliente.apellido1} ${compra.cliente.apellido2}</td>
+				</c:if>
 			
 				<td>
 					<div>

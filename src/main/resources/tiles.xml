@@ -70,11 +70,6 @@
         <put-attribute name="body"  value="/WEB-INF/jsp/compras/listadoCompras.jsp"/>
     </definition>
     
-    <definition name="ListadoComprasComercio" extends="baseLayout">
-        <put-attribute name="title" value="Listado de compras del Comercio"/>
-        <put-attribute name="body"  value="/WEB-INF/jsp/compras/listadoCompras.jsp"/>
-    </definition>	
-    
         <!-- Canjes -->
     <definition name="CanjeForm" extends="baseLayout">
         <put-attribute name="title" value="Alta de canjes"/>
@@ -85,7 +80,7 @@
         <put-attribute name="title" value="Listado de canjes"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/canjes/listadoCanjes.jsp"/>
     </definition>
-
+    
 
     <!-- Puntos -->
     <definition name="PuntoForm" extends="baseLayout">

@@ -34,20 +34,26 @@ public class ComprasService extends BaseService{
 
 		}
 		
-		public List<Compra> getComprasComercio(Long idComercio) {
+		
+		public List<Compra> getCompras(PaginacionBean paginacion, Long idEntidad, String tipoEntidad) {
 
-//			HttpEntity<String> entity =  buildHeaders(paginacion);
+			HttpEntity<String> entity =  buildHeaders(paginacion);
 
-			ResponseEntity<Compra[]> response = restTemplate.exchange(SERVER + ":" + PORT + "compras/comercio/" + idComercio , HttpMethod.GET, null, Compra[].class);
+			ResponseEntity<Compra[]> response = restTemplate.exchange(SERVER + ":" + PORT + "compras/" + tipoEntidad + "/" + idEntidad , HttpMethod.GET, entity, Compra[].class);
 
 			Compra[] compras = response.getBody();
 
-//			String total=  response.getHeaders().getFirst(Constantes.PAGINACION_TOTAL);
-//			paginacion.setTotalRegistros(Integer.valueOf(total));
+			String total=  response.getHeaders().getFirst(Constantes.PAGINACION_TOTAL);
+			
+			if (total == null) {
+				total = "1";
+			}
+			
+			paginacion.setTotalRegistros(Integer.valueOf(total));
 
 			return Arrays.asList(compras);
 
-		}		
+		}			
 
 
 

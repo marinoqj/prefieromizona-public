@@ -151,6 +151,26 @@ public class PuntosController {
 
 			return ForwardConstants.FWD_LISTADO_PUNTOS;
 		}
+		
+		@GetMapping(value=UrlConstants.URL_LISTADO_PUNTOS_USUARIO)
+		public String lisadoPuntostCliente(@PathVariable("inicio") int inicio,@PathVariable("idCliente") String idCliente, Map<String, Object> map, HttpServletRequest request) {
+
+			List<Punto> resultado = null;
+	        boolean hayFiltro = false;
+
+
+			PaginacionBean paginacion = new PaginacionBean();
+			paginacion.setInicio(inicio - 1);
+
+			resultado = puntosService.getPuntosCliente(paginacion, Long.parseLong(idCliente));
+
+			map.put("paginacion", paginacion);
+			map.put(PUNTOS, resultado);
+			map.put(PUNTO,new PuntoForm());
+	        map.put(Constantes.ATRIBUTO_SESSION_HAY_FILTRO, hayFiltro);
+
+			return ForwardConstants.FWD_LISTADO_PUNTOS;
+		}		
 //
 //
 //		@PostMapping(value=UrlConstants.URL_INSERTAR_PUNTO)

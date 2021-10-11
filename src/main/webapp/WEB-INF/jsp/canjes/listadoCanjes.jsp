@@ -122,9 +122,13 @@ $(document).ready(function(){
 					
 					<th scope="col"><spring:message code="label.puntos"/></th>
 					
-					<th scope="col"><spring:message code="label.comercio"/></th>
+					<c:if test='${tipo ne "comercio"}'>
+						<th scope="col"><spring:message code="label.comercio"/></th>
+					</c:if>
 					
-					<th scope="col"><spring:message code="label.cliente"/></th>
+					<c:if test='${tipo ne "cliente"}'>
+						<th scope="col"><spring:message code="label.cliente"/></th>
+					</c:if>
 					
 					<th scope="col">&nbsp;</th>
 				</tr>
@@ -137,9 +141,13 @@ $(document).ready(function(){
 			
 				<td>${canje.puntos}</td>
 			
-				<td>${canje.comercio.razonSocial}</td>
+				<c:if test='${tipo ne "comercio"}'>
+					<td>${canje.comercio.razonSocial}</td>
+				</c:if>
 			
-				<td>${canje.cliente.nombre} ${canje.cliente.apellido1} ${canje.cliente.apellido2}</td>
+				<c:if test='${tipo ne "cliente"}'>
+					<td>${canje.cliente.nombre} ${canje.cliente.apellido1} ${canje.cliente.apellido2}</td>
+				</c:if>
 			
 				<td>
 					<div>

@@ -66,7 +66,9 @@ public class UrlConstants {
 	public static final String URL_ACTUALIZAR_COMPRA = SEGURIDAD_COMPRAS + "/actualizarCompra.do";
 	public static final String URL_BORRAR_COMPRA = SEGURIDAD_COMPRAS + "/borrarCompra.do";
     public static final String URL_BUSCAR_COMPRAS = SEGURIDAD_COMPRAS + "/buscarCompras.do";
-	public static final String URL_LISTADO_COMPRAS_COMERCIO = SEGURIDAD_COMPRAS + "/listadoComprasComercio{idComercio}.do";
+	public static final String URL_LISTADO_COMPRAS_COMERCIO_ADMIN = SEGURIDAD_COMPRAS + "/admin/comercio/{idComercio}/listadoCompras" + SUFIJO_PAGINACION;
+	public static final String URL_LISTADO_COMPRAS_COMERCIO = SEGURIDAD_COMPRAS + "/comercio/{idComercio}/listadoCompras" + SUFIJO_PAGINACION;
+	public static final String URL_LISTADO_COMPRAS_CLIENTE = SEGURIDAD_COMPRAS + "/cliente/{idCliente}/listadoCompras" + SUFIJO_PAGINACION;
     
     
 	// Canjes
@@ -78,12 +80,16 @@ public class UrlConstants {
 	public static final String URL_ACTUALIZAR_CANJE = SEGURIDAD_CANJES + "/actualizarCanje.do";
 	public static final String URL_BORRAR_CANJE = SEGURIDAD_CANJES + "/borrarCanje.do";
     public static final String URL_BUSCAR_CANJES = SEGURIDAD_CANJES + "/buscarCanjes.do";
+	public static final String URL_LISTADO_CANJES_COMERCIO = SEGURIDAD_CANJES + "/comercio/{idComercio}/listadoCanjes" + SUFIJO_PAGINACION;
+	public static final String URL_LISTADO_CANJES_CLIENTE = SEGURIDAD_CANJES + "/cliente/{idCliente}/listadoCanjes" + SUFIJO_PAGINACION;
+    
 
 
 	
 
 	// Puntos
 	public static final String URL_LISTADO_PUNTOS = SEGURIDAD_PUNTOS + "/listadoPuntos" + SUFIJO_PAGINACION;
+	public static final String URL_LISTADO_PUNTOS_USUARIO = SEGURIDAD_PUNTOS + "/cliente/{idCliente}/listadoPuntos" + SUFIJO_PAGINACION;
 	public static final String URL_LISTADO_PUNTOS_FILTRADO = SEGURIDAD_PUNTOS + "/listadoPuntosFiltrado" + SUFIJO_PAGINACION;
 	public static final String URL_ALTA_PUNTO = SEGURIDAD_PUNTOS + "/altaPunto.do";
 	public static final String URL_INSERTAR_PUNTO = SEGURIDAD_PUNTOS + "/insertarPunto.do";
@@ -95,6 +101,7 @@ public class UrlConstants {
     public static final String URL_VER_PUNTOS_FORM = SEGURIDAD_PUNTOS + "/verPuntosForm{accion}.do";
     public static final String URL_GENERAR_PUNTOS = SEGURIDAD_PUNTOS + "/generarPuntos.do";
     public static final String URL_CANJEAR_PUNTOS = SEGURIDAD_PUNTOS + "/canjearPuntos.do";
+
 
 
 	
