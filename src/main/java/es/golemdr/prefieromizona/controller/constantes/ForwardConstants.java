@@ -43,6 +43,7 @@ public class ForwardConstants {
 	public static final String FWD_PUNTOS_FORM = "PuntosForm";
 	public static final String FWD_EMITIR_PUNTOS_FORM = "EmitirPuntosForm";
 	public static final String FWD_CODIGO_PUNTOS = "CodigoPuntos";
+	public static final String FWD_ESCANEAR_CODIGO_PUNTOS = "EscanearCodigoPuntos";
 	
 
 }

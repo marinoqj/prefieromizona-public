@@ -69,6 +69,9 @@
 					</li>						
 			     </sec:authorize>
 			     <sec:authorize access="hasRole('CLIENTE')">
+			      <li class="nav-item">
+			        <a class="nav-link" href='<spring:url value="/verEscanearCodigo.do"/>'>Escanear puntos</a>
+			      </li>				     
 					<li class="nav-item"><a class="nav-link"
 						href='<spring:url value="/cliente/{idEntidad}/listadoCompras1.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />

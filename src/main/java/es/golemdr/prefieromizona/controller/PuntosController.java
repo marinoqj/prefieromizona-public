@@ -185,6 +185,13 @@ public class PuntosController {
 			return ForwardConstants.FWD_CODIGO_PUNTOS;
 		}
 		
+		
+		@GetMapping(value=UrlConstants.URL_VER_ESCANEAR_CODIGO)
+		public String verEscanearCodigo(Map<String, Object> map) {
+
+			return ForwardConstants.FWD_ESCANEAR_CODIGO_PUNTOS;
+		}		
+		
 //
 //
 //		@PostMapping(value=UrlConstants.URL_BORRAR_PUNTO)
