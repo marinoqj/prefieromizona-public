@@ -61,7 +61,7 @@ public class PuntosController {
 	
 	
 	@GetMapping(value=UrlConstants.URL_VER_PUNTOS_FORM)
-	public String list(@PathVariable("accion") String accion,Map<String, Object> map) {
+	public String verPuntosForm(@PathVariable("accion") String accion,Map<String, Object> map) {
 
 		map.put("puntosForm",new PuntosForm());
 		
@@ -170,87 +170,28 @@ public class PuntosController {
 	        map.put(Constantes.ATRIBUTO_SESSION_HAY_FILTRO, hayFiltro);
 
 			return ForwardConstants.FWD_LISTADO_PUNTOS;
+		}
+
+		
+		@GetMapping(value=UrlConstants.URL_VER_EMITIR_PUNTOS_FORM)
+		public String verEmitirPuntosForm(Map<String, Object> map) {
+
+			return ForwardConstants.FWD_EMITIR_PUNTOS_FORM;
+		}
+		
+		@GetMapping(value=UrlConstants.URL_GENERAR_CODIGO_PUNTOS)
+		public String generarCodigoPuntos(Map<String, Object> map) {
+
+			return ForwardConstants.FWD_CODIGO_PUNTOS;
+		}
+		
+		
+		@GetMapping(value=UrlConstants.URL_VER_ESCANEAR_CODIGO)
+		public String verEscanearCodigo(Map<String, Object> map) {
+
+			return ForwardConstants.FWD_ESCANEAR_CODIGO_PUNTOS;
 		}		
-//
-//
-//		@PostMapping(value=UrlConstants.URL_INSERTAR_PUNTO)
-//		public String insertar(PuntoForm formulario, Model model) {
-//
-//			Punto entity = new Punto();
-//
-//			try {
-//
-//				BeanUtils.copyProperties(entity, formulario);
-//
-//			} catch (IllegalAccessException | InvocationTargetException e) {
-//
-//				log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
-//			}
-//
-//
-//			puntosService.insertarPunto(entity);
-//
-//			return ForwardConstants.RED_LISTADO_PUNTOS; 
-//		}
-//
-//
-//		@PostMapping(value=UrlConstants.URL_EDITAR_PUNTO)
-//		public String editar(String idPunto, Map<String, Object> map) {
-//
-//			Punto entity = puntosService.getById(Long.valueOf(idPunto));
-//
-//			PuntoForm formulario = new PuntoForm();
-//
-//			try {
-//
-//				BeanUtils.copyProperties(formulario, entity);
-//
-//			} catch (IllegalAccessException | InvocationTargetException e) {
-//
-//				log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
-//			}
-//
-//
-//			map.put("modo", "actualizar");
-//			map.put(PUNTO,formulario);
-//
-//			return ForwardConstants.FWD_PUNTO_FORM;
-//		}
-//
-//
-//		@PostMapping(value=UrlConstants.URL_ACTUALIZAR_PUNTO)
-//		public String actualizar(@Valid PuntoForm formulario, BindingResult result, Model model) {
-//
-//
-//			String destino = null;
-//
-//			if (result.hasErrors()) {
-//
-//				model.addAttribute("modo", "actualizar");
-//				destino = ForwardConstants.FWD_PUNTO_FORM;
-//
-//			}else{
-//
-//				Punto entity = new Punto();
-//
-//				try {
-//
-//					BeanUtils.copyProperties(entity, formulario);
-//
-//					puntosService.actualizarPunto(entity);
-//
-//					destino = ForwardConstants.RED_LISTADO_PUNTOS;
-//
-//
-//				} catch (IllegalAccessException | InvocationTargetException e) {
-//
-//					log.error(MessageFormat.format(Constantes.PREFIJO_MENSAJE_ERROR,e.getMessage()));
-//				}
-//
-//			}
-//
-//			return destino;
-//		}
+		
 //
 //
 //		@PostMapping(value=UrlConstants.URL_BORRAR_PUNTO)
