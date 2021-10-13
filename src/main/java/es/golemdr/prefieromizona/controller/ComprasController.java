@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -24,8 +25,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import es.golemdr.prefieromizona.controller.constantes.ForwardConstants;
 import es.golemdr.prefieromizona.controller.constantes.UrlConstants;
 import es.golemdr.prefieromizona.domain.Compra;
+import es.golemdr.prefieromizona.domain.Usuario;
 import es.golemdr.prefieromizona.domain.form.CompraForm;
 import es.golemdr.prefieromizona.ext.Constantes;
+import es.golemdr.prefieromizona.ext.exceptions.AccessDeniedException;
 import es.golemdr.prefieromizona.ext.utils.paginacion.PaginacionBean;
 import es.golemdr.prefieromizona.service.ComprasService;
 
@@ -97,48 +100,54 @@ public class ComprasController {
 	}	
 	
 	@GetMapping(value=UrlConstants.URL_LISTADO_COMPRAS_COMERCIO)
-	public String listComprasComercio(@PathVariable("inicio") int inicio, @PathVariable("idComercio") String idComercio, Map<String, Object> map, HttpServletRequest request) {		
+	public String listComprasComercio(@PathVariable("inicio") int inicio, @PathVariable("idComercio") String idComercio, Map<String, Object> map, HttpServletRequest request) throws AccessDeniedException {		
 
-		List<Compra> resultado = null;
 		String tipo = "comercio";
-		
-		PaginacionBean paginacion = new PaginacionBean();
-		paginacion.setInicio(inicio - 1);
-
-		resultado = comprasService.getCompras(paginacion, Long.valueOf(idComercio), tipo);
-
-		map.put("paginacion", paginacion);
-		map.put(COMPRAS, resultado);
-		map.put(COMPRA, new CompraForm());
-		map.put("idComercio", idComercio);
+		map.put("idEntidad", idComercio);
 		map.put("tipo", tipo);
+		map.put("inicio", inicio);
 
-
-		return ForwardConstants.FWD_LISTADO_COMPRAS;
+		return listCompras(map, request);
 	}
 	
 	@GetMapping(value=UrlConstants.URL_LISTADO_COMPRAS_CLIENTE)
-	public String listComprasCliente(@PathVariable("inicio") int inicio, @PathVariable("idCliente") String idCliente, Map<String, Object> map, HttpServletRequest request) {		
+	public String listComprasCliente(@PathVariable("inicio") int inicio, @PathVariable("idCliente") String idCliente, Map<String, Object> map, HttpServletRequest request) throws AccessDeniedException {		
+
+		String tipo = "cliente";
+		map.put("idEntidad", idCliente);
+		map.put("tipo", tipo);
+		map.put("inicio", inicio);
+
+		return listCompras(map, request);
+	}	
+	
+	private String listCompras(Map<String, Object> map, HttpServletRequest request) throws AccessDeniedException {	
+		
+		String idEntidad = map.get("idEntidad").toString();
+		String tipo = map.get("tipo").toString();
+		String inicio = map.get("inicio").toString();
+		
+		Usuario usuarioLogado = (Usuario) request.getSession(false).getAttribute(Constantes.ATRIBUTO_SESSION_USUARIO);
+		
+		if(!usuarioLogado.getIdEntidad().equals(Long.valueOf(idEntidad))) {
+			throw new AccessDeniedException("Acceso denegado");
+		}
 
 		List<Compra> resultado = null;
-		String tipo = "cliente";
 		
 		PaginacionBean paginacion = new PaginacionBean();
-		paginacion.setInicio(inicio - 1);
+		paginacion.setInicio(Integer.parseInt(inicio) - 1);
 
-		resultado = comprasService.getCompras(paginacion, Long.valueOf(idCliente), tipo);
+		resultado = comprasService.getCompras(paginacion, Long.valueOf(idEntidad), tipo);
 
 		map.put("paginacion", paginacion);
 		map.put(COMPRAS, resultado);
 		map.put(COMPRA, new CompraForm());
-		map.put("idCliente", idCliente);
 		map.put("tipo", tipo);
 
 
 		return ForwardConstants.FWD_LISTADO_COMPRAS;
 	}	
-	
-	
 
 
 	@PostMapping(value=UrlConstants.URL_INSERTAR_COMPRA)
