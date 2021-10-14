@@ -76,7 +76,7 @@ public class PuntosController {
 		return ForwardConstants.FWD_PUNTOS_FORM;
 	}
 	
-	
+	// TODO - Quitar este método cuando funcione lo del QR (o dejarlo si se quiere tener el formulario como alternativa)
 	@PostMapping(value=UrlConstants.URL_GENERAR_PUNTOS)
 	public String generarPuntos(@Valid PuntosForm formulario, BindingResult result, Model model) throws Exception {
 
@@ -95,6 +95,33 @@ public class PuntosController {
 		compra.setComercio(comercio);
 		compra.setFechaCompra(new Date(System.currentTimeMillis()));
 		compra.setPuntos(Long.valueOf(formulario.getCantidadPuntos()));
+		
+		comprasService.insertarCompra(compra);
+		
+		
+		model.addAttribute("mensaje", "generacion.puntos.ok");
+		
+		return ForwardConstants.FWD_MENSAJE;
+	}
+	
+	@PostMapping(value=UrlConstants.URL_GUARDAR_PUNTOS)
+	public String guardarPuntos(String codComercio, String idCliente, String cantidadPuntos, Model model) throws Exception {
+
+		
+
+		Cliente cliente = clientesService.getById(Long.valueOf(idCliente));
+		
+		Comercio comercio = comerciosService.findByCodComercio(codComercio);
+
+		if(cliente == null || comercio == null) {
+			throw new Exception("Cliente o comercio no válidos");
+		}
+		
+		Compra compra = new Compra();
+		compra.setCliente(cliente);
+		compra.setComercio(comercio);
+		compra.setFechaCompra(new Date(System.currentTimeMillis()));
+		compra.setPuntos(Long.valueOf(cantidadPuntos));
 		
 		comprasService.insertarCompra(compra);
 		

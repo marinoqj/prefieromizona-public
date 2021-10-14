@@ -2,7 +2,24 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp" %>
 
 
-	
+<script>
+function guardarPuntos(codComercio, cantidadPuntos){
+
+	 	document.formulario.codComercio.value = codComercio;
+	 	document.formulario.cantidadPuntos.value = cantidadPuntos;
+	 	document.formulario.action="guardarPuntos.do";
+	 	document.formulario.submit();
+
+}
+
+</script>
+
+<form name="formulario" method="post">
+	<input type="hidden" name="idCliente" value="${usuarioSesion.idEntidad}"/>
+	<input type="hidden" name="codComercio"/>
+	<input type="hidden" name="cantidadPuntos"/>
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>	
 
 
 	<br>
@@ -135,9 +152,11 @@
                             var codeId = 0;
                             function onScanSuccess(decodedText, decodedResult) {
                             	
+                            	// TODO - Aqui hay que parsear la información del QR
                             	
+                            	//alert("1|" + decodedText + "|" + decodedResult);
                             	
-                            	alert("1|" + decodedText + "|" + decodedResult);
+                            	guardarPuntos('A38', '2');
                             	
                                 /**
                                  * If you following the code example of this page by looking at the
@@ -145,12 +164,16 @@
                                  *
                                  * Tip: update this function with a success callback of your choise.
                                  */
+                                
+                                // Comento lo siguiente porque de momento no hace falta
+                                /**
                                 if (lastMessage !== decodedText) {
                                     lastMessage = decodedText;
                                     printScanResultPretty(codeId, decodedText, decodedResult);
                                     ++codeId;
                                 }
-
+								*/
+                            	
                             }
                             let html5QrcodeScanner = new Html5QrcodeScanner(
                                 "reader",
