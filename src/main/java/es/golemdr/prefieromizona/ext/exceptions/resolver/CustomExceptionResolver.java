@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
 import es.golemdr.prefieromizona.ext.Constantes;
+import es.golemdr.prefieromizona.ext.exceptions.AccessDeniedException;
 import es.golemdr.prefieromizona.ext.utils.tools.GeneradorCodigo;
 
 
@@ -27,10 +28,15 @@ public class CustomExceptionResolver extends SimpleMappingExceptionResolver{
     	String codigo = null;
     	ModelAndView view = null;
     	
-    	if(ex instanceof NullPointerException ){
+    	if(ex instanceof NullPointerException){
     		
     		mensaje = "excepcion.valor.nulo";
     	
+    	
+    	}else if(ex instanceof AccessDeniedException){
+    		
+    		mensaje = "excepcion.acceso.denegado";
+    		
     	}else{
     	
     		mensaje = "excepcion.error.desconocido";

@@ -181,68 +181,10 @@ $(document).ready(function(){
 
 		<div class="row">
 			<div class="col-md-12">
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#nuevoFormulario"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</button>
 				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ventanaBuscar"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
 			</div>
 		</div>
 
-
-<!-- Modal Nuev@ canje-->
-<div class="modal fade" id="nuevoFormulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-sync fa-lg pr-2"></em>Nuevo canje</span>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="color: #6c757d">
-		<form:form modelAttribute="canje" action="insertarCanje.do" method="post">
-
-    		
-
-
-					<div class="form-group">
-						<label for="fechaCanje"><spring:message code="label.fechaCanje"/></label> <form:input path="fechaCanje" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="puntos"><spring:message code="label.puntos"/></label> <form:input path="puntos" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="idComercio"><spring:message code="label.idComercio"/></label> <form:input path="idComercio" class="form-control"/>
-					</div>
-
-					
-
-
-					<div class="form-group">
-						<label for="idCliente"><spring:message code="label.idCliente"/></label> <form:input path="idCliente" class="form-control"/>
-					</div>
-
-					
-
-			<br>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-        <button type="submit" class="btn btn-primary btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
-      </div>
-
-      </form:form>
-    </div>
-  </div>
-</div>
-</div>
 
 
 <!-- Modal Busqueda -->

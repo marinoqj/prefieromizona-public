@@ -104,8 +104,12 @@ public class UrlConstants {
     public static final String URL_BUSCAR_PUNTOS = SEGURIDAD_PUNTOS + "/buscarPuntos.do";
 
     public static final String URL_VER_PUNTOS_FORM = SEGURIDAD_PUNTOS + "/verPuntosForm{accion}.do";
+    public static final String URL_VER_EMITIR_PUNTOS_FORM = SEGURIDAD_PUNTOS + "/verEmitirPuntosForm.do";
+    public static final String URL_GENERAR_CODIGO_PUNTOS = SEGURIDAD_PUNTOS + "/generarCodigoPuntos.do";
+    public static final String URL_VER_ESCANEAR_CODIGO = SEGURIDAD_PUNTOS + "/verEscanearCodigo.do";
     public static final String URL_GENERAR_PUNTOS = SEGURIDAD_PUNTOS + "/generarPuntos.do";
     public static final String URL_CANJEAR_PUNTOS = SEGURIDAD_PUNTOS + "/canjearPuntos.do";
+    public static final String URL_GUARDAR_PUNTOS = SEGURIDAD_PUNTOS + "/guardarPuntos.do";
 
 
 

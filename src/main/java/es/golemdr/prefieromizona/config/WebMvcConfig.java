@@ -46,6 +46,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import es.golemdr.prefieromizona.controller.constantes.ForwardConstants;
 import es.golemdr.prefieromizona.controller.constantes.UrlConstants;
+import es.golemdr.prefieromizona.ext.exceptions.AccessDeniedException;
 import es.golemdr.prefieromizona.ext.exceptions.resolver.CustomExceptionResolver;
 
 
@@ -156,7 +157,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
       SimpleMappingExceptionResolver exceptionResolver = new CustomExceptionResolver();
 
       Properties mappings = new Properties();
+      mappings.setProperty(AccessDeniedException.class.getName(), "AccesoDenegado");
       mappings.setProperty("Exception", "ErrorGenerico");
+      
 
       exceptionResolver.setExceptionMappings(mappings);  // None by default
 

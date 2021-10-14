@@ -20,7 +20,7 @@
 	<!-- FONTAWESOME 5.11 -->
 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/all.min.css"/>' media="all" />
 <%-- 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/font-awesome.min.css"/>' media="all" /> --%>
-
+	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/qr.custom.css" />' media="all" />
 
 	<!-- SCRIPTS -->
 	<script type="text/javascript" src='<spring:url value="/static/js/jquery-3.3.1.min.js"/>' ></script>

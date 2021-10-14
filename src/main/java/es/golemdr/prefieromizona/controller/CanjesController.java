@@ -24,8 +24,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import es.golemdr.prefieromizona.controller.constantes.ForwardConstants;
 import es.golemdr.prefieromizona.controller.constantes.UrlConstants;
 import es.golemdr.prefieromizona.domain.Canje;
+import es.golemdr.prefieromizona.domain.Compra;
+import es.golemdr.prefieromizona.domain.Usuario;
 import es.golemdr.prefieromizona.domain.form.CanjeForm;
+import es.golemdr.prefieromizona.domain.form.CompraForm;
 import es.golemdr.prefieromizona.ext.Constantes;
+import es.golemdr.prefieromizona.ext.exceptions.AccessDeniedException;
 import es.golemdr.prefieromizona.ext.utils.paginacion.PaginacionBean;
 import es.golemdr.prefieromizona.service.CanjesService;
 
@@ -65,41 +69,49 @@ public class CanjesController {
 	}
 	
 	@GetMapping(value=UrlConstants.URL_LISTADO_CANJES_COMERCIO)
-	public String listCanjesComercio(@PathVariable("inicio") int inicio, @PathVariable("idComercio") String idComercio, Map<String, Object> map, HttpServletRequest request) {		
+	public String listCanjesComercio(@PathVariable("inicio") int inicio, @PathVariable("idComercio") String idComercio, Map<String, Object> map, HttpServletRequest request) throws AccessDeniedException {		
 
-		List<Canje> resultado = null;
 		String tipo = "comercio";
-		
-		PaginacionBean paginacion = new PaginacionBean();
-		paginacion.setInicio(inicio - 1);
-
-		resultado = canjesService.getCanjes(paginacion, Long.valueOf(idComercio), tipo);
-
-		map.put("paginacion", paginacion);
-		map.put(CANJES, resultado);
-		map.put(CANJE, new CanjeForm());
-		map.put("idComercio", idComercio);
+		map.put("idEntidad", idComercio);
 		map.put("tipo", tipo);
+		map.put("inicio", inicio);
 
-
-		return ForwardConstants.FWD_LISTADO_CANJES;
-	}	
+		return listCanjes(map, request);
+	}
 	
 	@GetMapping(value=UrlConstants.URL_LISTADO_CANJES_CLIENTE)
-	public String listCanjesCliente(@PathVariable("inicio") int inicio, @PathVariable("idCliente") String idCliente, Map<String, Object> map, HttpServletRequest request) {		
+	public String listCanjesCliente(@PathVariable("inicio") int inicio, @PathVariable("idCliente") String idCliente, Map<String, Object> map, HttpServletRequest request) throws AccessDeniedException {		
+
+		String tipo = "cliente";
+		map.put("idEntidad", idCliente);
+		map.put("tipo", tipo);
+		map.put("inicio", inicio);
+
+		return listCanjes(map, request);
+	}	
+	
+	private String listCanjes(Map<String, Object> map, HttpServletRequest request) throws AccessDeniedException {	
+		
+		String idEntidad = map.get("idEntidad").toString();
+		String tipo = map.get("tipo").toString();
+		String inicio = map.get("inicio").toString();
+		
+		Usuario usuarioLogado = (Usuario) request.getSession(false).getAttribute(Constantes.ATRIBUTO_SESSION_USUARIO);
+		
+		if(!usuarioLogado.getIdEntidad().equals(Long.valueOf(idEntidad))) {
+			throw new AccessDeniedException("Acceso denegado");
+		}
 
 		List<Canje> resultado = null;
-		String tipo = "cliente";
 		
 		PaginacionBean paginacion = new PaginacionBean();
-		paginacion.setInicio(inicio - 1);
-		resultado = canjesService.getCanjes(paginacion, Long.valueOf(idCliente), tipo);
-		
+		paginacion.setInicio(Integer.parseInt(inicio) - 1);
+
+		resultado = canjesService.getCanjes(paginacion, Long.valueOf(idEntidad), tipo);
 
 		map.put("paginacion", paginacion);
 		map.put(CANJES, resultado);
 		map.put(CANJE, new CanjeForm());
-		map.put("idCliente", idCliente);
 		map.put("tipo", tipo);
 
 
