@@ -39,7 +39,7 @@
 	</header>
 
 	<main>
-		<div class="container-fluid" style="min-height:90vh">
+		<div class="container-fluid">
 			<tiles:insertAttribute name="body" />			
 		</div>
 	</main>

@@ -31,7 +31,10 @@ public class UrlConstants {
 
 	
 	// Zona pública
+	public static final String URL_VER_COMO_FUNCIONA = "/pub/verComoFunciona.do";
+	public static final String URL_VER_ESTABLECIMIENTOS = "/pub/verEstablecimientos.do";
 	public static final String URL_VER_OFERTAS = "/pub/verOfertas.do";
+	public static final String URL_VER_NOTICIAS = "/pub/verNoticias.do";
 
 	// Clientes
 	public static final String URL_LISTADO_CLIENTES = SEGURIDAD_CLIENTES + "/listadoClientes" + SUFIJO_PAGINACION;

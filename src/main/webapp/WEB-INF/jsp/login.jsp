@@ -28,7 +28,7 @@
 			<input type="password" name="password" class="form-control mb-4" placeholder="Password">
 
 			<!-- Sign in button -->
-			<button class="btn btn-primary btn-block btn-sm" type="submit">Entrar</button>
+			<button class="btn btn-primary btn-block btn-sm" type="submit">Entrar</button>	
 
 		</div>
 		
@@ -42,29 +42,63 @@
 
 </div>
 
-<div class="row">
-	<div class="col-md-3 col-lg-4">&nbsp;</div>
-	<div class="col-md-6 col-lg-4 align-middle">CervePub - a / 1 || Librería La Luz - b / 1</div>
-	<div class="col-md-3 col-lg-4">&nbsp;</div>
+
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Usuarios y contraseñas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<table class="table">
+		  <thead class="black white-text">
+		    <tr>
+		      <th scope="col">Entidad</th>
+		      <th scope="col">Usuario</th>
+		      <th scope="col">Password</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row">CervePub</th>
+		      <td>a</td>
+		      <td>1</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">Librería La Luz</th>
+		      <td>b</td>
+		      <td>1</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">Ana María</th>
+		      <td>c</td>
+		      <td>1</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">Pedro</th>
+		      <td>d</td>
+		      <td>1</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">Administrador</th>
+		      <td>z</td>
+		      <td>1</td>
+		    </tr>
+		  </tbody>
+		</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<br>
-
-<div class="row">
-	<div class="col-md-3 col-lg-4">&nbsp;</div>
-	<div class="col-md-6 col-lg-4 align-middle">Ana María - c / 1 || Pedro - d / 2S</div>
-	<div class="col-md-3 col-lg-4">&nbsp;</div>
-</div>
-
-<br>
-
-<div class="row">
-	<div class="col-md-3 col-lg-4">&nbsp;</div>
-	<div class="col-md-6 col-lg-4 align-middle">Administrador - z / 1</div>
-	<div class="col-md-3 col-lg-4">&nbsp;</div>
-</div>
-
-<br>
 
 <c:if test="${not empty mensaje}">
 <div class="row">

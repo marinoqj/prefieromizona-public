@@ -29,15 +29,30 @@
         <put-attribute name="body"  value="/WEB-INF/jsp/login.jsp"/>
     </definition>     
    
-   <!-- Zona Pública -->
+   <!-- Zona Publica -->
     <definition name="HomePublica" extends="layoutPublic">
         <put-attribute name="title" value="PrefieroMiZona"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/homePublic.jsp"/>
     </definition>
     
+    <definition name="ComoFunciona" extends="layoutPublic">
+        <put-attribute name="title" value="PrefieroMiZona"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/public/comoFunciona.jsp"/>
+    </definition>
+    
+    <definition name="Establecimientos" extends="layoutPublic">
+        <put-attribute name="title" value="PrefieroMiZona"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/public/establecimientos.jsp"/>
+    </definition>
+   
     <definition name="Ofertas" extends="layoutPublic">
         <put-attribute name="title" value="PrefieroMiZona"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/public/ofertas.jsp"/>
+    </definition>    
+
+    <definition name="Noticias" extends="layoutPublic">
+        <put-attribute name="title" value="PrefieroMiZona"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/public/noticias.jsp"/>
     </definition>    
 
    

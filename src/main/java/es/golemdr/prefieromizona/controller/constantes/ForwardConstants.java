@@ -15,7 +15,10 @@ public class ForwardConstants {
 	
 	
 	// Zona pública
-	public static final String FWD_OFERTAS = "Ofertas";
+	public static final String FWD_COMO_FUNCIONA = "ComoFunciona";
+	public static final String FWD_ESTABLECIMIENTOS = "Establecimientos";
+	public static final String FWD_OFERTAS = "Ofertas";	
+	public static final String FWD_NOTICIAS = "Noticias";
 	
 	// Clientes
 	public static final String FWD_LISTADO_CLIENTES = "ListadoClientes";	

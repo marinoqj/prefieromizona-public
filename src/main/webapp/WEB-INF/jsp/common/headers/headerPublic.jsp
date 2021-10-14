@@ -13,22 +13,31 @@
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
 			
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			    <ul class="navbar-nav mr-auto">			    
-			      <li class="nav-item">
-			        <a class="nav-link" href='<spring:url value="/pub/verOfertas.do"/>'>Ofertas</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href='<spring:url value="/listadoClientes1.do"/>'>Noticias</a>
-			      </li>
-			    </ul>
-			  </div>
-			
-			    <ul class="navbar-nav">
-			      <li class="nav-item">
-			        <a class="nav-link" href='<spring:url value="/login.do"/>'>Acceder</a>
-			      </li>
-			    </ul>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				    <ul class="navbar-nav mr-auto">			    
+				      <li class="nav-item active">
+				        <a class="nav-link" href='/prefieromizona-public'>Inicio</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href='<spring:url value="/pub/verComoFunciona.do"/>'>¿C&oacute;mo funciona?</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href='<spring:url value="/pub/verEstablecimientos.do"/>'>Establecimientos</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href='<spring:url value="/pub/verOfertas.do"/>'>Ofertas</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href='<spring:url value="/pub/verNoticias.do"/>'>Noticias</a>
+				      </li>
+				    </ul>
+				    <ul class="navbar-nav ml-auto">
+				      <li class="nav-item" style="float: right">
+				        <a class="nav-link" href='<spring:url value="/login.do"/>'><em class="fas fa-sign-in-alt pr-2"></em>Acceder</a>
+				      </li>
+				    </ul>
+				  </div>
+
 			  </div>
 			</nav>			
 						

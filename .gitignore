@@ -33,3 +33,6 @@ target/
 # IntelliJ
 cuestionarios.iml
 .idea/
+
+# Photoshop (WIP images)
+*.psd
