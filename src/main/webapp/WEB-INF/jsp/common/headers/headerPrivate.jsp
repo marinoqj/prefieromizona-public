@@ -44,9 +44,12 @@
 			      </li>
 			     </sec:authorize>
 			    <sec:authorize access="hasRole('COMERCIO')">
-			      <li class="nav-item">
-			        <a class="nav-link" href='<spring:url value="/verEmitirPuntosForm.do"/>'>Emitir puntos</a>
-			      </li>				        
+					<li class="nav-item">
+					  <a class="nav-link" href='<spring:url value="/verEscanearCodigo.do"/>'>Escanear puntos</a>
+					</li>				        
+					<li class="nav-item">
+					  <a class="nav-link" href='<spring:url value="/verEmitirPuntosForm.do"/>'>Emitir puntos</a>
+					</li>				        
 			        <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          Puntos
@@ -71,6 +74,9 @@
 			     <sec:authorize access="hasRole('CLIENTE')">
 			      <li class="nav-item">
 			        <a class="nav-link" href='<spring:url value="/verEscanearCodigo.do"/>'>Escanear puntos</a>
+			      </li>				     
+			      <li class="nav-item">
+			        <a class="nav-link" href='<spring:url value="/cliente/generarCodigoPuntos1.do"/>'>Canjear puntos</a>
 			      </li>				     
 					<li class="nav-item"><a class="nav-link"
 						href='<spring:url value="/cliente/{idEntidad}/listadoCompras1.do">

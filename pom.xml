@@ -59,6 +59,9 @@
 		<!-- <sonar.junit.reportsPath>${project.build.directory}/surefire-reports/</sonar.junit.reportsPath> -->
 		<!-- <sonar.tests>src/test/java</sonar.tests> -->
 		<!-- === END of Sonar/Reporting settings === -->
+		
+				
+		<zxing.version>3.3.0</zxing.version>
 	</properties>
 
 	<dependencies>
@@ -355,6 +358,20 @@
 			<artifactId>jakarta.xml.bind-api</artifactId>
 			<version>2.3.2</version>
 		</dependency>
+		
+		<!-- Generación códigos QR -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>${zxing.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>${zxing.version}</version>
+		</dependency>
+		
 		
 	</dependencies>
 

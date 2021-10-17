@@ -3,34 +3,74 @@
 
 
 <script>
-function guardarPuntos(codComercio, cantidadPuntos){
 
-	 	document.formulario.codComercio.value = codComercio;
-	 	document.formulario.cantidadPuntos.value = cantidadPuntos;
-	 	document.formulario.action="guardarPuntos.do";
-	 	document.formulario.submit();
+<c:set var="function" value="canjear"/>
+<c:if test='${roleUser ne "COMERCIO"}'>
+    <c:set var="function" value="guardar"/>
+</c:if>
 
+function ${function}Puntos(data){
+    $('#datosQR').val(data);
+    document.formulario.action="${function}Puntos.do";
+    document.formulario.submit();
 }
+
 
 </script>
 
 <form name="formulario" method="post">
-	<input type="hidden" name="idCliente" value="${usuarioSesion.idEntidad}"/>
-	<input type="hidden" name="codComercio"/>
-	<input type="hidden" name="cantidadPuntos"/>
+	<input type="hidden" name="numPuntos" id="numPuntos"/>
+	<input type="hidden" name="datosQR" id="datosQR"/>
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-</form>	
+</form>
 
 
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+<br>
+<br>
 
-<body data-instant-allow-query-string data-instant-allow-external-links>	
+<c:if test='${roleUser ne "COMERCIO"}'>
+    <br>
+    <br>
+    <br>
+</c:if>
 
-<main class="default-content" aria-label="Content">
+
+<c:if test='${roleUser eq "COMERCIO"}'>
+<div class="container">
+    <!-- Horizontal Steppers -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- Stepers Wrapper -->
+            <ul class="stepper stepper-horizontal">
+
+                <!-- First Step -->
+                <li class="completed" id="first-stepper">
+                    <a href='<spring:url value="/verEscanearCodigo.do"/>'>
+                        <span class="circle">1</span>
+                        <span class="label">Introduzca cantidad puntos</span>
+                    </a>
+                </li>
+
+                <!-- Second Step -->
+                <li id="second-stepper">
+                    <a href="#!">
+                        <span class="circle">2</span>
+                        <span class="label">Escanear código QR</span>
+                    </a>
+                </li>
+
+            </ul>
+            <!-- /.Stepers Wrapper -->
+
+        </div>
+    </div>
+    <!-- /.Horizontal Steppers -->
+</div>
+</c:if>
+
+
+<main id="bloque-qr" class="default-content ${roleUser eq 'COMERCIO'?'ocultar':''}" aria-label="Content" style="min-height: 100%">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -106,7 +146,6 @@ function guardarPuntos(codComercio, cantidadPuntos){
                             padding-bottom: 25px;
                         }
                     </style>
-<!--                    <link rel="stylesheet" href="../assets/css/qr.default.min.css">-->
 
                     <div class="container">
                         <div class="row">
@@ -138,41 +177,18 @@ function guardarPuntos(codComercio, cantidadPuntos){
                                 document.addEventListener("DOMContentLoaded", fn);
                             }
                         }
-                        /** Ugly function to write the results to a table dynamically. */
-                        function printScanResultPretty(codeId, decodedText, decodedResult) {
-
-                        	alert("2|" + decodedText + "|" + decodedResult);
-
-                        }
-
 
                         docReady(function() {
                             hljs.initHighlightingOnLoad();
-                            var lastMessage;
-                            var codeId = 0;
+                            var lastCode;
                             function onScanSuccess(decodedText, decodedResult) {
-                            	
-                            	// TODO - Aqui hay que parsear la información del QR
-                            	
-                            	//alert("1|" + decodedText + "|" + decodedResult);
-                            	
-                            	guardarPuntos('A38', '2');
-                            	
-                                /**
-                                 * If you following the code example of this page by looking at the
-                                 * source code of the demo page - good job!!
-                                 *
-                                 * Tip: update this function with a success callback of your choise.
-                                 */
-                                
-                                // Comento lo siguiente porque de momento no hace falta
-                                /**
-                                if (lastMessage !== decodedText) {
-                                    lastMessage = decodedText;
-                                    printScanResultPretty(codeId, decodedText, decodedResult);
-                                    ++codeId;
+
+                                // lastCode almacena el último código escaneado. Sirve para evitar hacer doble submit
+                                // y también para evitar escanear dos veces el mismo código QR
+                                if (lastCode !== decodedText) {
+                                    lastCode = decodedText;
+                                    ${function}Puntos(decodedText);
                                 }
-								*/
                             	
                             }
                             let html5QrcodeScanner = new Html5QrcodeScanner(
@@ -199,5 +215,88 @@ function guardarPuntos(codComercio, cantidadPuntos){
 
 </main>
 
+<section class="${roleUser eq 'CLIENTE'?'ocultar':''}" id="teclado-puntos">
+<script>
+    function mostrarEscanear(numPuntos) {
+        $('#numPuntos').val(numPuntos);
+        $('#bloque-qr').toggleClass('ocultar');
+        $('#teclado-puntos').toggleClass('ocultar');
 
+        if (numPuntos == 0) {
+            $('#first-stepper').addClass('completed');
+            $('#second-stepper').removeClass('completed');
+        } else {
+            $('#first-stepper').removeClass('completed');
+            $('#second-stepper').addClass('completed');
+        }
+
+        console.log('NumPuntos = ' + document.getElementById('numPuntos').value);
+
+    }
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <a href="javascript: mostrarEscanear(1)" title="Canjear 1 puntos">
+                <img class="img-fluid" src='<spring:url value="/static/imagenes/1.png"/>' style="max-width: 200px">
+            </a>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href="javascript: mostrarEscanear(2)" title="Canjear 2 puntos">
+                <img class="img-fluid" src='<spring:url value="/static/imagenes/2.png"/>' style="max-width: 200px">
+            </a>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href="javascript: mostrarEscanear(3)" title="Canjear 3 puntos">
+                <img class="img-fluid" src='<spring:url value="/static/imagenes/3.png"/>' style="max-width: 200px">
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <a href="javascript: mostrarEscanear(4)" title="Canjear 4 puntos">
+                <img class="img-fluid" src='<spring:url value="/static/imagenes/4.png"/>' style="max-width: 200px">
+            </a>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href="javascript: mostrarEscanear(5)" title="Canjear 5 puntos">
+                <img class="img-fluid" src='<spring:url value="/static/imagenes/5.png"/>' style="max-width: 200px">
+            </a>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href="javascript: mostrarEscanear(6)" title="Canjear 6 puntos">
+                <img class="img-fluid" src='<spring:url value="/static/imagenes/6.png"/>' style="max-width: 200px">
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <a href="javascript: mostrarEscanear(7)" title="Canjear 7 puntos">
+                <img class="img-fluid" src='<spring:url value="/static/imagenes/7.png"/>' style="max-width: 200px">
+            </a>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href="javascript: mostrarEscanear(8)" title="Canjear 8 puntos">
+                <img class="img-fluid" src='<spring:url value="/static/imagenes/8.png"/>' style="max-width: 200px">
+            </a>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href="javascript: mostrarEscanear(9)" title="Canjear 9 puntos">
+                <img class="img-fluid" src='<spring:url value="/static/imagenes/9.png"/>' style="max-width: 200px">
+            </a>
+        </div>
+    </div>
+    <br><br><br><br><br>
+</div>
+</section>
+
+<script>
+    $( document ).ready(function() {
+        $('body').attr('data-instant-allow-query-string');
+        $('body').attr('data-instant-allow-external-links');
+    });
+</script>
+      
 </body>

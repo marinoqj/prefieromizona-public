@@ -536,4 +536,7 @@
     <!-- Accordion wrapper -->
     <!--/ .ACORDEON ESTABLECIMIENTOS -->
 
+  </section>
+</div>
+
 <br><br>

@@ -63,7 +63,7 @@
     </definition>
     
       
-     <!-- TODO - Revisar, no sé si está bien en la zona privada...  -->
+     <!-- TODO - Revisar, no se si esta bien en la zona privada...  -->
 	<definition name="ErrorGenerico" extends="layoutPrivate">
 	  <put-attribute name="title" value="Pagina de error"/>
 	  <put-attribute name="body" value="/WEB-INF/jsp/common/error_generico.jsp"/>
@@ -155,6 +155,11 @@
     <definition name="CodigoPuntos" extends="layoutPrivate">
         <put-attribute name="title" value="Formulario de puntos"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/puntos/codigoQR.jsp"/>
+    </definition>
+    
+    <definition name="CodigoPuntosCliente" extends="layoutPrivate">
+        <put-attribute name="title" value="Formulario de puntos"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/puntos/codigoQRcliente.jsp"/>
     </definition>
     
     <definition name="EscanearCodigoPuntos" extends="layoutPrivate">

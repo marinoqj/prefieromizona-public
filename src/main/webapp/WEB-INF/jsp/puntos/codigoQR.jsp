@@ -13,32 +13,18 @@
 
 <!-- CONTAINER -->
 <div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item active"><em class="fas fa-qrcode fa-lg mr-2"></em>
-						Escanee el código para conseguir los puntos
-					</li>
-				</ol>
-			</nav>
-		</div>
-		</div>
 
-		
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-				
+	<div class="row">
+		<div class="col">
+			<div class="alert alert-primary h5-responsive" role="alert">
+				<em class="fas fa-info-circle fa-lg pr-2"></em>Código QR con información de los puntos preparado para ser escaneado por el cliente...
+			</div>
+		</div>
+	</div>
 						
-
 	<div class="row">
-		<div class="col-md-4 text-center">&nbsp;</div>
-		<div class="col-md-4 text-center"><a href='<spring:url value="/generarCodigoPuntos.do"/>' ><img src='<spring:url value="/static/imagenes/codigo.png"/>'></a></div>
-		<div class="col-md-4 text-center">&nbsp;</div>		
+		<div class="col text-center">
+			<img class="img-fluid qr-image" src="data:image/png;base64,${qrBase64}"></div>
 	</div>
 	<br>					
 
