@@ -101,6 +101,11 @@
         <put-attribute name="title" value="Listado de comercios"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/comercios/listadoComercios.jsp"/>
     </definition>
+    
+    <definition name="PromocionForm" extends="layoutPrivate">
+        <put-attribute name="title" value="Alta de comercios"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/comercios/promocionForm.jsp"/>
+    </definition>    
 
 
     <!-- Compras -->

@@ -153,6 +153,12 @@ public class ComerciosController {
 		return ForwardConstants.RED_LISTADO_COMERCIOS;
 
 	}
+	
+	@GetMapping(value=UrlConstants.URL_VER_PROMOCION_FORM)
+	public String verEstablecimientos() {
+
+		return ForwardConstants.FWD_PROMOCION_FORM;
+	}
 
 
 

@@ -116,8 +116,7 @@ $(document).ready(function(){
 					<th scope="col"><spring:message code="label.comercio"/></th>
 	    		
 					<th scope="col"><spring:message code="label.total"/></th>
-					
-					<th scope="col">&nbsp;</th>
+										
 				</tr>
 			</thead>
 			<tbody>
@@ -129,20 +128,7 @@ $(document).ready(function(){
 				<td>${punto.comercio.razonSocial}</td>
 			
 				<td>${punto.total}</td>
-			
-				<td>
-					<div>
-							<label data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <span style="cursor: pointer;"><em class="fas fa-cog fa-lg"></em></span>
-							</label>
-							<ul class="dropdown-menu dropdown-primary">
-								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:editarPunto('${punto.idPunto}')"><spring:message code="label.editar"/></a></li>
-								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:mostarConfirmBorrarPunto('${punto.idPunto}')"><spring:message code="label.borrar"/></a></li>
-							</ul>
-						</div>
-				</td>
+				
 			</tr>
 		</c:forEach>
 			</tbody>
@@ -161,48 +147,12 @@ $(document).ready(function(){
 		</c:if>
 
 		<div class="row">
-			<div class="col-md-12">
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#nuevoFormulario"><em class="fas fa-plus-circle"></em>&nbsp;&nbsp;Nuevo</button>
+			<div class="col-md-12">				
 				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ventanaBuscar"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
 			</div>
 		</div>
 
 
-<!-- Modal Nuev@ punto-->
-<div class="modal fade" id="nuevoFormulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-cube fa-lg pr-2"></em>Nueva punto</span>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="color: #6c757d">
-		<form:form modelAttribute="punto" action="insertarPunto.do" method="post">
-
-    		
-
-
-					<div class="form-group">
-						<label for="total"><spring:message code="label.total"/></label> <form:input path="total" class="form-control"/>
-					</div>
-
-					
-
-			<br>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-        <button type="submit" class="btn btn-success btn-sm"><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
-      </div>
-
-      </form:form>
-    </div>
-  </div>
-</div>
-</div>
 
 
 <!-- Modal Busqueda -->

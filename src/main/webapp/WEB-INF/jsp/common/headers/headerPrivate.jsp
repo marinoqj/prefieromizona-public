@@ -43,18 +43,15 @@
 			        </div>
 			      </li>
 			     </sec:authorize>
-			    <sec:authorize access="hasRole('COMERCIO')">
-					<li class="nav-item">
-					  <a class="nav-link" href='<spring:url value="/verCanjearPuntosForm.do"/>'>Escanear puntos</a>
-					</li>				        
-					<li class="nav-item">
-					  <a class="nav-link" href='<spring:url value="/verEmitirPuntosForm.do"/>'>Emitir puntos</a>
-					</li>				        
+			    <sec:authorize access="hasRole('COMERCIO')">			        
 			        <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          Puntos
 				        </a>
 				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown2">
+				        	<a class="dropdown-item" href='<spring:url value="/verCanjearPuntosForm.do"/>'>Canjear</a>
+				        	<a class="dropdown-item" href='<spring:url value="/verEmitirPuntosForm.do"/>'>Emitir</a>
+				        	<div class="dropdown-divider"></div>
 							<a class="dropdown-item"
 							href='<spring:url value="/comercio/{idEntidad}/listadoCompras1.do">
 					  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
@@ -64,20 +61,37 @@
 					  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 					  			  </spring:url>'>Puntos Canjeados</a>					
 				        </div>
-			        </li>			    
+			        </li>
+			        <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Promociones
+				        </a>
+				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown2">
+				        	<a class="dropdown-item" href='<spring:url value="/verPromocionForm.do"/>'>Nueva promoción</a>
+				        	<div class="dropdown-divider"></div>
+				        	<a class="dropdown-item" href='<spring:url value="#"/>'>Mis promociones</a>
+				        </div>
+			        </li>
 					<li class="nav-item"><a class="nav-link"
 						href='<spring:url value="/comercio/verMisEstadísticas{idEntidad}.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Estadísticas</a>
 					</li>						
 			     </sec:authorize>
-			     <sec:authorize access="hasRole('CLIENTE')">
-			      <li class="nav-item">
-			        <a class="nav-link" href='<spring:url value="/cliente/verEscanearCodigo.do"/>'>Escanear puntos</a>
-			      </li>				     
-			      <li class="nav-item">
-			        <a class="nav-link" href='<spring:url value="/cliente/generarCodigoPuntos1.do"/>'>Canjear puntos</a>
-			      </li>				     
+			     <sec:authorize access="hasRole('CLIENTE')">			     		     
+			        <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				         Mis Puntos
+				        </a>
+				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown2">
+				        	<a class="dropdown-item" href='<spring:url value="/cliente/verEscanearCodigo.do"/>'>Escanear puntos</a>
+				        	<a class="dropdown-item" href='<spring:url value="/cliente/generarCodigoPuntos1.do"/>'>Canjear puntos</a>
+				        	<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href='<spring:url value="/cliente/{idEntidad}/listadoPuntos1.do">
+					  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
+					  			  </spring:url>'>Puntos acumulados</a>				
+				        </div>
+			        </li>			     			     
 					<li class="nav-item"><a class="nav-link"
 						href='<spring:url value="/cliente/{idEntidad}/listadoCompras1.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
@@ -87,12 +101,7 @@
 						href='<spring:url value="/cliente/{idEntidad}/listadoCanjes1.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Mis Canjes</a>
-					</li>
-					<li class="nav-item"><a class="nav-link"
-						href='<spring:url value="/cliente/{idEntidad}/listadoPuntos1.do">
-				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
-				  			  </spring:url>'>Mis Puntos</a>
-					</li>					
+					</li>										
 			     </sec:authorize>
 			      			      
 			    </ul>

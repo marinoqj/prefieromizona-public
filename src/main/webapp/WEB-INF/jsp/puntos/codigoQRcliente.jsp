@@ -16,7 +16,7 @@
 
 	<div class="row">
 		<div class="col">
-			<div class="alert alert-primary h5-responsive" role="alert">
+			<div class="alert alert-primary h6-responsive" role="alert">
 				<em class="fas fa-info-circle fa-lg pr-2"></em>Código QR con información de los puntos a canjear preparado para ser escaneado por el comercio...
 			</div>
 		</div>
