@@ -45,6 +45,7 @@ public class ForwardConstants {
 	public static final String RED_LISTADO_PUNTOS = "redirect:listadoPuntos1.do";
 	public static final String FWD_PUNTOS_FORM = "PuntosForm";
 	public static final String FWD_EMITIR_PUNTOS_FORM = "EmitirPuntosForm";
+	public static final String FWD_CANJEAR_PUNTOS_FORM = "CanjearPuntosForm";
 	public static final String FWD_CODIGO_PUNTOS = "CodigoPuntos";
 	public static final String FWD_CODIGO_PUNTOS_CLIENTE = "CodigoPuntosCliente";
 	public static final String FWD_ESCANEAR_CODIGO_PUNTOS = "EscanearCodigoPuntos";

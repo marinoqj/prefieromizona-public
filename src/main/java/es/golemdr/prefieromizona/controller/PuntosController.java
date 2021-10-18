@@ -170,7 +170,7 @@ public class PuntosController {
 	
 	
 	@PostMapping(value=UrlConstants.URL_CANJEAR_PUNTOS)
-	public String canjearPuntos(int numPuntos, String datosQR, Model model, HttpServletRequest request) throws Exception {
+	public String canjearPuntos(String numPuntos, String datosQR, Model model, HttpServletRequest request) throws Exception {
 
 		Usuario usuarioLogado = (Usuario) request.getSession(false).getAttribute(Constantes.ATRIBUTO_SESSION_USUARIO);
 		
@@ -183,7 +183,7 @@ public class PuntosController {
 			Cliente cliente = clientesService.findByCodCliente(qrData.getCodCliente());
 			
 			if(cliente == null) {
-				throw new Exception("Cliente no válido");
+				model.addAttribute("mensaje", "canje.puntos.cliente.no.valido");
 			}		
 			
 			Comercio comercio = comerciosService.findByCodComercio(qrData.getCodComercio());
@@ -192,7 +192,7 @@ public class PuntosController {
 			
 			// Si los códigos de comercio no coinciden se lanza una excepción
 			if (codComercioQR != null && codComercioLogado != null && ( ! codComercioQR.equals(codComercioLogado))) {
-				throw new Exception("Comercio no autorizado para realizar canje.");
+				model.addAttribute("mensaje", "canje.puntos.comercio.no.autorizado");
 			}
 			
 			Canje canje = new Canje();
@@ -203,8 +203,7 @@ public class PuntosController {
 			
 			canjesService.insertarCanje(canje);
 			
-			
-			model.addAttribute("mensaje", "canje.puntos.ok");			
+			model.addAttribute("mensaje", "canje.puntos.ok");
 		}
 
 		
@@ -292,6 +291,12 @@ public class PuntosController {
 			return ForwardConstants.FWD_EMITIR_PUNTOS_FORM;
 		}
 		
+		@GetMapping(value=UrlConstants.URL_VER_CANJEAR_PUNTOS_FORM)
+		public String verCanjearPuntosForm(Map<String, Object> map) {
+
+			return ForwardConstants.FWD_CANJEAR_PUNTOS_FORM;
+		}
+		
 		@GetMapping(value=UrlConstants.URL_GENERAR_CODIGO_PUNTOS)
 		public String generarCodigoPuntos(@PathVariable("cantPuntos") int cantPuntos, Map<String, Object> map, HttpServletRequest request) {
 			
@@ -323,18 +328,19 @@ public class PuntosController {
 		}
 		
 		
-		@GetMapping(value=UrlConstants.URL_VER_ESCANEAR_CODIGO)
-		public String verEscanearCodigoCliente(Map<String, Object> map, HttpServletRequest request) throws Exception {
+		@GetMapping(value=UrlConstants.URL_VER_ESCANEAR_CODIGO_CLIENTE)
+		public String verEscanearCodigoCliente(Map<String, Object> map) {
+
+			map.put("roleUser", "CLIENTE");
 			
-			Usuario usuarioLogado = (Usuario) request.getSession(false).getAttribute(Constantes.ATRIBUTO_SESSION_USUARIO);
-			
-			List<Rol> rol = usuarioLogado.getRoles();
-			
-			if (rol != null && rol.size() == 1) {
-				map.put("roleUser", rol.get(0).getNombreRol());
-			} else {
-				throw new Exception("No se puede determinar el Rol del usuario logado");
-			}
+			return ForwardConstants.FWD_ESCANEAR_CODIGO_PUNTOS;
+		}		
+
+		@PostMapping(value=UrlConstants.URL_VER_ESCANEAR_CODIGO_COMERCIO)
+		public String verEscanearCodigoComercio(String numPuntos, Map<String, Object> map) {
+
+			map.put("roleUser", "COMERCIO");
+			map.put("numPuntos", numPuntos);
 			
 			return ForwardConstants.FWD_ESCANEAR_CODIGO_PUNTOS;
 		}		

@@ -45,7 +45,7 @@
 			     </sec:authorize>
 			    <sec:authorize access="hasRole('COMERCIO')">
 					<li class="nav-item">
-					  <a class="nav-link" href='<spring:url value="/verEscanearCodigo.do"/>'>Escanear puntos</a>
+					  <a class="nav-link" href='<spring:url value="/verCanjearPuntosForm.do"/>'>Escanear puntos</a>
 					</li>				        
 					<li class="nav-item">
 					  <a class="nav-link" href='<spring:url value="/verEmitirPuntosForm.do"/>'>Emitir puntos</a>
@@ -73,7 +73,7 @@
 			     </sec:authorize>
 			     <sec:authorize access="hasRole('CLIENTE')">
 			      <li class="nav-item">
-			        <a class="nav-link" href='<spring:url value="/verEscanearCodigo.do"/>'>Escanear puntos</a>
+			        <a class="nav-link" href='<spring:url value="/cliente/verEscanearCodigo.do"/>'>Escanear puntos</a>
 			      </li>				     
 			      <li class="nav-item">
 			        <a class="nav-link" href='<spring:url value="/cliente/generarCodigoPuntos1.do"/>'>Canjear puntos</a>
