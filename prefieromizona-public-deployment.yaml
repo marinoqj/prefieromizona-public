@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prefieromizona-public
+spec:
+  selector:
+    matchLabels:
+      app: prefieromizona
+      tier: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: prefieromizona
+        tier: frontend
+    spec:
+      initContainers:
+      - image: marinoqj/prefieromizona-public:1.0.9
+        imagePullPolicy: Always
+        name: war
+        command:
+          - "cp"
+          - "/prefieromizona-public.war"
+          - "/app"
+        volumeMounts:
+        - mountPath: /app
+          name: app-volume
+      containers:
+      - image: tomcat:9.0.30-jdk11-openjdk
+        name: tomcat
+        command: ["catalina.sh", "run"]
+        volumeMounts:
+        - mountPath: /usr/local/tomcat/webapps
+          name: app-volume
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      volumes:
+      - name: app-volume
+        emptyDir: {}
+
+
