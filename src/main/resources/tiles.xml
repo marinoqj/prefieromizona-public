@@ -89,6 +89,11 @@
         <put-attribute name="title" value="Listado de clientes"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/clientes/listadoClientes.jsp"/>
     </definition>
+    
+    <definition name="Notificaciones" extends="layoutPrivate">
+        <put-attribute name="title" value="Consulta Notificaciones"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/clientes/notificaciones.jsp"/>
+    </definition>
 
 
     <!-- Comercios -->
@@ -105,7 +110,12 @@
     <definition name="PromocionForm" extends="layoutPrivate">
         <put-attribute name="title" value="Alta de comercios"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/comercios/promocionForm.jsp"/>
-    </definition>    
+    </definition>
+    
+    <definition name="EstadisticasComercio" extends="layoutPrivate">
+        <put-attribute name="title" value="Alta de comercios"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/comercios/estadisticas.jsp"/>
+    </definition>
 
 
     <!-- Compras -->

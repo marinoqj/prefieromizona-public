@@ -1,12 +1,12 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp"%>
 
-<br><br><br><br>
+<br><br>
 
-<div class="container-fluid py-5">
+<div class="container py-5 mt-3">
 
 
   <!--Section: Content-->
-  <section class="dark-grey-text px-5 mx-5">
+  <section class="dark-grey-text p-sup-60">
 
     <div class="row">
       <div class="col-lg-12 col-xl-6">

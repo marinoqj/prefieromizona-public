@@ -4,22 +4,33 @@
 
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
 
+<style>
 
-<div class="row">
+	.special-color-text {
+		color: #37474f !important;
+	}
+	
+	.rojo-texto {
+		color: #e94647 !important;;
+	}
+	
+	.verde-texto {
+		color: #a8ce3b !important;
+	}
+</style>
+
+<div class="row p-sup-80">
 	<div class="col-md-3 col-lg-4">&nbsp;</div>
 	<div class="col-md-6 col-lg-4">
 		
  		<form class="shadow p-3 mb-5 bg-white rounded text-center border" action="login.do" method="post">	
  		<div class="p-4">
 
-			<span class="h4 mb-4">Acceso a la aplicación</span>
+			<span class="h4 mb-4 dark-grey-text">Acceso a la aplicación</span>
 			<br><br>
-			<img src='<spring:url value="/static/imagenes/user-circle-solid.png"/>' height="100" width="100">
+			<em class="fas fa-user-circle verde-texto fa-7x"></em>
+<%--			<img src='<spring:url value="/static/imagenes/user-circle-solid.png"/>' height="100" width="100">--%>
 			<br><br>
 			<!-- Name -->
 			<input type="text" class="form-control mb-4" name="username" placeholder="Usuario">
@@ -28,7 +39,7 @@
 			<input type="password" name="password" class="form-control mb-4" placeholder="Password">
 
 			<!-- Sign in button -->
-			<button class="btn btn-primary btn-block btn-sm" type="submit">Entrar</button>	
+			<button class="btn btn-orange btn-rounded mx-0 waves-effect waves-light btn-block" type="submit">Entrar</button>
 
 		</div>
 		
@@ -103,7 +114,7 @@
 <c:if test="${not empty mensaje}">
 <div class="row">
 	<div class="col-md-3 col-lg-4">&nbsp;</div>
-	<div class="col-md-6 col-lg-4 align-middle alert alert-danger"><div id="rojo"><span><i class="fas fa-info-circle fa-2x"></i> ${mensaje}</div></div>
+	<div class="col-md-6 col-lg-4 align-middle alert alert-danger"><div id="rojo"><span><em class="fas fa-info-circle fa-2x pr-2"  style="vertical-align: middle;"></em> ${mensaje}</div></div>
 	<div class="col-md-3 col-lg-4">&nbsp;</div>
 </div>
 </c:if>

@@ -45,6 +45,7 @@ public class UrlConstants {
 	public static final String URL_ACTUALIZAR_CLIENTE = SEGURIDAD_CLIENTES + "/actualizarCliente.do";
 	public static final String URL_BORRAR_CLIENTE = SEGURIDAD_CLIENTES + "/borrarCliente.do";
     public static final String URL_BUSCAR_CLIENTES = SEGURIDAD_CLIENTES + "/buscarClientes.do";
+    public static final String URL_VER_NOTIFICACIONES = SEGURIDAD_CLIENTES + "/verNotificaciones.do";
 
 
 	
@@ -59,6 +60,7 @@ public class UrlConstants {
 	public static final String URL_BORRAR_COMERCIO = SEGURIDAD_COMERCIOS + "/borrarComercio.do";
     public static final String URL_BUSCAR_COMERCIOS = SEGURIDAD_COMERCIOS + "/buscarComercios.do";
     public static final String URL_VER_PROMOCION_FORM = SEGURIDAD_COMERCIOS + "/verPromocionForm.do";
+    public static final String URL_VER_ESTADISTICAS_COMERCIO = SEGURIDAD_COMERCIOS + "/comercio/verMisEstadisticas{idEntidad}.do";
 
 
 	
