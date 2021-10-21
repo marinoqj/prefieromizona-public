@@ -7,6 +7,7 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><tiles:insertAttribute name="title" ignore="true"/></title>
 	
 	<!-- Favicon-->
@@ -46,7 +47,7 @@
 
 
 
-	<footer class="page-footer">
+	<footer class="page-footer font-small special-color fixed-bottom">
 		<tiles:insertAttribute name="footer" />
 	</footer>
 

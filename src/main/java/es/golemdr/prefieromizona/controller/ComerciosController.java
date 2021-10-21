@@ -45,7 +45,7 @@ public class ComerciosController {
 
 
 	@GetMapping(value=UrlConstants.URL_LISTADO_COMERCIOS)
-	public String list(@PathVariable("inicio") int inicio,Map<String, Object> map, HttpServletRequest request) {
+	public String list(@PathVariable("inicio") int inicio, Map<String, Object> map, HttpServletRequest request) {
 
 		List<Comercio> resultado = null;
         boolean hayFiltro = false;
@@ -158,6 +158,12 @@ public class ComerciosController {
 	public String verEstablecimientos() {
 
 		return ForwardConstants.FWD_PROMOCION_FORM;
+	}
+
+	@GetMapping(value=UrlConstants.URL_VER_ESTADISTICAS_COMERCIO)
+	public String verMisEstadisticas(@PathVariable("idEntidad") Long idEntidad, Map<String, Object> map, HttpServletRequest request) {
+
+		return ForwardConstants.FWD_ESTADISTICAS_COMERCIO;
 	}
 
 

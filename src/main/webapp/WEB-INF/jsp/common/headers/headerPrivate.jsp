@@ -73,7 +73,7 @@
 				        </div>
 			        </li>
 					<li class="nav-item"><a class="nav-link"
-						href='<spring:url value="/comercio/verMisEstadísticas{idEntidad}.do">
+						href='<spring:url value="/comercio/verMisEstadisticas{idEntidad}.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Estadísticas</a>
 					</li>						
@@ -106,12 +106,27 @@
 			      			      
 			    </ul>
 			    <ul class="navbar-nav">
+				<%-- Notificaciones Cliente--%>
+			    <sec:authorize access="hasRole('CLIENTE')">
+				  <li class="nav-item">
+				  	<a href="/prefieromizona-public/verNotificaciones.do" class="nav-link waves-effect">
+				  		<span class="badge red z-depth-1 mr-1"> 2 </span><em id="navbar-static-cart" title="Notificaciones sin Leer" class="fas fa-bell"></em><span class="sr-only"> Notificaciones </span>
+				  	</a>
+				  </li>
+				  </sec:authorize>
+				  
 			      <li class="nav-item dropdown">
 			        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          ${usuarioSesion.nombreEntidad} &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-circle fa-lg"></i>
 			        </a>
 			        <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
 			          <a class="dropdown-item" href="#">Mi perfil</a>
+			          
+						<%-- Notificaciones Cliente--%>
+			          <sec:authorize access="hasRole('CLIENTE')">
+			          <a class="dropdown-item" href="/prefieromizona-public/verNotificaciones.do">Ver Notificaciones</a>
+			          </sec:authorize>
+			          
 			          <a class="dropdown-item" href='<spring:url value="/logout.do"/>'>Cerrar sesión</a>
 			        </div>
 			      </li>

@@ -24,12 +24,14 @@ public class ForwardConstants {
 	public static final String FWD_LISTADO_CLIENTES = "ListadoClientes";	
 	public static final String RED_LISTADO_CLIENTES = "redirect:listadoClientes1.do";
 	public static final String FWD_CLIENTE_FORM = "ClienteForm";
+	public static final String FWD_VER_NOTIFICACIONES = "Notificaciones";
 	
 	// Comercios
 	public static final String FWD_LISTADO_COMERCIOS = "ListadoComercios";	
 	public static final String RED_LISTADO_COMERCIOS = "redirect:listadoComercios1.do";
 	public static final String FWD_COMERCIO_FORM = "ComercioForm";
 	public static final String FWD_PROMOCION_FORM = "PromocionForm";
+	public static final String FWD_ESTADISTICAS_COMERCIO = "EstadisticasComercio";
 	
 	// Compras
 	public static final String FWD_LISTADO_COMPRAS = "ListadoCompras";

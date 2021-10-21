@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import es.golemdr.prefieromizona.controller.constantes.ForwardConstants;
 import es.golemdr.prefieromizona.controller.constantes.UrlConstants;
 import es.golemdr.prefieromizona.domain.Cliente;
+import es.golemdr.prefieromizona.domain.Usuario;
 import es.golemdr.prefieromizona.domain.form.ClienteForm;
 import es.golemdr.prefieromizona.ext.Constantes;
 import es.golemdr.prefieromizona.ext.utils.paginacion.PaginacionBean;
@@ -151,6 +152,16 @@ public class ClientesController {
 		clientesService.borrarCliente(Long.valueOf(idCliente));
 
 		return ForwardConstants.RED_LISTADO_CLIENTES;
+
+	}
+
+	@GetMapping(value=UrlConstants.URL_VER_NOTIFICACIONES)
+	public String verNotificaciones(HttpServletRequest request) {
+		
+		Usuario usuarioLogado = (Usuario) request.getSession(false).getAttribute(Constantes.ATRIBUTO_SESSION_USUARIO);
+		Long idCliente = usuarioLogado.getCliente().getIdCliente();
+
+		return ForwardConstants.FWD_VER_NOTIFICACIONES;
 
 	}
 

@@ -105,14 +105,48 @@
 <!-- Central Modal CENTRO-MÉDICO -->
 
 
+<!-- Central Modal EN OBRAS -->
+<div class="modal fade" id="centralModalEnObras" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-warning" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead"><em class="fas fa-info-circle fa-lg text-white pr-2"></em>En Construcción</p>
 
-<br><br><br><br>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
 
-<div class="container-fluid py-5">
+            <!--Body-->
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fas fa-hard-hat fa-4x mb-3 animated rotateIn"></i>
+                    <p>Este contenido aún no está implementado</p>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <a type="button" class="btn btn-outline-warning waves-effect" data-dismiss="modal">Cerrar</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!-- Central Modal EN OBRAS -->
+
+
+
+<br><br>
+
+<div class="container py-5 mt-3">
 
 
   <!--Section: Content-->
-  <section class="dark-grey-text px-5 mx-5">
+  <section class="dark-grey-text p-sup-20">
 
     <div class="row">
       <div class="col-lg-12 col-xl-6 mb-5">
@@ -130,6 +164,12 @@
 
     <hr class="mb-0">
 
+      <style>
+          .border-card {
+              border: 1px solid #e1e1e1;
+              border-radius: 10px;
+          }
+      </style>
 
     <!--/ .ACORDEON ESTABLECIMIENTOS -->
     <!--Accordion wrapper-->
@@ -153,15 +193,15 @@
                 
 					<!-- Grid Row -->
 				  	<div class="row">
-				
+                        
 				      <!--Grid column-->
-				      <div class="col-md-12 col-lg-4 mb-4 shadow">
+				      <div class="col-md-12 col-lg-4 mb-4">
 				        <!--Card-->
-				        <div class="card">
+				        <div class="card" style="border-width: 0px !important">
 				
 				          <!--Card image-->
 				          <div class="view overlay pt-2">
-				            <img src='<spring:url value="/static/imagenes/libreriaweb.png" />' class="img-fluid mx-auto d-block" alt="Cerveweb">
+				            <img src='<spring:url value="/static/imagenes/libreriaweb.png" />' class="img-fluid mx-auto d-block" alt="LibreríaWeb">
 				            <a>
 				              <div class="mask rgba-white-slight waves-effect waves-light"></div>
 				            </a>
@@ -174,12 +214,12 @@
 				            <h4 class="card-title"><strong>LibreríaWeb</strong></h4>
 				            <hr>
 				            <!--Text-->
-				        	<p>En nuestra librería podrás encontrar todos tus libros. Si no encuentras un libro en particular no te preocupes, lo buscaremos por tí.</p>
+				        	<p style="font-size: 1rem">En nuestra librería podrás encontrar todos tus libros. Si no encuentras un libro en particular no te preocupes, lo buscaremos por tí.</p>
 
-				        	<a class="btn btn-orange btn-rounded mx-0" data-toggle="modal" data-target="#centralModalLibreria"><em class="fas fa-star fa-lg pr-2"></em>Programa de puntos</a>
+				        	<a class="btn btn-orange btn-sm btn-rounded mx-0" data-toggle="modal" data-target="#centralModalLibreria"><em class="fas fa-star fa-lg pr-2"></em>Programa de puntos</a>
 				        				       	   
 				        	&nbsp;
-				        	<a href='https://www.golemdr.es/libreriaweb-public/' target="_blank" type="button" class="btn btn-danger btn-rounded mx-0"><em class="fas fa-globe fa-lg pr-2"></em>Ir a la web</a>
+				        	<a href='https://www.golemdr.es/libreriaweb-public/' target="_blank" type="button" class="btn btn-danger btn-sm btn-rounded mx-0"><em class="fas fa-globe fa-lg pr-2"></em>Web</a>
 
 
 
@@ -192,72 +232,82 @@
 				      </div>
 				      <!--Grid column-->
 				
-<!-- 				      Grid column -->
-<!-- 				      <div class="col-md-12 col-lg-4 mb-4"> -->
+				      <!--Grid column-->
+				      <div class="col-md-12 col-lg-4 mb-4">
+				        <!--Card-->
+				        <div class="card" style="border-width: 0px !important">
 				
-<!-- 				        Card -->
-<!-- 				        <div class="card"> -->
+				          <!--Card image-->
+				          <div class="view overlay pt-2">
+				            <img src='<spring:url value="/static/imagenes/libros-libres.jpg" />' class="img-fluid mx-auto d-block" alt="Libros Libres">
+				            <a>
+				              <div class="mask rgba-white-slight waves-effect waves-light"></div>
+				            </a>
+				          </div>
+				          <!--/.Card image-->
 				
-<!-- 				          Card image -->
-<!-- 				          <div class="view overlay"> -->
-<!-- 				            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Architecture/4-col/img%20(3).jpg" class="card-img-top" alt=""> -->
-<!-- 				            <a> -->
-<!-- 				              <div class="mask rgba-white-slight waves-effect waves-light"></div> -->
-<!-- 				            </a> -->
-<!-- 				          </div> -->
-<!-- 				          /.Card image -->
-				
-<!-- 				          Card content -->
-<!-- 				          <div class="card-body"> -->
-<!-- 				            Title -->
-<!-- 				            <h4 class="card-title"><strong>Card title</strong></h4> -->
-<!-- 				            <hr> -->
-<!-- 				            Text -->
-<!-- 				            <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk -->
-<!-- 				              of the card's -->
-<!-- 				              content. -->
-<!-- 				            </p> -->
+				          <!--Card content-->
+				          <div class="card-body">
+				            <!--Title-->
+				            <h4 class="card-title"><strong>Libros Libres</strong></h4>
+				            <hr>
+				            <!--Text-->
+				        	<p style="font-size: 1rem">Los libros nos enseñan. A través de sus páginas viajamos a nuevos mundos, nuevas realidades que nos hacen soñar. Debemos soñar en libertad.</p>
 
-<!-- 				          </div> -->
-<!-- 				          /.Card content -->
+				        	<a class="btn btn-orange btn-sm btn-rounded mx-0" data-toggle="modal" data-target="#centralModalEnObras"><em class="fas fa-star fa-lg pr-2"></em>Programa de puntos</a>
+				        				       	   
+				        	&nbsp;
+				        	<a type="button" class="btn btn-danger btn-sm btn-rounded mx-0" data-toggle="modal" data-target="#centralModalEnObras"><em class="fas fa-globe fa-lg pr-2"></em>Web</a>
+
+
+
+				          </div>
+				          <!--/.Card content-->
 				
-<!-- 				        </div> -->
-<!-- 				        /.Card -->
-<!-- 				      </div> -->
-<!-- 				      Grid column -->
+				        </div>
+				        <!--/.Card-->
 				
-<!-- 				      Grid column -->
-<!-- 				      <div class="col-md-12 col-lg-4 mb-4"> -->
+				      </div>
+				      <!--Grid column-->
+				      
+				      				
+				      <!--Grid column-->
+				      <div class="col-md-12 col-lg-4 mb-4">
+				        <!--Card-->
+				        <div class="card" style="border-width: 0px !important">
 				
-<!-- 				        Card -->
-<!-- 				        <div class="card"> -->
+				          <!--Card image-->
+				          <div class="view overlay pt-2">
+				            <img src='<spring:url value="/static/imagenes/libreria-natural.jpg" />' class="img-fluid mx-auto d-block" alt="Librería de Montaña">
+				            <a>
+				              <div class="mask rgba-white-slight waves-effect waves-light"></div>
+				            </a>
+				          </div>
+				          <!--/.Card image-->
 				
-<!-- 				          Card image -->
-<!-- 				          <div class="view overlay"> -->
-<!-- 				            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Architecture/4-col/img%20(3).jpg" class="card-img-top" alt=""> -->
-<!-- 				            <a> -->
-<!-- 				              <div class="mask rgba-white-slight waves-effect waves-light"></div> -->
-<!-- 				            </a> -->
-<!-- 				          </div> -->
-<!-- 				          /.Card image -->
+				          <!--Card content-->
+				          <div class="card-body">
+				            <!--Title-->
+				            <h4 class="card-title"><strong>Librería de Montaña</strong></h4>
+				            <hr>
+				            <!--Text-->
+				        	<p style="font-size: 1rem">Si eres un amante de la naturaleza y te gustan los deportes de montaña, entonces nuestra librería encontrarás la mayor colección de libros especializados.</p>
+
+				        	<a class="btn btn-orange btn-sm btn-rounded mx-0" data-toggle="modal" data-target="#centralModalEnObras"><em class="fas fa-star fa-lg pr-2"></em>Programa de puntos</a>
+				        				       	   
+				        	&nbsp;
+				        	<a type="button" class="btn btn-danger btn-sm btn-rounded mx-0" data-toggle="modal" data-target="#centralModalEnObras"><em class="fas fa-globe fa-lg pr-2"></em>Web</a>
+
+
+
+				          </div>
+				          <!--/.Card content-->
 				
-<!-- 				          Card content -->
-<!-- 				          <div class="card-body"> -->
-<!-- 				            Title -->
-<!-- 				            <h4 class="card-title"><strong>Card title</strong></h4> -->
-<!-- 				            <hr> -->
-<!-- 				            Text -->
-<!-- 				            <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk -->
-<!-- 				              of the card's -->
-<!-- 				              content. -->
-<!-- 				            </p> -->
-<!-- 				          </div> -->
-<!-- 				          /.Card content -->
+				        </div>
+				        <!--/.Card-->
 				
-<!-- 				        </div> -->
-<!-- 				        /.Card -->
-<!-- 				      </div> -->
-<!-- 				      Grid column -->
+				      </div>
+				      <!--Grid column-->
 				
 				
 				    </div>
@@ -291,9 +341,9 @@
 				  	<div class="row">
 				
 				      <!--Grid column-->
-				      <div class="col-md-12 col-lg-4 mb-4 shadow">
+				      <div class="col-md-12 col-lg-4 mb-4">
 				        <!--Card-->
-				        <div class="card">
+				        <div class="card" style="border-width: 0px !important">
 				
 				          <!--Card image-->
 				          <div class="view overlay pt-2">
@@ -312,9 +362,9 @@
 				            <!--Text-->
 				        	<p>Si quieres difrutar de un lugar donde charlar tranquilamente mientras te tomas las mejores cervezas de la zona, no dudes en pasarte por nuestro local. Puedes realizar la reserva de plazas en la web.</p>
 
-                              <a class="btn btn-orange btn-rounded mx-0" data-toggle="modal" data-target="#centralModalCerveceria"><em class="fas fa-star fa-lg pr-2"></em>Programa de puntos</a>
+                              <a class="btn btn-orange btn-sm btn-rounded mx-0" data-toggle="modal" data-target="#centralModalCerveceria"><em class="fas fa-star fa-lg pr-2"></em>Programa de puntos</a>
 				        	&nbsp;				       	   
-				        	<a href='https://www.golemdr.es/cerveweb/' target="_blank" type="button" class="btn btn-danger btn-rounded mx-0">Ir a la web</a>
+				        	<a href='https://www.golemdr.es/cerveweb/' target="_blank" type="button" class="btn btn-danger btn-sm btn-rounded mx-0"><em class="fas fa-globe fa-lg pr-2"></em>Web</a>
 
 
 				          </div>
@@ -326,72 +376,42 @@
 				      </div>
 				      <!--Grid column-->
 				
-<!-- 				      Grid column -->
-<!-- 				      <div class="col-md-12 col-lg-4 mb-4"> -->
+				      <!--Grid column-->
+				      <div class="col-md-12 col-lg-4 mb-4">
+				        <!--Card-->
+				        <div class="card" style="border-width: 0px !important">
 				
-<!-- 				        Card -->
-<!-- 				        <div class="card"> -->
+				          <!--Card image-->
+				          <div class="view overlay pt-2">
+				            <img src='<spring:url value="/static/imagenes/cerveceria-artesanal.jpg" />' class="img-fluid mx-auto d-block" alt="Cervecería Artesana">
+				            <a>
+				              <div class="mask rgba-white-slight waves-effect waves-light"></div>
+				            </a>
+				          </div>
+				          <!--/.Card image-->
 				
-<!-- 				          Card image -->
-<!-- 				          <div class="view overlay"> -->
-<!-- 				            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Architecture/4-col/img%20(3).jpg" class="card-img-top" alt=""> -->
-<!-- 				            <a> -->
-<!-- 				              <div class="mask rgba-white-slight waves-effect waves-light"></div> -->
-<!-- 				            </a> -->
-<!-- 				          </div> -->
-<!-- 				          /.Card image -->
-				
-<!-- 				          Card content -->
-<!-- 				          <div class="card-body"> -->
-<!-- 				            Title -->
-<!-- 				            <h4 class="card-title"><strong>Card title</strong></h4> -->
-<!-- 				            <hr> -->
-<!-- 				            Text -->
-<!-- 				            <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk -->
-<!-- 				              of the card's -->
-<!-- 				              content. -->
-<!-- 				            </p> -->
+				          <!--Card content-->
+				          <div class="card-body">
+				            <!--Title-->
+				            <h4 class="card-title"><strong>Cervecería Artesanal</strong></h4>
+				            <hr>
+				            <!--Text-->
+				        	<p>Elaboramos nuestra propia cerveza con tanto cariño que nos dá pena tener que venderla. Ayúdanos a seguir manteniendo nuestra pasión de artesanos, para que sigamos elaborando cervezas tan buenas.</p>
 
-<!-- 				          </div> -->
-<!-- 				          /.Card content -->
+				        	<a class="btn btn-orange btn-sm btn-rounded mx-0" data-toggle="modal" data-target="#centralModalEnObras"><em class="fas fa-star fa-lg pr-2"></em>Programa de puntos</a>
+				        				       	   
+				        	&nbsp;
+				        	<a type="button" class="btn btn-danger btn-sm btn-rounded mx-0" data-toggle="modal" data-target="#centralModalEnObras"><em class="fas fa-globe fa-lg pr-2"></em>Web</a>
+
+
+				          </div>
+				          <!--/.Card content-->
 				
-<!-- 				        </div> -->
-<!-- 				        /.Card -->
-<!-- 				      </div> -->
-<!-- 				      Grid column -->
+				        </div>
+				        <!--/.Card-->
 				
-<!-- 				      Grid column -->
-<!-- 				      <div class="col-md-12 col-lg-4 mb-4"> -->
-				
-<!-- 				        Card -->
-<!-- 				        <div class="card"> -->
-				
-<!-- 				          Card image -->
-<!-- 				          <div class="view overlay"> -->
-<!-- 				            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Architecture/4-col/img%20(3).jpg" class="card-img-top" alt=""> -->
-<!-- 				            <a> -->
-<!-- 				              <div class="mask rgba-white-slight waves-effect waves-light"></div> -->
-<!-- 				            </a> -->
-<!-- 				          </div> -->
-<!-- 				          /.Card image -->
-				
-<!-- 				          Card content -->
-<!-- 				          <div class="card-body"> -->
-<!-- 				            Title -->
-<!-- 				            <h4 class="card-title"><strong>Card title</strong></h4> -->
-<!-- 				            <hr> -->
-<!-- 				            Text -->
-<!-- 				            <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk -->
-<!-- 				              of the card's -->
-<!-- 				              content. -->
-<!-- 				            </p> -->
-<!-- 				          </div> -->
-<!-- 				          /.Card content -->
-				
-<!-- 				        </div> -->
-<!-- 				        /.Card -->
-<!-- 				      </div> -->
-<!-- 				      Grid column -->
+				      </div>
+				      <!--Grid column-->
 				
 				
 				    </div>
@@ -422,13 +442,13 @@
 				  	<div class="row">
 				
 				      <!--Grid column-->
-				      <div class="col-md-12 col-lg-4 mb-4 shadow">
+				      <div class="col-md-12 col-lg-4 mb-4">
 				        <!--Card-->
-				        <div class="card">
+				        <div class="card" style="border-width: 0px !important">
 				
 				          <!--Card image-->
 				          <div class="view overlay pt-2">
-				            <img src='<spring:url value="/static/imagenes/centromedico.png" />' class="img-fluid mx-auto d-block" alt="Cerveweb">
+				            <img src='<spring:url value="/static/imagenes/centromedico.png" />' class="img-fluid mx-auto d-block" alt="Centro Médico">
 				            <a>
 				              <div class="mask rgba-white-slight waves-effect waves-light"></div>
 				            </a>
@@ -443,9 +463,9 @@
 				            <!--Text-->
 				        	<p>¿Necesitas renovar tu carnet de conducir? O quizás estés necesitas atención médica o psicológica. No lo dudes más y ven a visitarnos. Contamos con grandes profesionales.</p>
 
-                              <a class="btn btn-orange btn-rounded mx-0" data-toggle="modal" data-target="#centralModalCentroMedico"><em class="fas fa-star fa-lg pr-2"></em>Programa de puntos</a>
+                              <a class="btn btn-orange btn-sm btn-rounded mx-0" data-toggle="modal" data-target="#centralModalCentroMedico"><em class="fas fa-star fa-lg pr-2"></em>Programa de puntos</a>
 				        	&nbsp;				       	   
-				        	<a href='https://www.golemdr.es/centromedico/' target="_blank" type="button" class="btn btn-danger btn-rounded mx-0">Ir a la web</a>
+				        	<a href='https://www.golemdr.es/centromedico/' target="_blank" type="button" class="btn btn-danger btn-sm btn-rounded mx-0"><em class="fas fa-globe fa-lg pr-2"></em>Web</a>
 
 
 				          </div>
