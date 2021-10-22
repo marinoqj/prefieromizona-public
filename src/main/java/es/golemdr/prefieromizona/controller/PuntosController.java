@@ -171,41 +171,53 @@ public class PuntosController {
 	
 	@PostMapping(value=UrlConstants.URL_CANJEAR_PUNTOS)
 	public String canjearPuntos(String numPuntos, String datosQR, Model model, HttpServletRequest request) throws Exception {
+				
+		String mensaje = "canje.puntos.ok";
 
 		Usuario usuarioLogado = (Usuario) request.getSession(false).getAttribute(Constantes.ATRIBUTO_SESSION_USUARIO);
 		
 		ObjectMapper mapper = new ObjectMapper();
 		QRData qrData = mapper.readValue(datosQR, QRData.class);
 		
-		if (qrData.getCantPuntos() == 0) {
-			model.addAttribute("mensaje", "canje.puntos.zero");
-		} else {
-			Cliente cliente = clientesService.findByCodCliente(qrData.getCodCliente());
-			
-			if(cliente == null) {
-				model.addAttribute("mensaje", "canje.puntos.cliente.no.valido");
-			}		
-			
-			Comercio comercio = comerciosService.findByCodComercio(qrData.getCodComercio());
-			String codComercioQR = comercio.getCodComercio();
-			String codComercioLogado = usuarioLogado.getComercio().getCodComercio();
-			
-			// Si los códigos de comercio no coinciden se lanza una excepción
-			if (codComercioQR != null && codComercioLogado != null && ( ! codComercioQR.equals(codComercioLogado))) {
-				model.addAttribute("mensaje", "canje.puntos.comercio.no.autorizado");
+		try {
+			if (qrData.getCantPuntos() == 0) {
+				throw new Exception("canje.puntos.zero");
+			} else {
+				Cliente cliente = clientesService.findByCodCliente(qrData.getCodCliente());
+				
+				if(cliente == null) {
+					throw new Exception("canje.puntos.cliente.no.valido");
+				}		
+				
+				Comercio comercio = comerciosService.findByCodComercio(qrData.getCodComercio());
+				String codComercioQR = comercio.getCodComercio();
+				String codComercioLogado = usuarioLogado.getComercio().getCodComercio();
+				
+				// Si los códigos de comercio no coinciden se lanza una excepción
+				if (codComercioQR != null && codComercioLogado != null && ( ! codComercioQR.equals(codComercioLogado))) {
+					throw new Exception("canje.puntos.comercio.no.autorizado");
+				}
+				
+				Canje canje = new Canje();
+				canje.setCliente(cliente);
+				canje.setComercio(comercio);
+				canje.setFechaCanje(new Date(System.currentTimeMillis()));
+				canje.setPuntos(Long.valueOf(numPuntos));
+				
+				canjesService.insertarCanje(canje);
 			}
+		} catch (Exception e) {
+			mensaje = e.getMessage();
 			
-			Canje canje = new Canje();
-			canje.setCliente(cliente);
-			canje.setComercio(comercio);
-			canje.setFechaCanje(new Date(System.currentTimeMillis()));
-			canje.setPuntos(Long.valueOf(numPuntos));
-			
-			canjesService.insertarCanje(canje);
-			
-			model.addAttribute("mensaje", "canje.puntos.ok");
+			// Si desde el service se lanza una excepción
+			if (mensaje.indexOf("El cliente no tiene tantos puntos para canjear") != -1) {
+				mensaje = "canje.puntos.negative";
+			} else if (mensaje.indexOf("No se puende canjear puntos porque el cliente no tiene ninguno") != -1) {
+				mensaje = "canje.puntos.zero";
+			}
 		}
 
+		model.addAttribute("mensaje", mensaje);
 		
 		return ForwardConstants.FWD_MENSAJE;
 	}	

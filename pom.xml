@@ -6,7 +6,7 @@
 	<artifactId>prefieromizona-public</artifactId>
 	<name>prefieromizona-public</name>
 	<packaging>war</packaging>
-	<version>1.0.9</version>
+	<version>1.0.10</version>
 	<description>Proyecto monolitico</description>
 	
 

@@ -112,6 +112,11 @@
 }
 
 
+#teclado img {
+	width: 150px;
+}
+
+
 @media (max-width: 992px) {
 	.qr-image {
 		width: 100%;
@@ -131,7 +136,7 @@
 	}
 	
 	.p-sup-80 {
-		padding-top: 20px !important;
+		padding-top: 0px !important;
 	}
 	
 	.p-sup-100 {
@@ -141,5 +146,9 @@
 	
 	.ocultar-mostrar {
 		display: none;
+	}
+	
+	#teclado img {
+		width: 100%;
 	}
 }

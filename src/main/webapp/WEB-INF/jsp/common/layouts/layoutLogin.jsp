@@ -47,10 +47,11 @@
 
 
 
-	<footer class="page-footer font-small special-color fixed-bottom">
+	<footer id="pie-pagina" class="page-footer font-small special-color">
 		<tiles:insertAttribute name="footer" />
 	</footer>
 
-
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src='<spring:url value="/static/js/pie.js"/>' ></script>
 </body>
 </html>
