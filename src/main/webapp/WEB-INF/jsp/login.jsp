@@ -4,6 +4,8 @@
 
 <br>
 <br>
+<br>
+<br>
 
 <style>
 
@@ -20,7 +22,7 @@
 	}
 </style>
 
-<div class="row p-sup-80">
+<div class="row p-sup-60">
 	<div class="col-md-3 col-lg-4">&nbsp;</div>
 	<div class="col-md-6 col-lg-4">
 		
@@ -120,7 +122,3 @@
 </c:if>
 
 
-<br>
-<br>
-<br>
-<br>

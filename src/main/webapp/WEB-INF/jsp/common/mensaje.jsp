@@ -12,7 +12,7 @@
 
 <c:set var="tipoAlert" value="alert-success"/>
 <c:set var="icono" value="fas fa-info-circle"/>
-
+F
 <c:if test="${not fn:contains(mensaje, '.ok')}">
 	<c:set var="tipoAlert" value="alert-danger"/>
 	<c:set var="icono" value="fas fa-exclamation-triangle"/>
@@ -21,14 +21,12 @@
 
 		
 <c:if test="${not empty mensaje}">
-	<div class="row alert ${tipoAlert}">
-		<div class="col-4">&nbsp;</div>
-		<div class="col-4">
+	<div class="row alert ${tipoAlert} ">
+		<div class="col text-center pt-3">
 				<span><em class="${icono} fa-2x align-bottom"></em></span>&nbsp;&nbsp;&nbsp;
 				<span class="agradecimiento"><spring:message code="${mensaje}" /></span>
 				<br><br>
 		</div>
-		<div class="col-4">&nbsp;</div>
 	</div>
 	<br><br><br>	
 </c:if>

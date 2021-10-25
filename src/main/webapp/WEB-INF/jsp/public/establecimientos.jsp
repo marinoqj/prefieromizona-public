@@ -201,7 +201,7 @@
 				
 				          <!--Card image-->
 				          <div class="view overlay pt-2">
-				            <img src='<spring:url value="/static/imagenes/libreriaweb.png" />' class="img-fluid mx-auto d-block" alt="LibreríaWeb">
+				            <img src='<spring:url value="/static/imagenes/libreriaweb.jpg" />' class="img-fluid mx-auto d-block" alt="LibreríaWeb">
 				            <a>
 				              <div class="mask rgba-white-slight waves-effect waves-light"></div>
 				            </a>
@@ -347,7 +347,7 @@
 				
 				          <!--Card image-->
 				          <div class="view overlay pt-2">
-				            <img src='<spring:url value="/static/imagenes/cerveweb.png" />' class="img-fluid mx-auto d-block" alt="Cerveweb">
+				            <img src='<spring:url value="/static/imagenes/cerveweb.jpg" />' class="img-fluid mx-auto d-block" alt="Cerveweb">
 				            <a>
 				              <div class="mask rgba-white-slight waves-effect waves-light"></div>
 				            </a>
@@ -448,7 +448,7 @@
 				
 				          <!--Card image-->
 				          <div class="view overlay pt-2">
-				            <img src='<spring:url value="/static/imagenes/centromedico.png" />' class="img-fluid mx-auto d-block" alt="Centro Médico">
+				            <img src='<spring:url value="/static/imagenes/centromedico.jpg" />' class="img-fluid mx-auto d-block" alt="Centro Médico">
 				            <a>
 				              <div class="mask rgba-white-slight waves-effect waves-light"></div>
 				            </a>
