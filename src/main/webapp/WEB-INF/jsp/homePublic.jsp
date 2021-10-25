@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-lg-12 col-xl-6">
         <div class="view">
-          <img src='<spring:url value="/static/imagenes/comercio-local_03.png" />' class="img-fluid mx-auto d-block" alt="Comercio Local">
+          <img src='<spring:url value="/static/imagenes/comercio-local_03.jpg" />' class="img-fluid mx-auto d-block" alt="Comercio Local">
         </div>
       </div>    
       <div class="col-lg-12 col-xl-6 p-3">
