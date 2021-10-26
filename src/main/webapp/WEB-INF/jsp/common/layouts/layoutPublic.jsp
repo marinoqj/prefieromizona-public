@@ -24,15 +24,6 @@
 <%-- 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/font-awesome.min.css"/>' media="all" /> --%>
 
 
-	<!-- SCRIPTS -->
-	<script type="text/javascript" src='<spring:url value="/static/js/jquery-3.3.1.min.js"/>' ></script>
-<%-- 	<script type="text/javascript" src='<spring:url value="/static/js/popper.min.js"/>' ></script> --%>
-	<script type="text/javascript" src='<spring:url value="/static/js/bootstrap.min.js"/>' ></script>
-<%-- 	<script type="text/javascript" src='<spring:url value="/static/js/mdb.min.js"/>' ></script> --%>
-<%-- 	<script type="text/javascript" src='<spring:url value="/static/js/Chart.min.js"/>' ></script> --%>
-	
-
-
 </head>
 <body>
 
@@ -53,6 +44,12 @@
 	</footer>
 
 	<!-- SCRIPTS -->
-	<script type="text/javascript" src='<spring:url value="/static/js/pie.js"/>' ></script>
+	<script type="text/javascript" src='<spring:url value="/static/js/jquery-3.3.1.min.js"/>' defer></script>
+<%-- 	<script type="text/javascript" src='<spring:url value="/static/js/popper.min.js"/>' defer></script> --%>
+	<script type="text/javascript" src='<spring:url value="/static/js/bootstrap.min.js"/>' defer></script>
+<%-- 	<script type="text/javascript" src='<spring:url value="/static/js/mdb.min.js"/>' defer></script> --%>
+<%-- 	<script type="text/javascript" src='<spring:url value="/static/js/Chart.min.js"/>' defer></script> --%>
+	<script type="text/javascript" src='<spring:url value="/static/js/pie.js"/>' defer></script>
+	<noscript>Su navegador no soporta Javascript o este lenguaje está desactivado</noscript>
 </body>
 </html>

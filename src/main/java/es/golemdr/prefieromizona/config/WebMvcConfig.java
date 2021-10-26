@@ -72,7 +72,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/static/**")
 				.addResourceLocations("/static/")
-				.setCacheControl(CacheControl.maxAge(86400, TimeUnit.SECONDS));
+				.setCacheControl(CacheControl.maxAge(2, TimeUnit.DAYS));
 	}
 
 	@Override

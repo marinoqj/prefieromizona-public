@@ -3,6 +3,14 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp" %>
 
 <script>
+
+$(document).ready(function(){
+	$('#ventanaBuscar').on('hidden.bs.modal', function () {
+		$('form[id="formularioBuscar"]').trigger('reset');
+	});
+});
+
+
 function borrarCliente(idCliente){
 
 	 	document.formulario.idCliente.value = idCliente;
@@ -32,13 +40,6 @@ function mostrarConfirm(message) {
     $('#alertModal').find('.modal-body p').html(message);
     $('#alertModal').modal('show');
 }
-
-$(document).ready(function(){
-    $('#ventanaBuscar').on('hidden.bs.modal', function () {
-        $('form[id="formularioBuscar"]').trigger('reset');
-    });
-});
-
 
 </script>
 
@@ -153,7 +154,7 @@ $(document).ready(function(){
 				<td>
 					<div>
 							<label data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <span style="cursor: pointer;"><em class="fas fa-cog fa-lg"></em></span>
+								aria-expanded="false"> <span style="cursor: pointer"><em class="fas fa-cog fa-lg"></em></span>
 							</label>
 							<ul class="dropdown-menu dropdown-primary">
 								<li class="nav-item dropdown"><a class="dropdown-item"
@@ -189,12 +190,12 @@ $(document).ready(function(){
 
 
 <!-- Modal Nuev@ cliente-->
-<div class="modal fade" id="nuevoFormulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="nuevoFormulario" tabindex="-1" role="dialog" aria-labelledby="modalLabelNuevo"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-users fa-lg mr-2"></em>Nuevo cliente</span>
+        <span class="modal-title" id="modalLabelNuevo"><em class="fas fa-plus-circle fa-lg pr-1"></em><em class="fas fa-users fa-lg mr-2"></em>Nuevo cliente</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -256,12 +257,12 @@ $(document).ready(function(){
 
 
 <!-- Modal Busqueda -->
-<div class="modal fade" id="ventanaBuscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="ventanaBuscar" tabindex="-1" role="dialog" aria-labelledby="modalLabelBusqueda"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0" style="background-color: #e9ecef; color: #6c757d">
-        <span class="modal-title" id="exampleModalLabel"><em class="fas fas fa-search fa-lg pr-1"></em><em class="fas fa-users fa-lg mr-2"></em>Buscar cliente</span>
+        <span class="modal-title" id="modalLabelBusqueda"><em class="fas fas fa-search fa-lg pr-1"></em><em class="fas fa-users fa-lg mr-2"></em>Buscar cliente</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
