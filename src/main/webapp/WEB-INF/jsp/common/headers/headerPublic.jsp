@@ -4,30 +4,30 @@
  
 			<!-- Menú -->
 			
-			<nav class="navbar navbar-expand-lg navbar-light navbar-dark special-color fixed-top scrolling-navbar">
+			<nav id="barra-navegacion" class="navbar navbar-expand-lg navbar-light navbar-dark special-color fixed-top scrolling-navbar">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#"> <img src='<spring:url value="/static/imagenes/logo.png"/>' height="40" class="d-inline-block">
 				<span class="align-middle lead">Prefiero</span><span class="align-middle lead" style="font-weight: 400;color: #a8ce3b !important;">Mi</span><span class="align-middle lead">Zona</span>
 				</a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
 			
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				    <ul class="navbar-nav mr-auto">			    
-				      <li class="nav-item active">
-				        <a class="nav-link" href='/prefieromizona-public'>Inicio</a>
+				<div class="collapse navbar-collapse" id="navbar">
+				    <ul class="nav navbar-nav mr-auto">
+				      <li class="nav-item" id="inicio">
+				        <a class="nav-link" href="/prefieromizona-public">Inicio</a>
 				      </li>
-				      <li class="nav-item">
+				      <li class="nav-item" id="verComoFunciona">
 				        <a class="nav-link" href='<spring:url value="/pub/verComoFunciona.do"/>'>¿C&oacute;mo funciona?</a>
 				      </li>
-				      <li class="nav-item">
+				      <li class="nav-item" id="verEstablecimientos">
 				        <a class="nav-link" href='<spring:url value="/pub/verEstablecimientos.do"/>'>Establecimientos</a>
 				      </li>
-				      <li class="nav-item">
+				      <li class="nav-item" id="verOfertas">
 				        <a class="nav-link" href='<spring:url value="/pub/verOfertas.do"/>'>Ofertas</a>
 				      </li>
-				      <li class="nav-item">
+				      <li class="nav-item" id="verNoticias">
 				        <a class="nav-link" href='<spring:url value="/pub/verNoticias.do"/>'>Noticias</a>
 				      </li>
 				    </ul>
@@ -42,6 +42,3 @@
 			</nav>			
 						
 			<!-- FIN Menú -->
-
-
-

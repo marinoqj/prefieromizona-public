@@ -3,10 +3,10 @@
 <script>
 
 $(document).ready(function(){
-    $(".selector").click(function(){       	
-    var idCapa = $(this).data('id');          
+    $(".selector").click(function(){
+    var idCapa = $(this).data('id');
         $("#" + idCapa).toggle();
-        
+
         return false;
     });
 });

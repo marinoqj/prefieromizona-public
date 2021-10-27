@@ -2,6 +2,7 @@
 		showOrHideFooter();
 	});
 	
+	
 	$(window).resize(function () {
 		showOrHideFooter();
 	});

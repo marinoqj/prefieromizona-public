@@ -57,6 +57,7 @@
 
 </div>
 
+<script type="text/javascript" src='<spring:url value="/static/js/Chart.min.js"/>'></script>
 <script>
 	
 //***************************************** Puntos Emitidos-canjeados (4 meses) **********************************************

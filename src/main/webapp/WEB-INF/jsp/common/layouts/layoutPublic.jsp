@@ -23,7 +23,9 @@
 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/all.min.css"/>' media="all" />
 <%-- 	<link rel="stylesheet" type="text/css" href='<spring:url value="/static/css/font-awesome.min.css"/>' media="all" /> --%>
 
-
+	<%-- jquery lo pongo arriba porque si lo pongo abajo con defer da un error en todos los $(document).ready --%>
+	<script type="text/javascript" src='<spring:url value="/static/js/jquery-3.3.1.min.js"/>' ></script>
+	
 </head>
 <body>
 
@@ -44,12 +46,41 @@
 	</footer>
 
 	<!-- SCRIPTS -->
-	<script type="text/javascript" src='<spring:url value="/static/js/jquery-3.3.1.min.js"/>' defer></script>
 <%-- 	<script type="text/javascript" src='<spring:url value="/static/js/popper.min.js"/>' defer></script> --%>
 	<script type="text/javascript" src='<spring:url value="/static/js/bootstrap.min.js"/>' defer></script>
 <%-- 	<script type="text/javascript" src='<spring:url value="/static/js/mdb.min.js"/>' defer></script> --%>
-<%-- 	<script type="text/javascript" src='<spring:url value="/static/js/Chart.min.js"/>' defer></script> --%>
 	<script type="text/javascript" src='<spring:url value="/static/js/pie.js"/>' defer></script>
+	
+	<script type="text/javascript">
+	function ready(callback){
+	    // in case the document is already rendered
+	    if (document.readyState!='loading') callback();
+	    // modern browsers
+	    else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+	    // IE <= 8
+	    else document.attachEvent('onreadystatechange', function(){
+	        if (document.readyState=='complete') callback();
+	    });
+	}
+
+	ready(function(){
+		let winLocation = window.location.pathname;
+	    console.log(winLocation);
+	    let indexDotDo = winLocation.lastIndexOf(".do");
+	    let indexlastBar = winLocation.lastIndexOf("/") + 1;
+		let idTarget = null;
+
+	    if (indexDotDo != -1) {
+			idTarget = winLocation.substring(indexlastBar, indexDotDo);
+		} else {
+			idTarget = "inicio";
+		}
+
+	    document.getElementById(idTarget).classList.toggle("active");
+
+	    // console.log(idTarget);
+	});
+	</script>
 	<noscript>Su navegador no soporta Javascript o este lenguaje está desactivado</noscript>
 </body>
 </html>

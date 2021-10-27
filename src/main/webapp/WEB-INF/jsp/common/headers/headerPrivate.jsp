@@ -16,22 +16,22 @@
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			    <ul class="navbar-nav mr-auto">
 			    <sec:authorize access="hasRole('ADMIN')">
-			      <li class="nav-item active">
+			      <li class="nav-item" id="inicio">
 			        <a class="nav-link" href='<spring:url value="/inicio.do"/>'>Inicio <span class="sr-only">(current)</span></a>
 			      </li>
-			      <li class="nav-item">
+			      <li class="nav-item" id="listadoComercios">
 			        <a class="nav-link" href='<spring:url value="/listadoComercios1.do"/>'>Comercios</a>
 			      </li>
-			      <li class="nav-item">
+			      <li class="nav-item" id="listadoClientes">
 			        <a class="nav-link" href='<spring:url value="/listadoClientes1.do"/>'>Clientes</a>
 			      </li>
-			      <li class="nav-item">
+			      <li class="nav-item" id="listadoCompras">
 			        <a class="nav-link" href='<spring:url value="/listadoCompras1.do"/>'>Compras</a>
 			      </li>
-			      <li class="nav-item">
+			      <li class="nav-item" id="listadoCanjes">
 			        <a class="nav-link" href='<spring:url value="/listadoCanjes1.do"/>'>Canjes</a>
 			      </li>	
-			      <li class="nav-item dropdown">
+			      <li class="nav-item dropdown" id="puntos">
 			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          Puntos
 			        </a>
@@ -44,7 +44,7 @@
 			      </li>
 			     </sec:authorize>
 			    <sec:authorize access="hasRole('COMERCIO')">			        
-			        <li class="nav-item dropdown">
+			        <li class="nav-item dropdown" id="inicio">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          Puntos
 				        </a>
@@ -62,7 +62,7 @@
 					  			  </spring:url>'>Puntos Canjeados</a>					
 				        </div>
 			        </li>
-			        <li class="nav-item dropdown">
+			        <li class="nav-item dropdown" id="verPromocionForm">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          Promociones
 				        </a>
@@ -72,14 +72,14 @@
 				        	<a class="dropdown-item" href='<spring:url value="#"/>'>Mis promociones</a>
 				        </div>
 			        </li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item" id="verMisEstadisticas"><a class="nav-link"
 						href='<spring:url value="/comercio/verMisEstadisticas{idEntidad}.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Estadísticas</a>
 					</li>						
 			     </sec:authorize>
 			     <sec:authorize access="hasRole('CLIENTE')">			     		     
-			        <li class="nav-item dropdown">
+			        <li class="nav-item dropdown" id="inicio">
 				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				         Mis Puntos
 				        </a>
@@ -92,12 +92,12 @@
 					  			  </spring:url>'>Puntos acumulados</a>				
 				        </div>
 			        </li>			     			     
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item" id="listadoCompras"><a class="nav-link"
 						href='<spring:url value="/cliente/{idEntidad}/listadoCompras1.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Mis Compras</a>
 					</li>
-					<li class="nav-item"><a class="nav-link"
+					<li class="nav-item" id="listadoCanjes"><a class="nav-link"
 						href='<spring:url value="/cliente/{idEntidad}/listadoCanjes1.do">
 				  				<spring:param name="idEntidad" value="${usuarioSesion.idEntidad}" />
 				  			  </spring:url>'>Mis Canjes</a>
