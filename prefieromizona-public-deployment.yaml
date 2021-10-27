@@ -15,7 +15,7 @@ spec:
         tier: frontend
     spec:
       initContainers:
-      - image: marinoqj/prefieromizona-public:1.0.13
+      - image: marinoqj/prefieromizona-public:1.0.14
         imagePullPolicy: Always
         name: war
         command:
