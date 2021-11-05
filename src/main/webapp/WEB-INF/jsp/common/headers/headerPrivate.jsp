@@ -69,7 +69,7 @@
 				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown2">
 				        	<a class="dropdown-item" href='<spring:url value="/verPromocionForm.do"/>'>Nueva promoción</a>
 				        	<div class="dropdown-divider"></div>
-				        	<a class="dropdown-item" href='<spring:url value="#"/>'>Mis promociones</a>
+				        	<a class="dropdown-item" href='<spring:url value="/listadoPromociones.do"/>'>Mis promociones</a>
 				        </div>
 			        </li>
 					<li class="nav-item" id="verMisEstadisticas"><a class="nav-link"

@@ -15,7 +15,14 @@
     <div class="col-lg-6">
         <div class="card mb-4">
             <div class="card-body">
-                <h5 class="card-title">Puntos emitidos</h5>
+                <h5 class="card-title">Puntos emitidos
+                	<em class="fas fa-question-circle fa-sm text-primary pl-2" 
+                		style="cursor: pointer"
+                		data-toggle="popover" 
+                		title="Mayor actividad" 
+                		data-content="La cantidad de puntos emitidos en diferentes tramos horarios nos indica los preiodos de máxima actividad.">
+                	</em>                
+                </h5>
                 <em>Día y franja horaria</em><br><br>
                 <div class="grah-container">
                 	<canvas id="grafica-contratos" width="800" height="300"></canvas>
@@ -26,14 +33,22 @@
                 		<em class="fas fa-circle turquesa mx-2"></em>15 a 18h
                 		<em class="fas fa-circle azul-oscuro mx-2"></em>18 a 20h
                 </p>
-            </div>           
+            </div> 
+            <div class="card-footer small text-muted"><em class="fas fa-history mr-2"></em>Actualizado el 05/11/2021</div>          
         </div>
     </div>
     
     <div class="col-lg-6">
         <div class="card mb-4">
             <div class="card-body">
-                <h5 class="card-title">Puntos emitidos y canjeados</h5>
+                <h5 class="card-title">Puntos emitidos y canjeados
+                	<em class="fas fa-question-circle fa-sm text-primary pl-2" 
+                		style="cursor: pointer"
+                		data-toggle="popover" 
+                		title="Tasa de Canje" 
+                		data-content="La relación entre puntos emitidos y canjeados indica si el programa de fidelización funciona o no.">
+                	</em>
+                </h5>
                 <em>&Uacute;ltimos 4 meses</em><br><br>
                 <div class="graph-container">
                 	<canvas id="graph-bar-usuarios"  width="800" height="480"></canvas>
@@ -42,14 +57,12 @@
               		<em class="fas fa-square verde-lima mr-2"></em>Puntos Emitidos
               		<em class="fas fa-square azul-oscuro mx-2"></em>Puntos Canjeados
                 </p>
-                
-                
-            </div>            
+            </div>
+            <div class="card-footer small text-muted"><em class="fas fa-history mr-2"></em>Actualizado ayer a las 11:59 PM</div>            
         </div>
     </div>
 
 </div>
-
 
   </section>
   <!--Section: Block Content-->
@@ -69,25 +82,25 @@
               label: "Emitidos",
               type: "line",
               borderColor: "#45c490",
-              data: [280,320,350,400],
+              data: [280,320,400,500],
               fill: false
             }, {
               label: "Consumidos",
               type: "line",
               borderColor: "#008d93",
-              data: [250,300,400,800],
+              data: [230,260,300,400],
               fill: false
             }, {
               label: "Emitidos",
               type: "bar",
               backgroundColor: "rgb(202, 242, 112)",
-              data: [280,320,350,400],
+              data: [280,320,400,500],
             }, {
               label: "Consumidos",
               type: "bar",
               backgroundColor: "rgb(46, 84, 104)",
               backgroundColorHover: "#3e95cd",
-              data: [250,300,400,800],
+              data: [230,260,300,400],
             }
           ]
         },
@@ -157,7 +170,10 @@
             },
         }
     });	
+    
+ 	// popovers Initialization
+    $(function () {
+    	$('[data-toggle="popover"]').popover({ trigger: "hover" });
+    })
 
 </script>
-
-<br><br>

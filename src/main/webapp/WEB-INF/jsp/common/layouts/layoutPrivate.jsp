@@ -46,7 +46,7 @@
 	</footer>
 
 	<!-- SCRIPTS -->
-<%-- 	<script type="text/javascript" src='<spring:url value="/static/js/popper.min.js"/>' defer></script> --%>
+	<script type="text/javascript" src='<spring:url value="/static/js/popper.min.js"/>' defer></script>
 	<script type="text/javascript" src='<spring:url value="/static/js/bootstrap.min.js"/>' defer></script>
 <%-- 	<script type="text/javascript" src='<spring:url value="/static/js/mdb.min.js"/>' defer></script> --%>
 	<script type="text/javascript" src='<spring:url value="/static/js/pie.js"/>' defer></script>
@@ -78,7 +78,7 @@
 		</sec:authorize>
 		
 		let winLocation = window.location.pathname;
-	    console.log(winLocation);
+	    // console.log(winLocation);
 	    let indexDotDo = winLocation.lastIndexOf(".do");
 	    let indexlastBar = winLocation.lastIndexOf("/") + 1;
 		let idTarget = null;
@@ -89,29 +89,54 @@
 			
 			// buscamos coincidencia entre barra de direcciones y los ids del header
 			for(var i = 0; i < menuNav.length; i++) {
-			    if (idTarget.indexOf(menuNav[i]) != -1) {
+			    if (idTarget.indexOf(menuNav[i]) != -1) {			    	
 					document.getElementById(menuNav[i]).classList.toggle("active");
 					encontrado = true;
 					break;
 			    }
 			}
-			
-		<sec:authorize access="hasRole('ADMIN')">
+
+
 			if (!encontrado) {
-				document.getElementById('puntos').classList.toggle("active");
+				idTarget = getAlternative(idTarget);
+				document.getElementById(idTarget).classList.toggle("active");
 			}
-		</sec:authorize>
-		
-		<sec:authorize access="hasAnyRole('COMERCIO', 'CLIENTE')">
-			if (!encontrado) {
-				document.getElementById('inicio').classList.toggle("active");
-			}
-		</sec:authorize>
 			
 
 		} 
 
 	});
+	
+	function getAlternative(id) {
+		let alternativeNav = [
+			'listadoPromociones>verPromocionForm',
+			'verCanjearPuntosForm>inicio',
+			'verEmitirPuntosForm>inicio'
+			];
+		
+		let result = null;
+		let hayAlternativa = false;
+		
+		for(var i = 0; i < alternativeNav.length; i++) {
+		    if (alternativeNav[i].indexOf(id) != -1) {			    	
+		    	result = alternativeNav[i].substring(alternativeNav[i].indexOf(">") + 1);
+		    	hayAlternativa = true;
+		    	break;
+		    }
+		}
+		
+		if (!hayAlternativa) {
+			<sec:authorize access="hasRole('ADMIN')">
+				result = 'puntos';
+			</sec:authorize>			
+			<sec:authorize access="hasAnyRole('COMERCIO', 'CLIENTE')">			
+				result = 'inicio';
+			</sec:authorize>
+		}
+		
+		return result;
+		
+	}
 	</script>	
 
 	<noscript>Su navegador no soporta Javascript o este lenguaje está desactivado</noscript>

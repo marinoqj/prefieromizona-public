@@ -159,6 +159,12 @@ public class ComerciosController {
 
 		return ForwardConstants.FWD_PROMOCION_FORM;
 	}
+	
+	@GetMapping(value=UrlConstants.URL_VER_LISTADO_PROMOCIONES)
+	public String listPromociones() {
+
+		return ForwardConstants.FWD_LISTADO_PROMOCIONES;
+	}
 
 	@GetMapping(value=UrlConstants.URL_VER_ESTADISTICAS_COMERCIO)
 	public String verMisEstadisticas(@PathVariable("idEntidad") Long idEntidad, Map<String, Object> map, HttpServletRequest request) {

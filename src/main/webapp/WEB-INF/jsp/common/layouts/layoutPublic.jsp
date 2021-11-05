@@ -65,7 +65,7 @@
 
 	ready(function(){
 		let winLocation = window.location.pathname;
-	    console.log(winLocation);
+	    // console.log(winLocation);
 	    let indexDotDo = winLocation.lastIndexOf(".do");
 	    let indexlastBar = winLocation.lastIndexOf("/") + 1;
 		let idTarget = null;

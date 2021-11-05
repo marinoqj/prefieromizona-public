@@ -108,10 +108,16 @@
     </definition>
     
     <definition name="PromocionForm" extends="layoutPrivate">
-        <put-attribute name="title" value="Alta de comercios"/>
+        <put-attribute name="title" value="Alta de promociones"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/comercios/promocionForm.jsp"/>
     </definition>
     
+    <definition name="ListadoPromociones" extends="layoutPrivate">
+        <put-attribute name="title" value="Listado de promociones"/>
+        <put-attribute name="body"  value="/WEB-INF/jsp/comercios/listadoPromociones.jsp"/>
+    </definition>
+    
+
     <definition name="EstadisticasComercio" extends="layoutPrivate">
         <put-attribute name="title" value="Alta de comercios"/>
         <put-attribute name="body"  value="/WEB-INF/jsp/comercios/estadisticas.jsp"/>
