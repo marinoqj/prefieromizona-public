@@ -61,7 +61,7 @@
 
 
 		
-		<button type="submit" class="btn btn-success btn-sm" ><em class="fas fa-save"></em> &nbsp;&nbsp;Confirmar</button>
+		<button type="submit" class="btn btn-success btn-rounded btn-sm" ><em class="fas fa-save"></em> &nbsp;&nbsp;Confirmar</button>
 
 
 

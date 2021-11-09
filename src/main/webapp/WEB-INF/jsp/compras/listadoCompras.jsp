@@ -60,8 +60,8 @@ $(document).ready(function(){
            <p class="text-danger"></p>
        </div>
       <div class="modal-footer">
-         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-         <a class="btn btn-danger btn-sm" role="button" href="#" id="aceptarBorrar"><em class="fas fa-check-circle"></em>&nbsp;&nbsp;<spring:message code="button.aceptar" /></a>
+         <button type="button" class="btn btn-secondary btn-rounded btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
+         <a class="btn btn-danger btn-rounded btn-sm" role="button" href="#" id="aceptarBorrar"><em class="fas fa-check-circle"></em>&nbsp;&nbsp;<spring:message code="button.aceptar" /></a>
       </div>
     </div>
   </div>
@@ -177,7 +177,7 @@ $(document).ready(function(){
 
 		<div class="row">
 			<div class="col-md-12">				
-				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ventanaBuscar"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
+				<button type="button" class="btn btn-success btn-rounded btn-sm" data-toggle="modal" data-target="#ventanaBuscar"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
 			</div>
 		</div>
 
@@ -231,8 +231,8 @@ $(document).ready(function(){
 			<br>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
-        <button type="submit" class="btn btn-success btn-sm"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
+        <button type="button" class="btn btn-secondary btn-rounded btn-sm" data-dismiss="modal"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</button>
+        <button type="submit" class="btn btn-success btn-rounded btn-sm"><em class="fas fa-search"></em> &nbsp;&nbsp;Buscar</button>
       </div>
 
       </form:form>

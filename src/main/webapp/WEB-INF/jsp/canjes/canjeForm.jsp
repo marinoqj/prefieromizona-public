@@ -68,8 +68,8 @@
 					
 
 
-							<a href="./listadoCanjes1.do" class="btn btn-secondary btn-sm"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</a>
-							<button type="submit" class="btn btn-success btn-sm" ><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
+							<a href="./listadoCanjes1.do" class="btn btn-secondary btn-rounded btn-sm"><em class="fas fa-times-circle"></em>&nbsp;&nbsp;Cancelar</a>
+							<button type="submit" class="btn btn-success btn-rounded btn-sm" ><em class="fas fa-save"></em> &nbsp;&nbsp;Guardar</button>
 
 </div><!-- ./container -->
 	</form:form>

@@ -17,7 +17,7 @@
 		  </sec:authorize>
           <sec:authorize access="hasRole('CLIENTE')">
 	          <h3 class="font-weight-bold">Zona privada-cliente</h3>
-	          <p>Desde aquí podrás gestionar tus puntos y acceder a todas las ventajas que de ofrece nuestro sitio.</p>
+	          <p>Desde aquí podrás gestionar tus puntos y acceder a todas las ventajas que te ofrece nuestro sitio.</p>
 		  </sec:authorize>
         	
 
