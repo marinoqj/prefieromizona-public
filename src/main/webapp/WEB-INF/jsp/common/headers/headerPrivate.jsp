@@ -1,6 +1,10 @@
 <%@ include file="/WEB-INF/jsp/common/include_taglib.jsp" %>
 
- 
+ 			<style>
+	 			.dropdown-menu-right-fixed { 
+	 				position: fixed !important;
+				}
+ 			</style>
  
 			<!-- Menú -->
 			
@@ -63,10 +67,10 @@
 				        </div>
 			        </li>
 			        <li class="nav-item dropdown" id="verPromocionForm">
-				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				          Promociones
 				        </a>
-				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown2">
+				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown3">
 				        	<a class="dropdown-item" href='<spring:url value="/verPromocionForm.do"/>'>Nueva promoción</a>
 				        	<div class="dropdown-divider"></div>
 				        	<a class="dropdown-item" href='<spring:url value="/listadoPromociones.do"/>'>Mis promociones</a>
@@ -80,10 +84,10 @@
 			     </sec:authorize>
 			     <sec:authorize access="hasRole('CLIENTE')">			     		     
 			        <li class="nav-item dropdown" id="inicio">
-				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				         Mis Puntos
 				        </a>
-				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown2">
+				        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdown4">
 				        	<a class="dropdown-item" href='<spring:url value="/cliente/verEscanearCodigo.do"/>'>Escanear puntos</a>
 				        	<a class="dropdown-item" href='<spring:url value="/cliente/generarCodigoPuntos1.do"/>'>Canjear puntos</a>
 				        	<div class="dropdown-divider"></div>
@@ -119,7 +123,7 @@
 			        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          ${usuarioSesion.nombreEntidad} &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-user-circle fa-lg"></i>
 			        </a>
-			        <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+			        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
 			          <a class="dropdown-item" href="#">Mi perfil</a>
 			          
 						<%-- Notificaciones Cliente--%>

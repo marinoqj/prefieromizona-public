@@ -182,4 +182,8 @@ tr.bg-light th {
 	#teclado img {
 		width: 100%;
 	}
+	
+	#img-comercio-local {
+		max-width: 70%;
+	}
 }

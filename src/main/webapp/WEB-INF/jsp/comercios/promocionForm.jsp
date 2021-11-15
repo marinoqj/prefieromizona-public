@@ -61,7 +61,7 @@
 		        </div>
 		        <div class="col-12 col-sm-6 pb-2">
 		            <div class="estado p-1" id="doing">
-		                <p class="cabecera">A&Ntilde;ADIDAS</p>
+		                <p class="cabecera">LISTAS PARA ENVIAR</p>
 		            </div>
 		        </div>
 		    </div>

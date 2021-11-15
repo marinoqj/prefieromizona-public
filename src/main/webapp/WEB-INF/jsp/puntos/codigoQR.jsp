@@ -24,7 +24,8 @@
 						
 	<div class="row">
 		<div class="col text-center">
-			<img class="img-fluid qr-image" src="data:image/png;base64,${qrBase64}"></div>
+			<img class="img-fluid qr-image" src="data:image/png;base64,${qrBase64}" width="40%">
+		</div>
 	</div>
 	<br>					
 

@@ -12,7 +12,7 @@
 
 <c:set var="tipoAlert" value="alert-success"/>
 <c:set var="icono" value="fas fa-info-circle"/>
-F
+
 <c:if test="${not fn:contains(mensaje, '.ok')}">
 	<c:set var="tipoAlert" value="alert-danger"/>
 	<c:set var="icono" value="fas fa-exclamation-triangle"/>

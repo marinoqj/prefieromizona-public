@@ -2,19 +2,19 @@
 
 <br><br>
 
-<div class="container pt-5 mt-3">
+<div class="container pt-5">
 
 
   <!--Section: Content-->
   <section class="dark-grey-text p-sup-60">
 
-    <div class="row">
-      <div class="col-lg-12 col-xl-6">
+    <div class="row row-cols-lg-2 row-cols-1 px-md-5">
+      <div class="col mb-4">
         <div class="view">
-          <img src='<spring:url value="/static/imagenes/comercio-local_03.jpg" />' class="img-fluid mx-auto d-block" alt="Comercio Local">
+          <img id="img-comercio-local" src='<spring:url value="/static/imagenes/comercio-local_03.jpg" />' class="img-fluid mx-auto d-block" alt="Comercio Local">
         </div>
       </div>    
-      <div class="col-lg-12 col-xl-6 p-3">
+      <div class="col pt-md-3">
           <h3 class="font-weight-bold">Compra en tu zona</h3>
           <h1 class="font-weight-bold" style="color: #e94647;">Apoya el Comercio Local</h1>
 
