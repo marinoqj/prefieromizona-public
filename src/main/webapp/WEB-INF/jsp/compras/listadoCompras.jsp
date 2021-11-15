@@ -92,81 +92,84 @@ $(document).ready(function(){
 		</div>
 
 
-<c:if  test="${!empty compras}">
+	<c:if test="${!empty compras}">
 
+		<div class="row">
+			<div class="col table-responsive-sm">
+				<table class="table table-hover">
+					<thead>
+						<tr>
 
-<div class="row">
-	<div class="col-md-8"></div>
+							<th scope="col"><b><spring:message code="label.fechaCompra" /></b></th>
 
-	<c:if test="${hayFiltro eq false}">
-		<mistags:paginacion accion="listadoCompras" />
+							<th scope="col"><b><spring:message code="label.puntos" /></b></th>
+
+							<c:if test='${tipo ne "comercio"}'>
+								<th scope="col"><b><spring:message code="label.comercio" /></b></th>
+							</c:if>
+
+							<c:if test='${tipo ne "cliente"}'>
+								<th scope="col"><b><spring:message code="label.cliente" /></b></th>
+							</c:if>
+
+							<th scope="col">&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${compras}" var="compra">
+							<tr>
+
+								<td><fmt:formatDate value="${compra.fechaCompra}"
+										pattern="dd-MM-yyyy" /></td>
+
+								<td>${compra.puntos}</td>
+
+								<c:if test='${tipo ne "comercio"}'>
+									<td>${compra.comercio.razonSocial}</td>
+								</c:if>
+
+								<c:if test='${tipo ne "cliente"}'>
+									<td>${compra.cliente.nombre}${compra.cliente.apellido1}
+										${compra.cliente.apellido2}</td>
+								</c:if>
+
+								<td>
+									<div>
+										<label data-toggle="dropdown" aria-haspopup="true"
+											aria-expanded="false"> <span style="cursor: pointer;"><em
+												class="fas fa-cog fa-lg"></em></span>
+										</label>
+										<ul class="dropdown-menu dropdown-primary">
+											<li class="nav-item dropdown"><a class="dropdown-item"
+												href="javascript:editarCompra('${compra.idCompra}')"><spring:message
+														code="label.editar" /></a></li>
+											<li class="nav-item dropdown"><a class="dropdown-item"
+												href="javascript:mostarConfirmBorrarCompra('${compra.idCompra}')"><spring:message
+														code="label.borrar" /></a></li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8"></div>
+
+			<c:if test="${hayFiltro eq false}">
+				<mistags:paginacion accion="listadoCompras" />
+			</c:if>
+
+			<c:if test="${hayFiltro eq true}">
+				<mistags:paginacion accion="listadoComprasFiltrado" />
+			</c:if>
+		</div>
+
 	</c:if>
 
-	<c:if test="${hayFiltro eq true}">
-		<mistags:paginacion accion="listadoComprasFiltrado" />
-	</c:if>
-</div>
-
-
-<br>
-
-	<table class="table table-hover">
-		<thead class="blue lighten-4">
-			<tr class="bg-light">
-	    		
-					<th scope="col"><spring:message code="label.fechaCompra"/></th>
-					
-					<th scope="col"><spring:message code="label.puntos"/></th>
-					
-					<c:if test='${tipo ne "comercio"}'>
-						<th scope="col"><spring:message code="label.comercio"/></th>
-					</c:if>
-					
-					<c:if test='${tipo ne "cliente"}'>
-						<th scope="col"><spring:message code="label.cliente"/></th>
-					</c:if>
-					
-					<th scope="col">&nbsp;</th>
-				</tr>
-			</thead>
-			<tbody>
-		<c:forEach items="${compras}" var="compra">
-			<tr>
-			
-				<td><fmt:formatDate value="${compra.fechaCompra}" pattern="dd-MM-yyyy" /></td>
-			
-				<td>${compra.puntos}</td>
-			
-				<c:if test='${tipo ne "comercio"}'>
-					<td>${compra.comercio.razonSocial}</td>
-				</c:if>
-			
-				<c:if test='${tipo ne "cliente"}'>
-					<td>${compra.cliente.nombre} ${compra.cliente.apellido1} ${compra.cliente.apellido2}</td>
-				</c:if>
-			
-				<td>
-					<div>
-							<label data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <span style="cursor: pointer;"><em class="fas fa-cog fa-lg"></em></span>
-							</label>
-							<ul class="dropdown-menu dropdown-primary">
-								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:editarCompra('${compra.idCompra}')"><spring:message code="label.editar"/></a></li>
-								<li class="nav-item dropdown"><a class="dropdown-item"
-									href="javascript:mostarConfirmBorrarCompra('${compra.idCompra}')"><spring:message code="label.borrar"/></a></li>
-							</ul>
-						</div>
-				</td>
-			</tr>
-		</c:forEach>
-			</tbody>
-			</table>
-
-
-		</c:if>
-
-		<c:if  test="${empty compras}">
+	<c:if  test="${empty compras}">
 
 			<br>
 			<br>
@@ -205,24 +208,16 @@ $(document).ready(function(){
 						<label for="fechaCompra"><spring:message code="label.fechaCompra"/></label> <form:input path="fechaCompra" class="form-control"/>
 					</div>
 
-					
-
-
+	
 					<div class="form-group">
-						<label for="puntos"><spring:message code="label.puntos"/></label> <form:input path="puntos" class="form-control"/>
-					</div>
-					
-
-
-					<div class="form-group">
-						<label for="idComercio"><spring:message code="label.idComercio"/></label> <form:input path="idComercio" class="form-control"/>
+						<label for="idComercio"><spring:message code="label.comercio"/></label> <form:input path="idComercio" class="form-control"/>
 					</div>
 
 					
 
 
 					<div class="form-group">
-						<label for="idCliente"><spring:message code="label.idCliente"/></label> <form:input path="idCliente" class="form-control"/>
+						<label for="idCliente"><spring:message code="label.cliente"/></label> <form:input path="idCliente" class="form-control"/>
 					</div>
 
 					

@@ -8,7 +8,7 @@
 
 
 
-  <ul class="pagination pagination-sm pg-blue justify-content-end">
+  <ul class="pagination pg-blue justify-content-end">
 	<c:if test="${(paginacion.totalPaginas) > 1}">
 			<c:if test="${paginacion.inicio == 0}">	
 			    <li class="page-item disabled"><a class="page-link">Primero</a></li>

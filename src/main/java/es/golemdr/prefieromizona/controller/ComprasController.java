@@ -123,6 +123,8 @@ public class ComprasController {
 	
 	private String listCompras(Map<String, Object> map, HttpServletRequest request) throws AccessDeniedException {	
 		
+		
+		boolean hayFiltro = false;
 		String idEntidad = map.get("idEntidad").toString();
 		String tipo = map.get("tipo").toString();
 		String inicio = map.get("inicio").toString();
@@ -144,6 +146,7 @@ public class ComprasController {
 		map.put(COMPRAS, resultado);
 		map.put(COMPRA, new CompraForm());
 		map.put("tipo", tipo);
+		map.put("hayFiltro", hayFiltro);
 
 
 		return ForwardConstants.FWD_LISTADO_COMPRAS;
