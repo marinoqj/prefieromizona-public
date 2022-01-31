@@ -86,6 +86,10 @@
 	color:#f00;
 }
 
+.color-upm {
+	color: #1867b7 !important;
+}
+
 .ocultar-mostrar {
 	display: block;
 }
