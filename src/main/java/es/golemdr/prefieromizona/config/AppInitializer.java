@@ -17,7 +17,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	// Specify @Configuration and/or @Component classes for the root application context. (Cuando usamos spring-secutiry hay que incluir SecurityConfig.class)
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { RootConfig.class , SecurityConfig.class};
+		return null;
 	}
 
 	@Override
