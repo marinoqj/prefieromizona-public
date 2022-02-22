@@ -32,7 +32,8 @@
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
-    var u="//www.golemdr.es/matomo/";
+	<%-- var u="//www.golemdr.es/matomo/"; --%>
+	var u=<spring:message code="url.matomo"/>;
     _paq.push(['setTrackerUrl', u+'matomo.php']);
     _paq.push(['setSiteId', '1']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
