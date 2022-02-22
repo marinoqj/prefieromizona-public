@@ -395,7 +395,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<url.matomo>"//localhost/matomo/"</url.matomo>
+				<url.matomo>//localhost/matomo/</url.matomo>
 				<environment.properties>application-dev.properties</environment.properties>
 				<environment.name>DEV</environment.name>
 			</properties>
@@ -403,7 +403,7 @@
 		<profile>
 			<id>prod</id>
 			<properties>
-			<url.matomo>"//www.golemdr.es/matomo/"</url.matomo>
+			<url.matomo>//www.golemdr.es/matomo/</url.matomo>
 				<environment.properties>application-prod.properties</environment.properties>
 				<environment.name>PROD</environment.name>
 			</properties>
